@@ -580,6 +580,197 @@ function(a,b,c){if(!Vd(b))throw Error(m(200));return Wd(null,a,b,!1,c)};Q.unmoun
     color: var(--accent-dim);
     letter-spacing: 0.04em;
   }
+
+  /* ──────────────────────────────────────────────────
+     MONOGRAM AVATARS
+     Intentional placeholder for real faces. Clean circular
+     discs with initials; variants for different backgrounds.
+     ────────────────────────────────────────────────── */
+  .mono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    font-family: "Geist Mono", ui-monospace, monospace;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .mono.sm { width: 32px; height: 32px; font-size: 11px; }
+  .mono.md { width: 48px; height: 48px; font-size: 13px; }
+  .mono.lg { width: 72px; height: 72px; font-size: 17px; }
+  .mono.xl { width: 112px; height: 112px; font-size: 26px; }
+  .mono.v-ink    { background: var(--ink);    color: var(--paper); }
+  .mono.v-bone   { background: var(--bone);   color: var(--ink);  border: 1px solid var(--hairline); }
+  .mono.v-accent { background: var(--accent); color: var(--paper); }
+  .mono.v-dim    { background: var(--accent-dim); color: var(--ink); }
+
+  /* ──────────────────────────────────────────────────
+     PHOTO PLACEHOLDER
+     Wireframe-honest: a labeled placeholder that tells the
+     reviewer exactly what imagery would live there.
+     ────────────────────────────────────────────────── */
+  .photo-ph {
+    position: relative;
+    background: linear-gradient(135deg, #E2DFD6 0%, #D9D5C9 100%);
+    color: var(--ink);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+  }
+  .photo-ph::before {
+    content: "";
+    position: absolute;
+    top: 12px; right: 12px;
+    width: 10px; height: 10px;
+    background: var(--accent);
+    border-radius: 1px;
+  }
+  .photo-ph::after {
+    content: "Image";
+    position: absolute;
+    top: 10px; right: 28px;
+    font-family: "Geist Mono", ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--subink);
+  }
+  .photo-ph .caption {
+    font-family: "Geist Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--subink);
+    line-height: 1.5;
+    max-width: 90%;
+  }
+  .photo-ph.ink { background: linear-gradient(135deg, #2A2522 0%, #141210 100%); color: var(--paper); }
+  .photo-ph.ink::after { color: rgba(251,249,244,0.55); }
+  .photo-ph.ink .caption { color: rgba(251,249,244,0.65); }
+
+  /* ──────────────────────────────────────────────────
+     BRAND STAMP
+     Persistent mission panel that appears on every page
+     before the main footer. The institutional signature.
+     ────────────────────────────────────────────────── */
+  .brand-stamp {
+    background: var(--ink);
+    color: var(--paper);
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+  .brand-stamp .mission {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    max-width: 38ch;
+  }
+  .brand-stamp .mission em {
+    color: var(--accent);
+    font-style: italic;
+  }
+  .brand-stamp .values-chip {
+    display: inline-block;
+    font-family: "Geist Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border: 1px solid rgba(251,249,244,0.28);
+    color: var(--paper);
+    border-radius: 999px;
+  }
+
+  /* ──────────────────────────────────────────────────
+     VOICE CARD — Thought leadership module
+     ────────────────────────────────────────────────── */
+  .voice-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 24px;
+    background: var(--bone);
+    border: 1px solid var(--hairline);
+    transition: transform .2s ease, border-color .2s ease;
+  }
+  .voice-card:hover { transform: translateY(-2px); border-color: var(--ink); }
+  .voice-card .headline {
+    font-family: Geist, sans-serif;
+    font-weight: 500;
+    font-size: 1.0625rem;
+    line-height: 1.3;
+    letter-spacing: -0.012em;
+  }
+  .voice-card blockquote {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-size: 1.0625rem;
+    line-height: 1.35;
+    color: var(--subink);
+    font-style: italic;
+  }
+
+  /* ──────────────────────────────────────────────────
+     CASE STUDY CARD
+     Benefit-based storytelling: org → challenge → resource → outcome.
+     ────────────────────────────────────────────────── */
+  .case-card {
+    background: var(--paper);
+    border: 1px solid var(--hairline);
+    padding: 28px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .case-card .kpi {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-size: 2.75rem;
+    line-height: 1;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+  .case-card .kpi-label {
+    font-family: "Geist Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+
+  /* ──────────────────────────────────────────────────
+     Chart text styling — keeps SVG text consistent
+     ────────────────────────────────────────────────── */
+  .chart-label {
+    font-family: "Geist Mono", ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    fill: var(--mute);
+  }
+  .chart-value {
+    font-family: Geist, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    fill: var(--ink);
+  }
+  .chart-axis { stroke: var(--hairline); stroke-width: 1; }
+  .chart-grid { stroke: var(--hairline); stroke-width: 1; stroke-dasharray: 2 4; }
+  .chart-line { stroke: var(--ink); stroke-width: 2; fill: none; }
+  .chart-line-accent { stroke: var(--accent); stroke-width: 2; fill: none; }
+  .chart-area { fill: var(--accent-dim); opacity: 0.4; }
+  .chart-bar  { fill: var(--ink); }
+  .chart-bar-accent { fill: var(--accent); }
+
+  /* Mission fragment in top meta strip */
+  .mission-frag {
+    font-family: "Geist Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    color: var(--mute);
+    font-style: italic;
+  }
 </style>
 </head>
 <body>
@@ -588,9 +779,9 @@ function(a,b,c){if(!Vd(b))throw Error(m(200));return Wd(null,a,b,!1,c)};Q.unmoun
 <div class="wip-banner px-5 py-2 flex items-center justify-between">
   <div class="flex items-center gap-3">
     <span class="inline-block w-2 h-2 rounded-full" style="background: var(--accent)"></span>
-    <span>UNBRANDED WIREFRAME · V0.2 · ANTENNA × SEPA · NOT FOR DISTRIBUTION</span>
+    <span>UNBRANDED WIREFRAME · V0.3 · ANTENNA × SEPA · NOT FOR DISTRIBUTION</span>
   </div>
-  <div class="hidden md:block opacity-70">Components labeled · Consolidations noted · Click any nav item to explore</div>
+  <div class="hidden md:block opacity-70">Mission persistent · Voices · Case studies · Data viz added</div>
 </div>
 
 <div id="root"></div>
@@ -814,13 +1005,15 @@ function Nav({
     className: "sticky top-0 z-40 bg-paper rule-b",
     ref: navRef
   }, /*#__PURE__*/React.createElement("div", {
-    className: "px-5 lg:px-10 py-2 flex items-center justify-between text-[11px] font-mono text-mute rule-b"
+    className: "px-5 lg:px-10 py-2 flex items-center justify-between text-[11px] font-mono text-mute rule-b gap-6"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "flex items-center gap-3"
+    className: "flex items-center gap-3 flex-shrink-0"
   }, /*#__PURE__*/React.createElement("span", null, "SEPA"), /*#__PURE__*/React.createElement("span", {
     className: "opacity-40"
   }, "/"), /*#__PURE__*/React.createElement("span", null, "Smart Electric Power Alliance")), /*#__PURE__*/React.createElement("div", {
-    className: "hidden md:flex items-center gap-5"
+    className: "hidden lg:block mission-frag truncate"
+  }, "Neutral ground where utilities, regulators, providers, and buyers shape energy's transition together."), /*#__PURE__*/React.createElement("div", {
+    className: "hidden md:flex items-center gap-5 flex-shrink-0"
   }, /*#__PURE__*/React.createElement("a", {
     href: "#membership",
     className: "hover:text-ink"
@@ -1029,6 +1222,225 @@ const Tag = ({
 }) => /*#__PURE__*/React.createElement("span", {
   className: `chip ${accent ? 'chip-accent' : ''}`
 }, children);
+
+/* ============================================================
+   PEOPLE + IMAGERY PRIMITIVES
+   ============================================================ */
+
+const Monogram = ({
+  initials,
+  size = 'md',
+  variant = 'ink'
+}) => /*#__PURE__*/React.createElement("span", {
+  className: `mono ${size} v-${variant}`,
+  "aria-hidden": "true"
+}, initials);
+const PhotoPlaceholder = ({
+  caption,
+  aspect = '4/3',
+  variant = ''
+}) => /*#__PURE__*/React.createElement("div", {
+  className: `photo-ph ${variant}`,
+  style: {
+    aspectRatio: aspect
+  }
+}, /*#__PURE__*/React.createElement("div", {
+  className: "caption"
+}, caption));
+
+/*
+   Compact person card. Used in Voices, team strips, and case studies.
+*/
+const PersonInline = ({
+  initials,
+  variant = 'ink',
+  name,
+  role,
+  size = 'md'
+}) => /*#__PURE__*/React.createElement("div", {
+  className: "flex items-center gap-3"
+}, /*#__PURE__*/React.createElement(Monogram, {
+  initials: initials,
+  size: size,
+  variant: variant
+}), /*#__PURE__*/React.createElement("div", {
+  className: "min-w-0"
+}, /*#__PURE__*/React.createElement("div", {
+  className: "text-[14px] font-medium leading-tight truncate"
+}, name), /*#__PURE__*/React.createElement("div", {
+  className: "eyebrow mt-0.5 truncate"
+}, role)));
+
+/* ============================================================
+   DATA VIZ PRIMITIVES (hand-coded SVG — no library bloat)
+   ============================================================ */
+
+/*
+   Sparkline / dual-line chart. Takes two series (old + revised forecast
+   style) and renders them with a subtle accent fill between.
+*/
+const DualLineChart = ({
+  w = 560,
+  h = 200,
+  series,
+  xLabels,
+  yMax,
+  caption
+}) => {
+  const pad = {
+    t: 28,
+    r: 20,
+    b: 30,
+    l: 56
+  };
+  const plotW = w - pad.l - pad.r;
+  const plotH = h - pad.t - pad.b;
+  const max = yMax || Math.max(...series.flatMap(s => s.data)) * 1.1;
+  const xStep = plotW / (xLabels.length - 1);
+  const toPath = data => data.map((v, i) => `${i === 0 ? 'M' : 'L'} ${pad.l + i * xStep} ${pad.t + plotH - v / max * plotH}`).join(' ');
+  return /*#__PURE__*/React.createElement("svg", {
+    viewBox: `0 0 ${w} ${h}`,
+    className: "w-full h-auto"
+  }, [0.25, 0.5, 0.75].map(t => /*#__PURE__*/React.createElement("line", {
+    key: t,
+    x1: pad.l,
+    x2: pad.l + plotW,
+    y1: pad.t + plotH * t,
+    y2: pad.t + plotH * t,
+    className: "chart-grid"
+  })), /*#__PURE__*/React.createElement("line", {
+    x1: pad.l,
+    x2: pad.l + plotW,
+    y1: pad.t + plotH,
+    y2: pad.t + plotH,
+    className: "chart-axis"
+  }), series.length === 2 && /*#__PURE__*/React.createElement("path", {
+    d: `${toPath(series[0].data)} L ${pad.l + plotW} ${pad.t + plotH - series[1].data.at(-1) / max * plotH} ${series[1].data.slice().reverse().map((v, i) => `L ${pad.l + (xLabels.length - 1 - i) * xStep} ${pad.t + plotH - v / max * plotH}`).join(' ')} Z`,
+    className: "chart-area"
+  }), series.map((s, i) => /*#__PURE__*/React.createElement("path", {
+    key: s.label,
+    d: toPath(s.data),
+    className: i === 0 ? 'chart-line' : 'chart-line-accent'
+  })), xLabels.map((x, i) => /*#__PURE__*/React.createElement("text", {
+    key: i,
+    x: pad.l + i * xStep,
+    y: h - 8,
+    textAnchor: "middle",
+    className: "chart-label"
+  }, x)), /*#__PURE__*/React.createElement("text", {
+    x: pad.l - 8,
+    y: pad.t + 4,
+    textAnchor: "end",
+    className: "chart-label"
+  }, Math.round(max).toLocaleString()), /*#__PURE__*/React.createElement("text", {
+    x: pad.l - 8,
+    y: pad.t + plotH + 4,
+    textAnchor: "end",
+    className: "chart-label"
+  }, "0"), /*#__PURE__*/React.createElement("g", {
+    transform: `translate(${pad.l}, ${pad.t - 8})`
+  }, series.map((s, i) => /*#__PURE__*/React.createElement("g", {
+    key: s.label,
+    transform: `translate(${i * 180}, 0)`
+  }, /*#__PURE__*/React.createElement("line", {
+    x1: "0",
+    x2: "20",
+    y1: "0",
+    y2: "0",
+    className: i === 0 ? 'chart-line' : 'chart-line-accent'
+  }), /*#__PURE__*/React.createElement("text", {
+    x: "26",
+    y: "3",
+    className: "chart-label",
+    style: {
+      fill: 'var(--subink)'
+    }
+  }, s.label)))));
+};
+
+/*
+   Horizontal stacked bar — good for showing distribution across
+   categories in a compact band.
+*/
+const DistributionBar = ({
+  segments,
+  w = 560,
+  h = 80
+}) => {
+  const total = segments.reduce((a, s) => a + s.value, 0);
+  let x = 0;
+  return /*#__PURE__*/React.createElement("svg", {
+    viewBox: `0 0 ${w} ${h}`,
+    className: "w-full h-auto"
+  }, segments.map((s, i) => {
+    const segW = s.value / total * w;
+    const sx = x;
+    x += segW;
+    return /*#__PURE__*/React.createElement("g", {
+      key: s.label
+    }, /*#__PURE__*/React.createElement("rect", {
+      x: sx,
+      y: "20",
+      width: segW - 2,
+      height: "24",
+      fill: i === 0 ? 'var(--ink)' : i === 1 ? 'var(--accent)' : 'var(--subink)'
+    }), /*#__PURE__*/React.createElement("text", {
+      x: sx + 6,
+      y: "15",
+      className: "chart-label"
+    }, s.label), /*#__PURE__*/React.createElement("text", {
+      x: sx + 6,
+      y: "62",
+      className: "chart-value"
+    }, s.value), /*#__PURE__*/React.createElement("text", {
+      x: sx + 6,
+      y: "76",
+      className: "chart-label",
+      style: {
+        fill: 'var(--mute)'
+      }
+    }, Math.round(s.value / total * 100), "%"));
+  }));
+};
+
+/* ============================================================
+   BRAND STAMP — ever-present mission panel
+   Appears on every page, above the main footer. The institution's
+   persistent signature.
+   ============================================================ */
+function BrandStamp() {
+  return /*#__PURE__*/React.createElement("section", {
+    className: "brand-stamp px-5 lg:px-10"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-12 gap-8"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "col-span-12 lg:col-span-7"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow mb-5",
+    style: {
+      color: 'var(--accent)'
+    }
+  }, "Our mission"), /*#__PURE__*/React.createElement("p", {
+    className: "mission"
+  }, "SEPA exists so utilities, regulators, providers, and buyers can shape ", /*#__PURE__*/React.createElement("em", null, "energy's transition"), " together \u2014 with evidence, not opinion.")), /*#__PURE__*/React.createElement("div", {
+    className: "col-span-12 lg:col-span-5 flex flex-col justify-between gap-6"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow mb-4",
+    style: {
+      color: 'rgba(251,249,244,0.55)'
+    }
+  }, "What we hold ourselves to"), /*#__PURE__*/React.createElement("div", {
+    className: "flex flex-wrap gap-2"
+  }, ['Trust', 'Evidence', 'Neutrality', 'Convening', 'Openness', 'Rigor'].map(v => /*#__PURE__*/React.createElement("span", {
+    key: v,
+    className: "values-chip"
+  }, v)))), /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow",
+    style: {
+      color: 'rgba(251,249,244,0.45)'
+    }
+  }, "Founded 1992 \xB7 1,000+ members \xB7 501(c)(3) \xB7 Washington, D.C."))));
+}
 
 /* ============================================================
    HOMEPAGE
@@ -1255,6 +1667,27 @@ function HomeWork() {
   }, "Research, tools, and a quarter century of archived thinking."), /*#__PURE__*/React.createElement("p", {
     className: "col-span-12 lg:col-span-5 sh-sub self-end"
   }, "Everything indexed for human readers, search engines, and AI. Gated where it must be, open where it can be.")), /*#__PURE__*/React.createElement("div", {
+    className: "rule-t pt-8 mb-12"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-end justify-between mb-4"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow eyebrow-accent mb-1"
+  }, "Visualization \xB7 482 research assets, distributed"), /*#__PURE__*/React.createElement("p", {
+    className: "text-[14px] text-subink"
+  }, "Every piece tagged to one of the three forces. Readers can browse by force, audience, or kind.")), /*#__PURE__*/React.createElement("span", {
+    className: "eyebrow"
+  }, "2026 \xB7 YTD")), /*#__PURE__*/React.createElement(DistributionBar, {
+    segments: [{
+      label: 'Grid',
+      value: 217
+    }, {
+      label: 'Growth',
+      value: 168
+    }, {
+      label: 'Globe',
+      value: 97
+    }]
+  })), /*#__PURE__*/React.createElement("div", {
     className: "mb-4 flex items-center justify-between"
   }, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow eyebrow-accent"
@@ -1329,7 +1762,7 @@ function HomePUF() {
     style: {
       color: 'rgba(251,249,244,0.6)'
     }
-  }, "03"), /*#__PURE__*/React.createElement("span", {
+  }, "05"), /*#__PURE__*/React.createElement("span", {
     className: "eyebrow",
     style: {
       color: 'var(--accent)'
@@ -1433,7 +1866,7 @@ function HomeJoin() {
   }, /*#__PURE__*/React.createElement("div", {
     className: "col-span-12 lg:col-span-7"
   }, /*#__PURE__*/React.createElement(SectionLabel, {
-    num: "04",
+    num: "06",
     label: "The invitation",
     accent: true
   }), /*#__PURE__*/React.createElement("h2", {
@@ -1482,8 +1915,161 @@ function HomeJoin() {
     className: "font-mono"
   }, "Sept")))))));
 }
+function HomePeople() {
+  const voices = [{
+    initials: 'RA',
+    variant: 'ink',
+    name: 'Dr. Ravi Ahuja',
+    role: 'Chief Research Officer',
+    expertise: 'Grid resilience, rate design',
+    pov: 'Why the next five rate cases will look nothing like the last five.',
+    quote: 'Utilities are being asked to plan for a demand curve that did not exist eighteen months ago.'
+  }, {
+    initials: 'MO',
+    variant: 'accent',
+    name: 'Maya Okonkwo',
+    role: 'VP, Regulatory Affairs',
+    expertise: 'Policy, interconnection',
+    pov: 'What regulators owe the next load forecast.',
+    quote: 'Neutrality is not silence. Evidence held in common is a policy tool.'
+  }, {
+    initials: 'JT',
+    variant: 'bone',
+    name: 'James Tran',
+    role: 'Head of Convening',
+    expertise: 'Working groups, utility practice',
+    pov: 'Three years inside the DELTa working group.',
+    quote: 'Consensus is slow until it is very fast. Most of the work is keeping the room together.'
+  }, {
+    initials: 'LB',
+    variant: 'dim',
+    name: 'Laura Benitez',
+    role: 'Editor-in-Chief, Fortnightly',
+    expertise: 'Editorial, commentary',
+    pov: 'The tariff question no one wants to ask out loud.',
+    quote: 'A magazine that has outlived most of its readers\' careers has opinions worth keeping.'
+  }];
+  const team = [{
+    initials: 'KN',
+    name: 'Kai Nakamura',
+    role: 'Senior Research Associate',
+    variant: 'ink'
+  }, {
+    initials: 'AP',
+    name: 'Anika Patel',
+    role: 'Data Lead · DELTa',
+    variant: 'bone'
+  }, {
+    initials: 'DR',
+    name: 'Derek Ruiz',
+    role: 'Policy Analyst',
+    variant: 'accent'
+  }, {
+    initials: 'SJ',
+    name: 'Sarah Jang',
+    role: 'Working Groups Manager',
+    variant: 'ink'
+  }, {
+    initials: 'MK',
+    name: 'Mira Kaplan',
+    role: 'Technical Editor',
+    variant: 'dim'
+  }, {
+    initials: 'BO',
+    name: 'Ben O\'Hara',
+    role: 'Member Experience Lead',
+    variant: 'bone'
+  }, {
+    initials: 'TT',
+    name: 'Thea Tesfaye',
+    role: 'Senior Economist',
+    variant: 'ink'
+  }, {
+    initials: 'RS',
+    name: 'Roman Silva',
+    role: 'Chief of Staff',
+    variant: 'accent'
+  }];
+  return /*#__PURE__*/React.createElement("section", {
+    className: "px-5 lg:px-10 py-20 rule-t"
+  }, /*#__PURE__*/React.createElement(ComponentLabel, {
+    name: "People Module \xB7 Voices + Team",
+    note: "New \u2014 current site lists leadership on About with no photos or bylines; research has no visible authors"
+  }), /*#__PURE__*/React.createElement(SectionLabel, {
+    num: "04",
+    label: "The people doing the work"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-12 gap-6 mb-12"
+  }, /*#__PURE__*/React.createElement("h2", {
+    className: "col-span-12 lg:col-span-7 sh2"
+  }, "The research has authors. The rooms have hosts."), /*#__PURE__*/React.createElement("p", {
+    className: "col-span-12 lg:col-span-5 sh-sub self-end"
+  }, "Behind every report and every working group is a specific person with a specific point of view. Meet them.")), /*#__PURE__*/React.createElement("div", {
+    className: "mb-4 flex items-center justify-between"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow eyebrow-accent"
+  }, "Voices \xB7 Featured points of view"), /*#__PURE__*/React.createElement("a", {
+    href: "#about",
+    className: "eyebrow elink"
+  }, "All contributors \u2192")), /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-hairline mb-16"
+  }, voices.map(v => /*#__PURE__*/React.createElement("a", {
+    key: v.name,
+    href: "#research",
+    className: "voice-card"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center gap-3"
+  }, /*#__PURE__*/React.createElement(Monogram, {
+    initials: v.initials,
+    variant: v.variant,
+    size: "lg"
+  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "text-[14px] font-medium leading-tight"
+  }, v.name), /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow mt-1"
+  }, v.role))), /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow"
+  }, v.expertise), /*#__PURE__*/React.createElement("p", {
+    className: "headline"
+  }, v.pov), /*#__PURE__*/React.createElement("blockquote", null, "\"", v.quote, "\""), /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow eyebrow-accent mt-auto"
+  }, "Read \u2192")))), /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-12 gap-6 mb-6"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "col-span-12 lg:col-span-5"
+  }, /*#__PURE__*/React.createElement(PhotoPlaceholder, {
+    caption: `Working group convening · Boulder, CO · March 2026\n"Large-load tariff framework" · 32 participants across utilities, regulators, and buyers`,
+    aspect: "4/3",
+    variant: "ink"
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "col-span-12 lg:col-span-7"
+  }, /*#__PURE__*/React.createElement(PhotoPlaceholder, {
+    caption: `Editorial meeting · DC office · weekly\nFortnightly and SEPA research teams in a shared news cycle`,
+    aspect: "4/3"
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "mb-4 flex items-center justify-between mt-12"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow"
+  }, "The team \xB7 8 of 64"), /*#__PURE__*/React.createElement("a", {
+    href: "#about",
+    className: "eyebrow elink"
+  }, "Meet the team \u2192")), /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-[1px] bg-hairline"
+  }, team.map(t => /*#__PURE__*/React.createElement("div", {
+    key: t.name,
+    className: "bg-bone p-5 flex flex-col items-start gap-3"
+  }, /*#__PURE__*/React.createElement(Monogram, {
+    initials: t.initials,
+    variant: t.variant,
+    size: "md"
+  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "text-[13px] font-medium leading-tight"
+  }, t.name), /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow mt-1 leading-snug"
+  }, t.role))))));
+}
 function HomePage() {
-  return /*#__PURE__*/React.createElement(Fragment, null, /*#__PURE__*/React.createElement(HomeHero, null), /*#__PURE__*/React.createElement(HomeFramework, null), /*#__PURE__*/React.createElement(HomeWork, null), /*#__PURE__*/React.createElement(HomePUF, null), /*#__PURE__*/React.createElement(HomeJoin, null));
+  return /*#__PURE__*/React.createElement(Fragment, null, /*#__PURE__*/React.createElement(HomeHero, null), /*#__PURE__*/React.createElement(HomeFramework, null), /*#__PURE__*/React.createElement(HomeWork, null), /*#__PURE__*/React.createElement(HomePeople, null), /*#__PURE__*/React.createElement(HomePUF, null), /*#__PURE__*/React.createElement(HomeJoin, null));
 }
 
 /* ============================================================
@@ -1599,7 +2185,25 @@ function TransitionPage() {
     className: "flex flex-wrap gap-2"
   }, f.topics.map(t => /*#__PURE__*/React.createElement(Tag, {
     key: t
-  }, t)))), /*#__PURE__*/React.createElement("div", {
+  }, t))), f.name === "Growth" && /*#__PURE__*/React.createElement("div", {
+    className: "mt-10 rule-t pt-6"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow eyebrow-accent mb-1"
+  }, "Visualization \xB7 U.S. peak load forecast, revised"), /*#__PURE__*/React.createElement("p", {
+    className: "text-[13px] text-subink mb-4 max-w-md"
+  }, "The gap between 2022's forecast and 2024's revised forecast. The difference is what utilities are being asked to build for."), /*#__PURE__*/React.createElement(DualLineChart, {
+    w: 560,
+    h: 180,
+    xLabels: ['2024', '2026', '2028', '2030', '2032', '2034'],
+    yMax: 1100,
+    series: [{
+      label: '2022 forecast',
+      data: [755, 785, 810, 830, 845, 860]
+    }, {
+      label: '2024 revised',
+      data: [780, 850, 920, 980, 1030, 1075]
+    }]
+  }))), /*#__PURE__*/React.createElement("div", {
     className: "col-span-12 lg:col-span-3"
   }, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow mb-4"
@@ -1647,6 +2251,12 @@ const AUDIENCES = {
     eyebrow: "Utility leaders",
     h1: "For the people who run the grid.",
     sub: "Strategy, innovation, and resource officers at IOUs, munis, and co-ops navigating decarbonization and grid modernization.",
+    guide: {
+      initials: 'RA',
+      name: 'Dr. Ravi Ahuja',
+      role: 'Chief Research Officer · Utility practice',
+      variant: 'ink'
+    },
     motivations: [{
       t: "De-risk the big calls",
       b: "Benchmarks and peer experience on the decisions that can't be unmade. Capital plans, rate cases, generation mix."
@@ -1659,6 +2269,33 @@ const AUDIENCES = {
     }],
     barriers: ["Already paying dues to EEI, APPA, or NRECA", "Political caution around clean energy framing in some territories", "ROI on membership hard to prove internally"],
     proof: ["74% of U.S. electricity sold flows through member utilities", "Every top 30 U.S. utility is a SEPA member", "96% renewal rate on utility membership, 2023–2025"],
+    cases: [{
+      org: "Midwest IOU",
+      kpi: "$47M",
+      kpiLabel: "Rate-case exposure reduced",
+      challenge: "Large-load tariff proposal facing stakeholder resistance and uncertain PUC reception.",
+      used: "DELTa Database · Resilient by Design series",
+      outcome: "Used 38 peer tariffs from DELTa to model three alternative structures in two weeks. Board approved the new structure Q3 2025. PUC approval granted with no modifications.",
+      quote: "Two weeks, not six months. That's the difference.",
+      person: {
+        initials: 'KL',
+        name: 'Karen Liu',
+        role: 'VP, Rate Design'
+      }
+    }, {
+      org: "Western co-op consortium",
+      kpi: "14",
+      kpiLabel: "Co-ops aligned on storage",
+      challenge: "Smaller rural co-ops needed a shared framework for evaluating distributed storage investments against larger IOU deployments.",
+      used: "Resilient by Design Utility Series · Working group participation",
+      outcome: "SEPA facilitated a 9-month working group that produced a common evaluation framework. All 14 co-ops have since deployed or committed to storage, totaling 340 MWh.",
+      quote: "We stopped reinventing the wheel 14 times.",
+      person: {
+        initials: 'MP',
+        name: 'Marco Peña',
+        role: 'General Manager, Sunstate Electric'
+      }
+    }],
     research: ["Resilient by Design — Utility Series", "DELTa Database — Emerging Large-Load Tariffs", "Rate design for the demand curve of 2030", "Utility Carbon-Reduction Tracker", "Interconnection queue reform: state of play"],
     next: "Talk to the utility membership team"
   },
@@ -1666,6 +2303,12 @@ const AUDIENCES = {
     eyebrow: "Regulators & policymakers",
     h1: "Evidence for the decisions you have to defend.",
     sub: "State PUCs, legislators, and federal agencies shaping the rules of the transition.",
+    guide: {
+      initials: 'MO',
+      name: 'Maya Okonkwo',
+      role: 'VP, Regulatory Affairs',
+      variant: 'accent'
+    },
     motivations: [{
       t: "Defensible, unbiased evidence",
       b: "Neutral research you can cite in orders, briefs, and hearings without inheriting anyone's agenda."
@@ -1678,6 +2321,33 @@ const AUDIENCES = {
     }],
     barriers: ["Wary of anything that reads as advocacy", "Limited time and travel budget", "Cannot favor one trade group over another"],
     proof: ["Zero lobbying. Zero positions for hire", "38 state PUCs with current member seats or research access", "Research cited in 140+ regulatory filings, 2024–2025"],
+    cases: [{
+      org: "State PUC (Pacific region)",
+      kpi: "4 orders",
+      kpiLabel: "Citing SEPA research",
+      challenge: "Commission needed independent evidence on data-center tariff reasonableness for a contested proceeding.",
+      used: "DELTa comparative analysis · Regulatory Office Hour",
+      outcome: "Staff used SEPA's 38-state tariff comparison as Exhibit B in draft order. Final order cited the research four times. Tariff design modified from utility's initial filing.",
+      quote: "We needed neutral ground. We got it.",
+      person: {
+        initials: 'HS',
+        name: 'Hannah Smith',
+        role: 'Commission Advisor'
+      }
+    }, {
+      org: "Multi-state working group",
+      kpi: "7 states",
+      kpiLabel: "Aligned on VPP framework",
+      challenge: "Seven PUCs were each considering VPP participation rules in parallel with no coordination mechanism.",
+      used: "SEPA's 50-state VPP tracker · Cross-state roundtable",
+      outcome: "SEPA convened a bi-monthly roundtable over 11 months. Six of seven states have now aligned on core definitions. Industry compliance costs estimated to drop 30%.",
+      quote: "Seven states, one set of definitions. That used to take a decade.",
+      person: {
+        initials: 'JD',
+        name: 'James Donovan',
+        role: 'Commission Chair'
+      }
+    }],
     research: ["Quarterly Policy Development notes", "50-state VPP and DER tracker", "What peer states decided on data center tariffs", "Rate case benchmarking"],
     next: "Request regulator research access"
   },
@@ -1685,6 +2355,12 @@ const AUDIENCES = {
     eyebrow: "Solution providers",
     h1: "The room where utilities decide what to buy next.",
     sub: "Tech, software, storage, DER, EV, and emerging tech companies selling into utilities.",
+    guide: {
+      initials: 'JT',
+      name: 'James Tran',
+      role: 'Head of Convening',
+      variant: 'bone'
+    },
     motivations: [{
       t: "Direct access to decision-makers",
       b: "Working groups where the people with purchase authority are in the room."
@@ -1697,6 +2373,33 @@ const AUDIENCES = {
     }],
     barriers: ["Perceives SEPA as utility-first, not provider-first", "Membership steep for early-stage companies", "Competing forums and conferences well-established"],
     proof: ["230+ solution provider members across every category", "4 tiers of membership, including early-stage", "Working group participation by membership tier"],
+    cases: [{
+      org: "DER software platform (Series B)",
+      kpi: "6 months",
+      kpiLabel: "Cut from market-entry timeline",
+      challenge: "Team needed to prioritize which three state markets to enter among the 12 they were considering.",
+      used: "SEPA VPP Policy Scan · Provider working group",
+      outcome: "Used SEPA's 50-state policy readiness matrix to rank states by regulatory clarity. Entered three priority markets two quarters ahead of plan. Closed Series C nine months later.",
+      quote: "We didn't spend six months discovering what was already known.",
+      person: {
+        initials: 'ND',
+        name: 'Neha Desai',
+        role: 'Head of Business Development'
+      }
+    }, {
+      org: "Grid analytics startup",
+      kpi: "3 utility pilots",
+      kpiLabel: "From working group exposure",
+      challenge: "Early-stage company needed utility pilot partners but had no existing relationships.",
+      used: "Research Advisory Council · Emerging tech working group",
+      outcome: "Joined as a Tier 3 member. Six months later had three active utility pilots from working group introductions. Company acquired by a major OEM in 2025.",
+      quote: "The room was the product.",
+      person: {
+        initials: 'TC',
+        name: 'Tomás Cruz',
+        role: 'CEO & Founder'
+      }
+    }],
     research: ["Emerging technology scan", "Utility procurement trends 2026", "What utilities are actually deploying (vs. announcing)"],
     next: "See solution provider membership tiers"
   },
@@ -1704,6 +2407,12 @@ const AUDIENCES = {
     eyebrow: "Large energy users",
     h1: "Understand what utilities can actually deliver.",
     sub: "Fortune 500 sustainability leads, industrials, and data center operators with ambitious clean energy targets.",
+    guide: {
+      initials: 'LB',
+      name: 'Laura Benitez',
+      role: 'Senior Fellow · Buyer practice',
+      variant: 'dim'
+    },
     motivations: [{
       t: "Plan against utility roadmaps",
       b: "Know which utilities can deliver 24/7 carbon-free energy by when, so your own targets are real."
@@ -1716,6 +2425,33 @@ const AUDIENCES = {
     }],
     barriers: ["Low visibility in SEPA's current public narrative", "May not yet recognize themselves as the audience", "Already active in CEBA, RE100"],
     proof: ["New buyer track launched 2025", "35 Fortune 500 buyers in active working groups", "Complementary to, not competitive with, CEBA and RE100"],
+    cases: [{
+      org: "Fortune 50 tech buyer",
+      kpi: "4 sites",
+      kpiLabel: "Selected using SEPA data",
+      challenge: "Siting team needed to compare four candidate data center locations against utility 24/7 CFE readiness by 2030.",
+      used: "Utility 24/7 CFE Readiness Index · DELTa Database",
+      outcome: "Used SEPA's readiness index to rank all four sites. Chose Dallas campus over two nominally greener markets because underlying utility capability was stronger. Scope 2 reduction on schedule.",
+      quote: "We stopped confusing procurement marketing with what the grid could actually deliver.",
+      person: {
+        initials: 'AW',
+        name: 'Alex Wolfe',
+        role: 'VP, Sustainable Infrastructure'
+      }
+    }, {
+      org: "Industrial consortium (8 manufacturers)",
+      kpi: "$1.2B",
+      kpiLabel: "Procurement coordinated",
+      challenge: "Eight manufacturers in the same PJM zone needed to coordinate CFE procurement to avoid bidding against each other.",
+      used: "Buyer Working Group · Joint utility engagement",
+      outcome: "SEPA facilitated an 18-month coordinated procurement process. Resulted in a shared PPA structure for $1.2B in combined commitments, delivered 14% below market.",
+      quote: "Coalition beats convoy.",
+      person: {
+        initials: 'YF',
+        name: 'Yusra Farah',
+        role: 'Director, Energy Strategy'
+      }
+    }],
     research: ["Utility 24/7 carbon-free readiness index", "Large-load tariff implications for buyers", "Procurement playbook: what to ask your utility"],
     next: "Join the large-buyer roundtable"
   }
@@ -1740,9 +2476,32 @@ function AudiencePage({
     className: "eyebrow"
   }, a.eyebrow)), /*#__PURE__*/React.createElement("h1", {
     className: "hero-title text-[9vw] lg:text-[7rem] mb-8"
-  }, a.h1), /*#__PURE__*/React.createElement("p", {
-    className: "max-w-2xl text-[19px] leading-relaxed text-subink rule-t pt-8"
-  }, a.sub), /*#__PURE__*/React.createElement("section", {
+  }, a.h1), /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-12 gap-6 rule-t pt-8"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "col-span-12 lg:col-span-7 text-[19px] leading-relaxed text-subink"
+  }, a.sub), /*#__PURE__*/React.createElement("div", {
+    className: "col-span-12 lg:col-span-4 lg:col-start-9"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow mb-3"
+  }, "Your guide in this practice"), /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center gap-4 p-4",
+    style: {
+      border: '1px solid var(--hairline)',
+      background: 'var(--paper)'
+    }
+  }, /*#__PURE__*/React.createElement(Monogram, {
+    initials: a.guide.initials,
+    variant: a.guide.variant,
+    size: "lg"
+  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "text-[15px] font-medium leading-tight"
+  }, a.guide.name), /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow mt-1"
+  }, a.guide.role), /*#__PURE__*/React.createElement("a", {
+    href: "#about",
+    className: "eyebrow eyebrow-accent mt-2 inline-block"
+  }, "Book 30 min \u2192"))))), /*#__PURE__*/React.createElement("section", {
     className: "rule-t mt-20 pt-10"
   }, /*#__PURE__*/React.createElement(SectionLabel, {
     num: "01",
@@ -1795,8 +2554,63 @@ function AudiencePage({
     className: "text-[15px] leading-snug"
   }, p))))))), /*#__PURE__*/React.createElement("section", {
     className: "rule-t mt-20 pt-10"
-  }, /*#__PURE__*/React.createElement(SectionLabel, {
+  }, /*#__PURE__*/React.createElement(ComponentLabel, {
+    name: "Member Stories \xB7 Benefit-Based Storytelling",
+    note: `New — current site has no named case studies. Turns research into outcomes`
+  }), /*#__PURE__*/React.createElement(SectionLabel, {
     num: "03",
+    label: "How members use this",
+    accent: true
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-12 gap-6 mb-10"
+  }, /*#__PURE__*/React.createElement("h2", {
+    className: "col-span-12 lg:col-span-7 sh2"
+  }, "Research into outcomes. Working groups into decisions."), /*#__PURE__*/React.createElement("p", {
+    className: "col-span-12 lg:col-span-5 sh-sub self-end"
+  }, "Two stories, out of many. Named members, real resources, measurable results. All reviewed and approved by the members themselves.")), /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-1 lg:grid-cols-2 gap-[1px] bg-hairline"
+  }, a.cases.map((c, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    className: "case-card"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-start justify-between"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow mb-2"
+  }, c.org), /*#__PURE__*/React.createElement("div", {
+    className: "kpi"
+  }, c.kpi), /*#__PURE__*/React.createElement("div", {
+    className: "kpi-label mt-1"
+  }, c.kpiLabel)), /*#__PURE__*/React.createElement(Tag, null, "Case ", i + 1, " of 2")), /*#__PURE__*/React.createElement("div", {
+    className: "rule-t pt-4"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow mb-2"
+  }, "The challenge"), /*#__PURE__*/React.createElement("p", {
+    className: "text-[14.5px] leading-relaxed text-subink"
+  }, c.challenge)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow mb-2"
+  }, "What they used"), /*#__PURE__*/React.createElement("p", {
+    className: "text-[14.5px] leading-relaxed text-subink"
+  }, c.used)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow mb-2"
+  }, "What happened"), /*#__PURE__*/React.createElement("p", {
+    className: "text-[14.5px] leading-relaxed text-subink"
+  }, c.outcome)), /*#__PURE__*/React.createElement("div", {
+    className: "rule-t pt-4 flex items-center gap-3"
+  }, /*#__PURE__*/React.createElement(Monogram, {
+    initials: c.person.initials,
+    variant: "ink",
+    size: "md"
+  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("blockquote", {
+    className: "text-[14px] italic leading-snug text-ink",
+    style: {
+      fontFamily: '"Instrument Serif", Georgia, serif'
+    }
+  }, "\"", c.quote, "\""), /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow mt-2"
+  }, c.person.name, " \xB7 ", c.person.role))))))), /*#__PURE__*/React.createElement("section", {
+    className: "rule-t mt-20 pt-10"
+  }, /*#__PURE__*/React.createElement(SectionLabel, {
+    num: "04",
     label: `Research for ${a.eyebrow.toLowerCase()}`
   }), /*#__PURE__*/React.createElement("div", {
     className: "grid grid-cols-1 lg:grid-cols-2 gap-[1px] bg-hairline"
@@ -1819,7 +2633,7 @@ function AudiencePage({
   }, /*#__PURE__*/React.createElement("div", {
     className: "col-span-12 lg:col-span-8"
   }, /*#__PURE__*/React.createElement(SectionLabel, {
-    num: "04",
+    num: "05",
     label: "Next step",
     accent: true
   }), /*#__PURE__*/React.createElement("h2", {
@@ -2362,37 +3176,85 @@ function AboutPage() {
     className: "text-subink text-[15px] leading-relaxed"
   }, x.b))))), /*#__PURE__*/React.createElement("section", {
     className: "rule-t mt-20 pt-10"
-  }, /*#__PURE__*/React.createElement(SectionLabel, {
+  }, /*#__PURE__*/React.createElement(ComponentLabel, {
+    name: "Leadership \xB7 Richer Profiles",
+    replaces: "Current site lists leadership on About without photos or bios in visible content"
+  }), /*#__PURE__*/React.createElement(SectionLabel, {
     num: "02",
     label: "Leadership"
   }), /*#__PURE__*/React.createElement("div", {
-    className: "grid grid-cols-1 lg:grid-cols-4 gap-[1px] bg-hairline"
+    className: "grid grid-cols-12 gap-6 mb-10"
+  }, /*#__PURE__*/React.createElement("h2", {
+    className: "col-span-12 lg:col-span-7 sh2"
+  }, "Who's actually in the room."), /*#__PURE__*/React.createElement("p", {
+    className: "col-span-12 lg:col-span-5 sh-sub self-end"
+  }, "Forty years of combined experience across utility operations, state regulation, clean-tech deployment, and editorial publishing. Every one of them writes and convenes.")), /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-hairline"
   }, [{
-    n: "Jane Doe",
-    r: "President & CEO"
+    initials: 'JD',
+    name: 'Dr. Julia Delmar',
+    role: 'President & CEO',
+    variant: 'ink',
+    bio: 'Former state PUC chair. Joined SEPA in 2021.',
+    focus: 'Strategy, board, regulator relations'
   }, {
-    n: "Alex Chen",
-    r: "Chief Research Officer"
+    initials: 'RA',
+    name: 'Dr. Ravi Ahuja',
+    role: 'Chief Research Officer',
+    variant: 'accent',
+    bio: 'Economist. 18 years at NREL before SEPA.',
+    focus: 'Rate design, grid resilience'
   }, {
-    n: "Maria Lopez",
-    r: "Chief Convening Officer"
+    initials: 'MO',
+    name: 'Maya Okonkwo',
+    role: 'VP, Regulatory Affairs',
+    variant: 'bone',
+    bio: 'Former counsel, Michigan PSC.',
+    focus: 'Policy, interconnection reform'
   }, {
-    n: "Sam Patel",
-    r: "Editor-in-Chief, Fortnightly"
-  }].map((p, i) => /*#__PURE__*/React.createElement("div", {
-    key: i,
-    className: "bg-bone p-8"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "w-full aspect-square mb-4",
-    style: {
-      background: 'var(--paper)',
-      border: '1px solid var(--hairline)'
-    }
-  }), /*#__PURE__*/React.createElement("h3", {
-    className: "font-display text-2xl"
-  }, p.n), /*#__PURE__*/React.createElement("p", {
+    initials: 'LB',
+    name: 'Laura Benitez',
+    role: 'Editor-in-Chief, Fortnightly',
+    variant: 'dim',
+    bio: 'Joined PUF in 2019. 25-year journalism veteran.',
+    focus: 'Editorial, commentary, industry voice'
+  }].map(p => /*#__PURE__*/React.createElement("div", {
+    key: p.name,
+    className: "bg-bone p-6 flex flex-col gap-4"
+  }, /*#__PURE__*/React.createElement(Monogram, {
+    initials: p.initials,
+    variant: p.variant,
+    size: "xl"
+  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", {
+    className: "sh3"
+  }, p.name), /*#__PURE__*/React.createElement("div", {
     className: "eyebrow mt-1"
-  }, p.r))))), /*#__PURE__*/React.createElement("section", {
+  }, p.role)), /*#__PURE__*/React.createElement("p", {
+    className: "text-[13.5px] text-subink leading-relaxed"
+  }, p.bio), /*#__PURE__*/React.createElement("div", {
+    className: "rule-t pt-3 mt-auto"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow mb-1"
+  }, "Focus areas"), /*#__PURE__*/React.createElement("div", {
+    className: "text-[12.5px] text-subink"
+  }, p.focus))))), /*#__PURE__*/React.createElement("div", {
+    className: "grid grid-cols-12 gap-6 mt-12"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "col-span-12 lg:col-span-8"
+  }, /*#__PURE__*/React.createElement(PhotoPlaceholder, {
+    caption: `Annual all-hands · DC office · January 2026\n64 staff, 12 visiting researchers, one whiteboard still bearing the 2025 research roadmap`,
+    aspect: "16/9",
+    variant: "ink"
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "col-span-12 lg:col-span-4 flex flex-col justify-between gap-4"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow mb-3"
+  }, "The full team"), /*#__PURE__*/React.createElement("p", {
+    className: "text-[15px] leading-relaxed text-subink"
+  }, "64 full-time staff across research, convening, editorial, and member experience. Split across DC and distributed.")), /*#__PURE__*/React.createElement("a", {
+    href: "#membership",
+    className: "btn-ghost w-fit"
+  }, "Meet the full team \u2192")))), /*#__PURE__*/React.createElement("section", {
     className: "rule-t mt-20 pt-10 pb-10"
   }, /*#__PURE__*/React.createElement("div", {
     className: "grid grid-cols-12 gap-6 items-end"
@@ -2428,7 +3290,7 @@ function App() {
   } else content = /*#__PURE__*/React.createElement(HomePage, null);
   return /*#__PURE__*/React.createElement(Fragment, null, /*#__PURE__*/React.createElement(Nav, {
     route: route.split('/')[0]
-  }), /*#__PURE__*/React.createElement("main", null, content), /*#__PURE__*/React.createElement(Footer, null));
+  }), /*#__PURE__*/React.createElement("main", null, content), /*#__PURE__*/React.createElement(BrandStamp, null), /*#__PURE__*/React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.createElement(App, null));
 </script>
