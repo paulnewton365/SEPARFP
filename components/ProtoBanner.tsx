@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { VersionBadge } from './VersionBadge';
 
 const views = [
   { path: '/', label: 'Home' },
@@ -11,7 +12,6 @@ const views = [
   { path: '/for/utility', label: 'Utility Hub' },
   { path: '/fortnightly', label: 'Fortnightly' },
   { path: '/about', label: 'About' },
-  { path: '/login', label: 'Login' },
 ];
 
 export function ProtoBanner() {
@@ -31,7 +31,8 @@ export function ProtoBanner() {
     <div className="proto-banner">
       <div>
         <strong>WORKING PROTOTYPE</strong>
-        <span className="tag"> / SEPA IA v0.2 / For internal review</span>
+        <span className="tag"> / SEPA IA / For internal review</span>
+        <VersionBadge variant="dark" />
       </div>
       <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
         <span className="tag" style={{ marginRight: 4 }}>View:</span>

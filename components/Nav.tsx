@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { NavSearch } from './NavSearch';
 import { AudienceSelector } from './AudienceSelector';
+import { MobileMenu } from './MobileMenu';
 
 export function Nav() {
   const pathname = usePathname();
@@ -52,7 +53,8 @@ export function Nav() {
         <div className="nav-cta">
           <NavSearch />
           <AudienceSelector />
-          <Link href="/login" className="sign-in">Sign in</Link>
+          <a className="sign-in" aria-disabled="true">Sign in</a>
+          <MobileMenu />
         </div>
       </div>
     </nav>

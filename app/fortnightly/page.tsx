@@ -6,6 +6,30 @@ import Link from 'next/link';
 export default function FortnightlyPage() {
   return (
     <div className="fn-page">
+      {/* Return path to SEPA - important for users landing here directly */}
+      <div style={{
+        padding: '14px 24px',
+        borderBottom: '1px solid rgba(255,255,255,0.08)',
+        fontSize: 11,
+        letterSpacing: '0.08em',
+        textTransform: 'uppercase',
+      }}>
+        <div style={{
+          maxWidth: 1280,
+          margin: '0 auto',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          color: 'rgba(255,255,255,0.5)',
+          fontWeight: 500,
+        }}>
+          <Link href="/" style={{ color: 'rgba(255,255,255,0.75)', textDecoration: 'none' }}>
+            ← SEPA
+          </Link>
+          <span>Public Utilities Fortnightly</span>
+        </div>
+      </div>
+
       {/* MASTHEAD */}
       <header className="fn-masthead">
         <div className="fn-masthead-inner">

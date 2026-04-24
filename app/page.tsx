@@ -72,7 +72,7 @@ export default function HomePage() {
               </p>
               <div className="tags">Resilience · Storage · Emerging Tech · Policy</div>
             </Link>
-            <Link href="/shape/grid" className="hero-arena-cell">
+            <Link href="/shape/growth" className="hero-arena-cell">
               <div className="num">Arena 02</div>
               <div className="name">Growth.</div>
               <p className="desc">
@@ -81,7 +81,7 @@ export default function HomePage() {
               </p>
               <div className="tags">Transport · Large Loads · Electrification · Demand</div>
             </Link>
-            <Link href="/shape/grid" className="hero-arena-cell">
+            <Link href="/shape/globe" className="hero-arena-cell">
               <div className="num">Arena 03</div>
               <div className="name">Globe.</div>
               <p className="desc">

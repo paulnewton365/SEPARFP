@@ -2,17 +2,34 @@
 
 A working prototype for the proposed SEPA information architecture and brand direction. Built on the stack defined in the Vercel best practices doc: Next.js on Vercel, Tailwind, shadcn/ui-ready.
 
+---
+
+## ⚠️ Deployment checklist — read this if the gate isn't working
+
+If you deploy this zip and see an old SEPA-branded login page (instead of the dark Antenna-branded one), or if `antennagroup` doesn't unlock the site, you are running an older version. Fix:
+
+1. **Push this zip's contents to your GitHub repo.** Replace everything — do not try to merge into an older commit. Use `git add -A && git commit -m "refresh prototype" && git push --force-with-lease`.
+2. **Trigger a fresh Vercel build.** Either push the new commit (Vercel auto-builds on push) or go to Vercel → Deployments → "..." → Redeploy → uncheck "Use existing Build Cache".
+3. **Clear your browser cookies for the preview domain.** Old login sessions can linger.
+4. **Verify:** visit the root URL — you should be redirected to `/login` with a dark Antenna-branded gate. Password: `antennagroup`.
+
+The middleware file at `/middleware.ts` is what enforces the gate. If your Vercel deployment isn't picking it up, check Project Settings → General → Framework Preset = Next.js, and Root Directory = `sepa-prototype` (or the repo root, depending on how you pushed it).
+
+---
+
 ## What this is
 
 Working prototype for a proposed SEPA experience. Seven screens that test a single hypothesis: **utility leaders, regulators, and other sector actors will engage more deeply with SEPA if the site is organized around shaping the transition rather than describing SEPA's activities.**
 
 - `/` Home — Grid/Growth/Globe elevated into the hero, audience-aware path reordering
-- `/shape/grid` Shape / Grid arena with persistent arena switcher for Growth/Globe
+- `/login` Antenna-branded access gate (password: `antennagroup`) — Next.js middleware enforces the gate across the whole site
+- `/shape/grid` Shape / Grid arena with persistent arena switcher
+- `/shape/growth` Shape / Growth arena
+- `/shape/globe` Shape / Globe arena
 - `/research` Research hub — DELTa + Carbon-Reduction Tracker surfaced as branded assets
 - `/for/utility` Utility leaders audience hub
 - `/fortnightly` Public Utilities Fortnightly — sub-brand treatment, magazine-quality layout
 - `/about` About SEPA — positioning-led, neutrality as principle, leadership visible
-- `/login` Access-gated preview (access code: `sepa2026`)
 
 The organizing idea "Let's shape energy's transition" appears persistently in the tagline strip. Every main-site page closes on the mission. Fortnightly and login have their own identities.
 

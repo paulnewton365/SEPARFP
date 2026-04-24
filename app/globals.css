@@ -139,7 +139,7 @@ a { color: inherit; text-decoration: none; cursor: pointer; }
   border-bottom-color: var(--accent);
 }
 .nav-cta { display: flex; align-items: center; gap: 16px; }
-.nav-cta a.sign-in { font-size: 12px; color: var(--ink-2); text-decoration: none; }
+.nav-cta a.sign-in { font-size: 12px; color: var(--ink-3); text-decoration: none; cursor: default; }
 
 /* ============ BUTTONS ============ */
 .btn {
@@ -1224,7 +1224,228 @@ body.annotations-off .anno { display: none; }
 }
 .arena-switcher-link.active .dot { background: var(--paper); }
 
-/* ============ LOGIN PAGE ============ */
+/* ============ VERSION BADGE ============ */
+.version-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-geist-sans), monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.version-badge .version-num {
+  font-weight: 600;
+}
+.version-badge .version-sha {
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+}
+.version-badge[data-variant="light"] .version-num { color: var(--ink-2); }
+.version-badge[data-variant="light"] .version-sha {
+  background: var(--bg);
+  color: var(--ink-3);
+  border: 1px solid var(--line);
+}
+.version-badge[data-variant="dark"] .version-num { color: rgba(255,255,255,0.85); }
+.version-badge[data-variant="dark"] .version-sha {
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.7);
+}
+
+/* Proto banner needs tighter spacing for the badge */
+.proto-banner .version-badge {
+  margin-left: 12px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255,255,255,0.2);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ============ ANTENNA LOGIN PAGE ============ */
+:root {
+  --antenna-bg: #0B0D10;
+  --antenna-bg-2: #15181C;
+  --antenna-ink-3: rgba(255,255,255,0.5);
+  --antenna-ink-2: rgba(255,255,255,0.72);
+  --antenna-line: rgba(255,255,255,0.12);
+  --antenna-yellow: #D4F542;
+}
+body.antenna-login-mode { background: var(--antenna-bg); }
+.antenna-login-page {
+  background: var(--antenna-bg);
+  color: #fff;
+  min-height: calc(100vh - 33px);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-geist-sans), sans-serif;
+}
+
+.antenna-login-topbar {
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--antenna-line);
+}
+.antenna-login-topbar-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.antenna-login-brandmark {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.antenna-mark {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+.antenna-mark-sq {
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  display: inline-block;
+}
+.antenna-mark-sq.yellow { background: var(--antenna-yellow); }
+.antenna-wordmark {
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  color: #fff;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  font-weight: 400;
+}
+.antenna-wordmark strong { font-weight: 600; }
+.antenna-sub {
+  font-size: 12px;
+  color: var(--antenna-ink-3);
+  margin-left: 4px;
+  font-weight: 400;
+}
+.antenna-login-status {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--antenna-ink-3);
+  font-weight: 500;
+}
+
+.antenna-login-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+}
+.antenna-login-inner {
+  width: 100%;
+  max-width: 560px;
+}
+.antenna-login-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--antenna-yellow);
+  margin-bottom: 28px;
+  font-weight: 500;
+}
+.antenna-login-heading {
+  font-size: 64px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  margin-bottom: 28px;
+  color: #fff;
+}
+.antenna-login-body {
+  font-size: 16px;
+  color: var(--antenna-ink-2);
+  line-height: 1.5;
+  margin-bottom: 48px;
+  max-width: 480px;
+}
+.antenna-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 480px;
+}
+.antenna-login-field-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--antenna-ink-3);
+  margin-bottom: 2px;
+  font-weight: 500;
+}
+.antenna-login-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+.antenna-login-input {
+  flex: 1;
+  padding: 16px 18px;
+  background: var(--antenna-bg-2);
+  border: 1px solid var(--antenna-line);
+  color: #fff;
+  font-family: inherit;
+  font-size: 15px;
+  border-radius: 2px;
+  transition: border-color 0.15s;
+}
+.antenna-login-input::placeholder { color: var(--antenna-ink-3); }
+.antenna-login-input:focus {
+  outline: none;
+  border-color: var(--antenna-yellow);
+}
+.antenna-login-input.error {
+  border-color: #ff6b5e;
+}
+.antenna-login-enter {
+  padding: 0 32px;
+  background: var(--antenna-yellow);
+  color: var(--antenna-bg);
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.15s, opacity 0.15s;
+}
+.antenna-login-enter:hover:not(:disabled) { background: #C2E82E; }
+.antenna-login-enter:disabled { opacity: 0.4; cursor: not-allowed; }
+.antenna-login-error {
+  font-size: 13px;
+  color: #ff6b5e;
+  margin-top: 4px;
+}
+
+.antenna-login-footer {
+  padding: 24px 40px;
+  border-top: 1px solid var(--antenna-line);
+}
+.antenna-login-footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-size: 11px;
+  color: var(--antenna-ink-3);
+  letter-spacing: 0.02em;
+}
+
+/* ============ LEGACY LOGIN PAGE (keep for reference, now unused) ============ */
 .login-page {
   min-height: calc(100vh - 33px);
   background: var(--bg);
@@ -1825,6 +2046,79 @@ body.annotations-off .anno { display: none; }
 }
 .fn-subscribe-form button:hover { background: rgba(255,255,255,0.85); }
 
+/* ============ MOBILE MENU ============ */
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 8px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+.mobile-menu-btn .ham {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 16px;
+}
+.mobile-menu-btn .ham span {
+  height: 1.5px;
+  background: var(--ink-1);
+  display: block;
+  transition: transform 0.2s, opacity 0.2s;
+  transform-origin: center;
+}
+.mobile-menu-btn .ham.open span:nth-child(1) {
+  transform: translateY(4.5px) rotate(45deg);
+}
+.mobile-menu-btn .ham.open span:nth-child(2) { opacity: 0; }
+.mobile-menu-btn .ham.open span:nth-child(3) {
+  transform: translateY(-4.5px) rotate(-45deg);
+}
+.mobile-menu-panel {
+  position: fixed;
+  top: 101px; /* below proto banner + nav */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--paper);
+  z-index: 45;
+  overflow-y: auto;
+}
+.mobile-menu-inner {
+  padding: 32px 24px;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.mobile-menu-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+.mobile-menu-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink-1);
+  text-decoration: none;
+}
+.mobile-menu-link.active { color: var(--accent); }
+.mobile-menu-link.muted { color: var(--ink-2); font-size: 15px; padding: 14px 0; }
+.mobile-menu-link .arrow { color: var(--ink-3); font-size: 16px; }
+.mobile-menu-divider { height: 24px; }
+
 /* ============ RESPONSIVE ============ */
 @media (max-width: 900px) {
   .hero h1 { font-size: 44px; }
@@ -1834,6 +2128,8 @@ body.annotations-off .anno { display: none; }
   .section h2 { font-size: 28px; }
   .pov h2 { font-size: 30px; }
   .nav-links { display: none; }
+  .mobile-menu-btn { display: flex; }
+  .sign-in { display: none; }
   .arenas-grid { grid-template-columns: 1fr; }
   .arena { border-right: none; border-bottom: 1px solid var(--line); }
   .two-col, .pov-inner, .fortnightly-inner,
@@ -1873,4 +2169,12 @@ body.annotations-off .anno { display: none; }
   .fn-grid-3 { grid-template-columns: 1fr; }
   .fn-subscribe h2 { font-size: 32px; }
   .fn-subscribe-form { flex-direction: column; }
+  .antenna-login-heading { font-size: 40px; }
+  .antenna-login-topbar { padding: 16px 20px; }
+  .antenna-login-main { padding: 40px 20px; }
+  .antenna-login-footer { padding: 20px; }
+  .antenna-login-input-row { flex-direction: column; }
+  .antenna-login-enter { padding: 16px; }
+  .antenna-login-footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+  .proto-banner .version-badge { display: none; }
 }

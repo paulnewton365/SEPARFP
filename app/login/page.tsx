@@ -1,68 +1,122 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useState, useEffect, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { VersionBadge } from '@/components/VersionBadge';
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const from = searchParams.get('from') || '/';
   const [code, setCode] = useState('');
   const [error, setError] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  // Simple access code gate. In production, wire to real auth.
-  const ACCESS_CODE = 'sepa2026';
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (code.trim().toLowerCase() === ACCESS_CODE) {
-      setError(false);
-      router.push('/');
-    } else {
+    if (submitting) return;
+    setSubmitting(true);
+    setError(false);
+
+    try {
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code }),
+      });
+      if (res.ok) {
+        router.push(from);
+        router.refresh();
+      } else {
+        setError(true);
+        setSubmitting(false);
+      }
+    } catch {
       setError(true);
+      setSubmitting(false);
     }
   };
 
   return (
-    <div className="login-page">
-      <div className="login-card">
-        <Link href="/" className="login-brand">
-          <div className="logo-mark" />
-          <div className="login-brand-text">
-            <strong>SEPA</strong>
-            <span>Smart Electric Power Alliance</span>
+    <form className="antenna-login-form" onSubmit={handleSubmit}>
+      <label htmlFor="access" className="antenna-login-field-label">
+        Access code
+      </label>
+      <div className="antenna-login-input-row">
+        <input
+          id="access"
+          className={`antenna-login-input ${error ? 'error' : ''}`}
+          type="password"
+          placeholder="Enter access code"
+          value={code}
+          onChange={(e) => { setCode(e.target.value); setError(false); }}
+          autoFocus
+          autoComplete="off"
+          disabled={submitting}
+        />
+        <button type="submit" className="antenna-login-enter" disabled={submitting || !code}>
+          {submitting ? '...' : 'Enter'}
+        </button>
+      </div>
+      {error && (
+        <div className="antenna-login-error">
+          That code isn&apos;t recognized. Please check and try again.
+        </div>
+      )}
+    </form>
+  );
+}
+
+export default function LoginPage() {
+  // Ensure page fills viewport without Nav overhead
+  useEffect(() => {
+    document.body.classList.add('antenna-login-mode');
+    return () => {
+      document.body.classList.remove('antenna-login-mode');
+    };
+  }, []);
+
+  return (
+    <div className="antenna-login-page">
+      <div className="antenna-login-topbar">
+        <div className="antenna-login-topbar-inner">
+          <div className="antenna-login-brandmark">
+            <div className="antenna-mark" aria-hidden="true">
+              <span className="antenna-mark-sq" />
+              <span className="antenna-mark-sq yellow" />
+            </div>
+            <span className="antenna-wordmark">
+              .<strong>antenna</strong><span className="antenna-sub">group</span>
+            </span>
           </div>
-        </Link>
-
-        <div className="login-label">Confidential Preview</div>
-        <h1 className="login-heading">
-          Working prototype.
-        </h1>
-        <p className="login-body">
-          This is a working prototype of a proposed new SEPA experience, prepared by Antenna Group.
-          Enter your access code to continue.
-        </p>
-
-        <form className="login-form" onSubmit={handleSubmit}>
-          <input
-            className={`login-input ${error ? 'error' : ''}`}
-            type="text"
-            placeholder="Access code"
-            value={code}
-            onChange={(e) => { setCode(e.target.value); setError(false); }}
-            autoFocus
-            autoComplete="off"
-          />
-          {error && <div className="login-error">That code isn&apos;t recognized. Try again.</div>}
-          <button type="submit" className="login-submit">
-            Enter the preview
-          </button>
-        </form>
-
-        <div className="login-meta">
-          <a href="mailto:paul.newton@antennagroup.com">Need access?</a>
-          <span>antennagroup.com</span>
+          <div className="antenna-login-status">Confidential Preview</div>
         </div>
       </div>
+
+      <main className="antenna-login-main">
+        <div className="antenna-login-inner">
+          <div className="antenna-login-eyebrow">SEPA · Proposal prototype</div>
+          <h1 className="antenna-login-heading">
+            Let&apos;s shape<br />
+            energy&apos;s transition.
+          </h1>
+          <p className="antenna-login-body">
+            This is a working prototype of a proposed new experience for the Smart Electric Power
+            Alliance, prepared by Antenna Group. Enter your access code to continue.
+          </p>
+          <Suspense fallback={null}>
+            <LoginForm />
+          </Suspense>
+        </div>
+      </main>
+
+      <footer className="antenna-login-footer">
+        <div className="antenna-login-footer-inner">
+          <div>antennagroup.com</div>
+          <VersionBadge variant="dark" />
+          <div>© 2026 Antenna Group</div>
+        </div>
+      </footer>
     </div>
   );
 }
