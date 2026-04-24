@@ -1,10 +1,7 @@
 import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
-import { Nav } from '@/components/Nav';
-import { TaglineStrip } from '@/components/TaglineStrip';
-import { ProtoBanner } from '@/components/ProtoBanner';
-import { FooterMission } from '@/components/FooterMission';
-import { Footer } from '@/components/Footer';
+import { AudienceProvider } from '@/components/AudienceContext';
+import { Shell } from '@/components/Shell';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -21,12 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistSans.variable}>
       <body>
-        <ProtoBanner />
-        <Nav />
-        <TaglineStrip />
-        {children}
-        <FooterMission />
-        <Footer />
+        <AudienceProvider>
+          <Shell>{children}</Shell>
+        </AudienceProvider>
       </body>
     </html>
   );

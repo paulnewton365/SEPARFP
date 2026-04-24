@@ -1,3 +1,5 @@
+import { Annotation } from '@/components/Annotation';
+
 export default function ShapeGridPage() {
   return (
     <>
@@ -16,6 +18,33 @@ export default function ShapeGridPage() {
           </p>
         </div>
       </section>
+
+      {/* ARENA SWITCHER - elevated G/G/G nav */}
+      <div className="arena-switcher">
+        <div className="arena-switcher-inner">
+          <div className="arena-switcher-label">
+            Shaping
+            <Annotation
+              number={9}
+              note="Arena switcher sits above every Shape page. The three arenas are always visible and one click apart, so Grid/Growth/Globe become the skeleton of the Shape experience."
+            />
+          </div>
+          <div className="arena-switcher-links">
+            <a className="arena-switcher-link active">
+              <span className="dot" />
+              Grid
+            </a>
+            <a className="arena-switcher-link">
+              <span className="dot" />
+              Growth
+            </a>
+            <a className="arena-switcher-link">
+              <span className="dot" />
+              Globe
+            </a>
+          </div>
+        </div>
+      </div>
 
       {/* SUB NAV */}
       <div className="arena-subnav">

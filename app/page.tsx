@@ -1,29 +1,94 @@
+'use client';
+
 import Link from 'next/link';
 import { Annotation } from '@/components/Annotation';
+import { useAudience } from '@/components/AudienceContext';
 
 export default function HomePage() {
+  const { audience } = useAudience();
+
+  // Order the path cards by which is selected (selected first)
+  const paths = [
+    {
+      key: 'utility' as const,
+      href: '/for/utility',
+      title: 'Utility leaders',
+      body: 'Peer benchmarks, de-risked investment research, credible cover for bold moves.',
+    },
+    {
+      key: 'regulator' as const,
+      href: '#',
+      title: 'Regulators & policymakers',
+      body: 'Unbiased evidence, state-by-state comparisons, neutrality as a principle.',
+    },
+    {
+      key: 'provider' as const,
+      href: '#',
+      title: 'Solution providers',
+      body: 'Direct access to utility decision-makers, early market signals, partnership paths.',
+    },
+    {
+      key: 'buyer' as const,
+      href: '#',
+      title: 'Large energy buyers',
+      body: 'Utility roadmaps, collective voice, translation between procurement and grid reality.',
+    },
+  ];
+  const orderedPaths = audience === 'all'
+    ? paths
+    : [...paths.filter((p) => p.key === audience), ...paths.filter((p) => p.key !== audience)];
+
   return (
     <>
-      {/* HERO */}
-      <section className="hero">
-        <div className="hero-inner">
+      {/* HERO with elevated G/G/G */}
+      <section className="hero-arenas">
+        <div className="hero-arenas-inner">
           <h1>
             Let&apos;s shape<br />
             energy&apos;s <em>transition.</em>
             <Annotation
               number={1}
-              note="The organizing idea in the most prominent position on the site. Replaces the recruitment line 'See yourself with SEPA' with a leadership line."
+              note="The organizing idea, paired with the three arenas. Grid, Growth, Globe now live on the first screen in indexable text, not buried in a video."
             />
           </h1>
           <p className="hero-sub">
             Energy&apos;s future will be shaped by utilities, regulators, providers, and buyers
             working together, informed by credible evidence, and aligned on what actually works.
-            We convene the room. We fund the research. We publish the answers.
           </p>
-          <div className="hero-actions">
+          <div className="hero-actions" style={{ marginBottom: 60 }}>
             <a className="btn">Explore the work</a>
             <Link href="/research" className="link-arrow">
               See this quarter&apos;s research →
+            </Link>
+          </div>
+
+          <div className="hero-arena-strip">
+            <Link href="/shape/grid" className="hero-arena-cell">
+              <div className="num">Arena 01</div>
+              <div className="name">Grid.</div>
+              <p className="desc">
+                The physical and regulatory foundation of the transition. Keeping the lights on
+                while rebuilding the system that delivers them.
+              </p>
+              <div className="tags">Resilience · Storage · Emerging Tech · Policy</div>
+            </Link>
+            <Link href="/shape/grid" className="hero-arena-cell">
+              <div className="num">Arena 02</div>
+              <div className="name">Growth.</div>
+              <p className="desc">
+                AI, data centers, fleets, and heat pumps are remaking demand. Planning for that
+                growth is the defining utility challenge of the decade.
+              </p>
+              <div className="tags">Transport · Large Loads · Electrification · Demand</div>
+            </Link>
+            <Link href="/shape/grid" className="hero-arena-cell">
+              <div className="num">Arena 03</div>
+              <div className="name">Globe.</div>
+              <p className="desc">
+                Innovation crosses borders. So do the lessons. We bring global thinking back to
+                the US sector and make the case for equitable transition outcomes.
+              </p>
+              <div className="tags">International · Cross-Border · Equity · Inclusion</div>
             </Link>
           </div>
         </div>
@@ -47,55 +112,6 @@ export default function HomePage() {
           <div className="proof-item">
             <div className="num">Zero</div>
             <div className="label">dollars spent on lobbying. Neutrality as a principle.</div>
-          </div>
-        </div>
-      </section>
-
-      {/* THREE ARENAS */}
-      <section className="arenas">
-        <div className="section-head" style={{ padding: '0 24px' }}>
-          <div className="eyebrow">The work, in three arenas</div>
-          <h2>
-            Grid, Growth, Globe.
-            <Annotation
-              number={2}
-              note="The strategic framework lives in indexable text now, not just in a homepage video. Each arena becomes a content hub, a campaign thread, and an SEO surface."
-            />
-          </h2>
-          <p className="section-sub">
-            Three arenas where the transition is being decided. Pick the one closest to your work.
-          </p>
-        </div>
-        <div className="arenas-grid">
-          <Link href="/shape/grid" className="arena">
-            <div className="arena-mark" />
-            <h3>Grid</h3>
-            <div className="arena-tags">Resilience · Storage · Emerging Tech · Policy</div>
-            <p>
-              The physical and regulatory foundation of the transition. Keeping the lights on
-              while rebuilding the system that delivers them.
-            </p>
-            <span className="link-arrow">Shape the grid →</span>
-          </Link>
-          <div className="arena">
-            <div className="arena-mark" />
-            <h3>Growth</h3>
-            <div className="arena-tags">Transportation · Large Loads · Electrification · Demand</div>
-            <p>
-              AI, data centers, vehicle fleets, and heat pumps are remaking demand. Planning for
-              that growth is the defining utility challenge of the decade.
-            </p>
-            <span className="link-arrow">Shape the growth →</span>
-          </div>
-          <div className="arena">
-            <div className="arena-mark" />
-            <h3>Globe</h3>
-            <div className="arena-tags">International · Cross-Border · Equity · Inclusion</div>
-            <p>
-              Innovation crosses borders. So do the lessons. We bring global thinking back to
-              the US utility sector, and make the case for equitable transition outcomes.
-            </p>
-            <span className="link-arrow">Shape the globe →</span>
           </div>
         </div>
       </section>
@@ -135,8 +151,7 @@ export default function HomePage() {
           <div className="eyebrow">This month&apos;s evidence</div>
           <h2>Research that moves decisions.</h2>
           <p className="section-sub">
-            Every report leads with findings, audience, and a decision it helps you make. No more
-            abstracts that hide what matters.
+            Every report leads with findings, audience, and a decision it helps you make.
           </p>
         </div>
         <div className="research-grid">
@@ -236,9 +251,6 @@ export default function HomePage() {
         <div className="section-head">
           <div className="eyebrow">Convening now</div>
           <h2>What&apos;s happening this month.</h2>
-          <p className="section-sub">
-            Where the shaping actually happens. Events, working groups, and the Academy.
-          </p>
         </div>
         <div className="events-list">
           <div className="event-row">
@@ -281,21 +293,17 @@ export default function HomePage() {
               Fortnightly
               <Annotation
                 number={4}
-                note="Placement tests the sub-brand hypothesis: PUF keeps its masthead, but its proximity to SEPA's work is clear and intentional. The endorsed variant would sit this further apart."
+                note="Placement tests the sub-brand hypothesis: PUF keeps its masthead, but its proximity to SEPA's work is clear and intentional."
               />
             </div>
             <h2>A century of utility thinking, now connected to the sector&apos;s working files.</h2>
             <p>
               Public Utilities Fortnightly has shaped how the industry debates itself since 1928.
               As part of SEPA, its editorial independence stays intact, and its reach gets sharper.
-              Read the latest issue, or subscribe to the weekly brief.
             </p>
             <div className="hero-actions">
-              <a className="btn">Read the current issue</a>
-              <a
-                className="link-arrow"
-                style={{ color: 'rgba(255,255,255,0.9)', borderColor: 'rgba(255,255,255,0.9)' }}
-              >
+              <Link href="/fortnightly" className="btn">Read the current issue</Link>
+              <a className="link-arrow" style={{ color: 'rgba(255,255,255,0.9)', borderColor: 'rgba(255,255,255,0.9)' }}>
                 Subscribe to the brief →
               </a>
             </div>
@@ -303,47 +311,46 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PATHS */}
+      {/* AUDIENCE PATHS - audience-aware ordering */}
       <section className="paths">
         <div className="section-head">
           <div className="eyebrow">Find your path</div>
           <h2>
-            What brought you here?
+            {audience === 'all' ? 'What brought you here?' : 'Curated for you.'}
             <Annotation
               number={5}
-              note="Four curated entry points. Same content, different framings. This is how the site serves multiple audiences without forking into four separate sites."
+              note="Four curated entry points. When an audience is selected from the nav, their path leads and gets a highlighted treatment. Same content, different framings per role."
             />
           </h2>
           <p className="section-sub">
-            We&apos;ve curated the work four ways, so you don&apos;t have to browse 482 reports to
-            find yours.
+            {audience === 'all'
+              ? "We've curated the work four ways, so you don't have to browse 482 reports to find yours."
+              : "Your selected role is featured first. Change it in the nav anytime."}
           </p>
         </div>
         <div className="paths-grid">
-          <Link href="/for/utility" className="path-card">
-            <div className="path-label">For</div>
-            <h4>Utility leaders</h4>
-            <p>Peer benchmarks, de-risked investment research, credible cover for bold moves.</p>
-            <div className="arrow">→</div>
-          </Link>
-          <div className="path-card">
-            <div className="path-label">For</div>
-            <h4>Regulators &amp; policymakers</h4>
-            <p>Unbiased evidence, state-by-state comparisons, neutrality as a principle.</p>
-            <div className="arrow">→</div>
-          </div>
-          <div className="path-card">
-            <div className="path-label">For</div>
-            <h4>Solution providers</h4>
-            <p>Direct access to utility decision-makers, early market signals, partnership paths.</p>
-            <div className="arrow">→</div>
-          </div>
-          <div className="path-card">
-            <div className="path-label">For</div>
-            <h4>Large energy buyers</h4>
-            <p>Utility roadmaps, collective voice, translation between procurement and grid reality.</p>
-            <div className="arrow">→</div>
-          </div>
+          {orderedPaths.map((p) => {
+            const isSelected = audience === p.key;
+            return (
+              <Link
+                key={p.key}
+                href={p.href}
+                className="path-card"
+                style={isSelected ? {
+                  background: 'var(--ink-1)',
+                  borderColor: 'var(--ink-1)',
+                  color: 'var(--paper)',
+                } : undefined}
+              >
+                <div className="path-label" style={isSelected ? { color: 'rgba(255,255,255,0.5)' } : undefined}>
+                  {isSelected ? 'Your view' : 'For'}
+                </div>
+                <h4>{p.title}</h4>
+                <p style={isSelected ? { color: 'rgba(255,255,255,0.7)' } : undefined}>{p.body}</p>
+                <div className="arrow" style={isSelected ? { color: 'var(--paper)' } : undefined}>→</div>
+              </Link>
+            );
+          })}
         </div>
       </section>
     </>

@@ -4,12 +4,23 @@ A working prototype for the proposed SEPA information architecture and brand dir
 
 ## What this is
 
-Four screens that test the hypothesis: **utility leaders and regulators will engage more deeply with SEPA if the site is organized around shaping the transition rather than describing SEPA's activities.**
+Working prototype for a proposed SEPA experience. Seven screens that test a single hypothesis: **utility leaders, regulators, and other sector actors will engage more deeply with SEPA if the site is organized around shaping the transition rather than describing SEPA's activities.**
 
-- `/` Home
-- `/shape/grid` Shape / Grid arena
-- `/research` Research hub
+- `/` Home — Grid/Growth/Globe elevated into the hero, audience-aware path reordering
+- `/shape/grid` Shape / Grid arena with persistent arena switcher for Growth/Globe
+- `/research` Research hub — DELTa + Carbon-Reduction Tracker surfaced as branded assets
 - `/for/utility` Utility leaders audience hub
+- `/fortnightly` Public Utilities Fortnightly — sub-brand treatment, magazine-quality layout
+- `/about` About SEPA — positioning-led, neutrality as principle, leadership visible
+- `/login` Access-gated preview (access code: `sepa2026`)
+
+The organizing idea "Let's shape energy's transition" appears persistently in the tagline strip. Every main-site page closes on the mission. Fortnightly and login have their own identities.
+
+**Features worth clicking:**
+- **Audience selector** in the nav: self-identify as Utility / Regulator / Provider / Buyer to personalize the home experience. Selection persists across pages via localStorage.
+- **Search field** in nav: stubbed to an alert, ready to wire to a real `/search` route.
+- **Arena switcher** on Shape pages: Grid, Growth, Globe always one click apart.
+- **Annotations toggle** in the proto banner: blue numbered markers explain structural decisions. Hover to read. Toggle off before a client walkthrough.
 
 ## Stack
 

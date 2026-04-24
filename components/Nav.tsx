@@ -2,6 +2,8 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { NavSearch } from './NavSearch';
+import { AudienceSelector } from './AudienceSelector';
 
 export function Nav() {
   const pathname = usePathname();
@@ -34,18 +36,23 @@ export function Nav() {
             <a>Convene</a>
           </li>
           <li>
-            <a>Fortnightly</a>
+            <Link href="/fortnightly" className={isActive('/fortnightly') ? 'active' : ''}>
+              Fortnightly
+            </Link>
           </li>
           <li>
             <a>Join</a>
           </li>
           <li>
-            <a>About</a>
+            <Link href="/about" className={isActive('/about') ? 'active' : ''}>
+              About
+            </Link>
           </li>
         </ul>
         <div className="nav-cta">
-          <a className="sign-in">Sign in</a>
-          <a className="btn">Participate</a>
+          <NavSearch />
+          <AudienceSelector />
+          <Link href="/login" className="sign-in">Sign in</Link>
         </div>
       </div>
     </nav>
