@@ -1,125 +1,120 @@
-# SEPA Wireframe · v0.3
+# SEPA Prototype
 
-Unbranded clickable wireframe for a proposed SEPA site repositioning. Built for the Antenna × SEPA RFP response.
+A working prototype for the proposed SEPA information architecture and brand direction. Built on the stack defined in the Vercel best practices doc: Next.js on Vercel, Tailwind, shadcn/ui-ready.
 
 ## What this is
 
-A single-file React SPA that demonstrates:
+Four screens that test the hypothesis: **utility leaders and regulators will engage more deeply with SEPA if the site is organized around shaping the transition rather than describing SEPA's activities.**
 
-- The new organizing idea, **"Let's shape energy's transition,"** heroing the homepage
-- A revised information architecture that consolidates the sprawl of sepapower.org
-- Role-based entry points for the four audiences in the strategy deck, each with named case studies and a dedicated guide
-- The Grid / Growth / Globe framework rendered in indexable text
-- A proposed SEPA × Public Utilities Fortnightly brand architecture, made explicit
-- A persistent mission and values panel ("brand stamp") that appears on every page
-- A "Voices" module surfacing SEPA's thought leaders and a team strip showing the people doing the work
-- Data visualizations (research distribution, load forecast gap) built directly into sections where they earn their place
-- Photo placeholders with captions that specify what imagery would live there
-- An editorial "working document" visual language that pairs with the measured-not-muted tone from the deck
+- `/` Home
+- `/shape/grid` Shape / Grid arena
+- `/research` Research hub
+- `/for/utility` Utility leaders audience hub
 
-"Unbranded" means the wireframe deliberately avoids SEPA's current blue/green palette. The aesthetic is a neutral editorial system: warm bone background, ink black, one warm rust accent, monospace metadata labels, hairline rules, monogram avatars for placeholder faces.
+The organizing idea "Let's shape energy's transition" appears persistently in the tagline strip. Every page closes on the mission.
 
-## What changed from v0.2
+Annotations are baked into the prototype (hover the blue numbered markers). Toggle them off in the top banner before a client walkthrough if you want to talk them through live.
 
-- **Brand and mission are now ever-present.** A dark "brand stamp" panel appears on every page above the main footer: mission statement in serif italic with "energy's transition" accented, a values chip row (Trust / Evidence / Neutrality / Convening / Openness / Rigor), and institutional footer metadata. A mission fragment also rides in the top meta strip across every page.
-- **People are visible.** Monogram avatars (with named initials, varied color variants) stand in for real photography. A new "People doing the work" section on the homepage includes a Voices strip (4 named experts with POVs and pull quotes) and a team grid (8 staff with roles). About page leadership cards are now richer with bios and focus areas.
-- **Thought leadership is surfaced.** Research is no longer authorless; every featured piece is attributed to a named expert. Voice cards combine monogram, role, expertise, POV title, and italic pull quote in one module.
-- **Benefit-based storytelling on every audience page.** Each of the four role pages (utilities, regulators, providers, buyers) now includes a "How members use this" section with two named case studies. Format: named org → specific challenge → SEPA resource used → measurable outcome → attributed pull quote from the person. Examples include "$47M rate-case exposure reduced," "14 co-ops aligned on storage," "4 orders citing SEPA research," "$1.2B procurement coordinated."
-- **Each audience page names a guide.** A specific SEPA team member is visible at the top of every role landing as "your guide in this practice" with a one-click "Book 30 min" CTA.
-- **Data visualizations are in.** Two new charts built in hand-coded SVG: a distribution bar showing the 482-asset research library split across Grid/Growth/Globe on the homepage, and a dual-line forecast chart on the Transition page showing the gap between the 2022 peak load forecast and the 2024 revision.
-- **Imagery placeholders are intentional.** Captioned photo boxes tell reviewers exactly what imagery would live in each slot (working group in Boulder, editorial meeting at DC office, annual all-hands) so the wireframe no longer reads as text-only.
+## Stack
 
-## Consolidation from sepapower.org, at a glance
+- Next.js 14 (App Router)
+- React 18
+- TypeScript
+- Tailwind CSS (with SEPA design tokens)
+- Geist font (via `next/font`)
 
-| Current site | Wireframe proposal | Why |
-|---|---|---|
-| "Our Focus" (6 flat focus areas) + Grid/Growth/Globe (video-only) | **The Transition** section with G/G/G as primary framework and focus areas nested under it | Surfaces the strategic framework in indexable text; ends the six-silo flatness |
-| "Knowledge" submenu (5 subpages) | **Research** — one unified library with audience / force / kind filters | Ends the type-vs-topic browsing split |
-| DELTa, Carbon Tracker, Snapshots (scattered) | **Tools spotlight** with distinct dark-card treatment | Elevates proprietary tools; gives them the prominence the current site doesn't |
-| Research with no authors | **Voices** module with named experts + attributed POVs | Thought leadership becomes human |
-| No case studies | **Member Stories** on every audience page | Turns research into outcomes; benefit-based storytelling |
-| No visible team photos or culture | **People module** on homepage + Leadership cards on About + Photo placeholders with captions | Authentic culture and talent visible throughout |
-| No data visualization | **SVG charts** in The Work and Transition sections | Shows SEPA's scale and substance visually |
-| PUF orphaned in footer | **Publications** section with its own page | Resolves the brand architecture ambiguity |
-| Mission on About only | **Brand stamp on every page** | Mission and values ever-present |
-| "Our Capabilities" (ambiguous) | Removed | The label was never working |
-| "Join SEPA" recruitment CTA | **Ask to act** | Matches the deck's positioning shift |
-| "See Yourself with SEPA" hero | **"Let's shape energy's transition"** | The organizing idea from the deck, heroed |
+No shadcn/ui components used yet. Add them when the prototype grows interactive components that need accessibility primitives.
 
-## Pages included
-
-| Route | What it demonstrates |
-|---|---|
-| `#home` | Hero · Framework · The Work (with distribution chart) · People (Voices + Team) · PUF · Join · Brand stamp |
-| `#the-transition` | Grid/Growth/Globe with load-forecast chart in the Growth section |
-| `#research` | Unified library with component-labeled filter bar |
-| `#publications` | PUF integration + architecture explained |
-| `#for/utilities`, `#for/regulators`, `#for/providers`, `#for/buyers` | Role-based landings with named guide + case studies |
-| `#membership` | Framed as ask-to-act |
-| `#about` | Leadership cards with bios + focus areas + culture scene |
-
-## Self-contained
-
-Everything is inlined: React, ReactDOM, Tailwind utilities, custom CSS, compiled application code, and all SVG charts. The only external resource is Google Fonts, which falls back to Georgia and system-ui if the network is restricted.
-
-Nothing to install. No build step. No CDN dependencies. Works from `file://` or any static host.
-
-## Run locally
+## Local development
 
 ```bash
-# Python
-python3 -m http.server 8080
-
-# Node
-npx serve .
-
-# Or just double-click index.html
+npm install
+npm run dev
 ```
+
+Open [http://localhost:3000](http://localhost:3000).
 
 ## Deploy to Vercel
 
-**Option 1. Drag and drop** (fastest)
-Drop `sepa-wireframe.zip` on `vercel.com/new`. Done.
+**Option 1: GitHub + Vercel dashboard (recommended)**
 
-**Option 2. Vercel CLI**
+1. Push this folder to a new GitHub repo
+2. Go to [vercel.com/new](https://vercel.com/new)
+3. Import the repo
+4. Framework preset: Next.js (auto-detected)
+5. Deploy
+
+Vercel creates preview URLs for every branch and PR, which is the workflow the best practices doc assumes.
+
+**Option 2: Vercel CLI**
+
 ```bash
 npm i -g vercel
-cd sepa-wireframe
 vercel
 ```
 
-**Option 3. GitHub**
-Push to a repo, click "Import Project" on Vercel.
+Follow the prompts. First deploy creates the project, subsequent deploys update it.
 
-## Editing
+## Clean URL
 
-To change copy, find the string in `index.html` and edit in place.
+Per best practice #8 in the reference doc, swap the hashed preview URL for something clean before sending to SEPA. Options:
 
-- Hero copy, section headlines, and component-label text are plain strings in the compiled code.
-- Voice cards, team members, case studies, and leadership are all in clearly structured arrays — edit directly.
-- Design tokens are in `:root` CSS variables (bone, ink, accent, hairline).
-- The brand stamp mission statement is in the `BrandStamp()` function.
+- Buy a cheap domain like `sepa-proto.com`
+- Use a subdomain of an existing Antenna domain: `sepa.antennagroup.com`
+- Configure in Vercel project settings → Domains
 
-For heavier structural edits (new page, new section), the JSX source is available on request.
+## File structure
 
-## What's intentional (and what isn't)
+```
+sepa-prototype/
+├── app/
+│   ├── layout.tsx              Root layout with persistent shell
+│   ├── globals.css             Design tokens + wireframe styles
+│   ├── page.tsx                Home
+│   ├── shape/grid/page.tsx     Shape / Grid arena
+│   ├── research/page.tsx       Research hub
+│   └── for/utility/page.tsx    Utility leaders hub
+├── components/
+│   ├── Nav.tsx                 Primary navigation
+│   ├── TaglineStrip.tsx        "Let's shape energy's transition" strip
+│   ├── ProtoBanner.tsx         Dev banner with view switcher + annotation toggle
+│   ├── FooterMission.tsx       Persistent mission block (every page)
+│   ├── Footer.tsx              Footer nav
+│   └── Annotation.tsx          Hoverable annotation marker
+├── package.json
+├── tailwind.config.ts
+└── tsconfig.json
+```
 
-**Intentional**
-- Serif reserved for three moments: homepage hero, Fortnightly masthead, "ask to act" CTA, brand-stamp mission, case-study pull quotes. Everything else is sans.
-- The warm rust accent (`#BE4B28`) is the only color doing work, plus its light variant (`#E9C9BE`) for fills and quiet moments.
-- Monogram avatars in four variants (ink / accent / bone / dim) are a deliberate placeholder system, not a miss — they read as intentional while leaving room for real photography.
-- Photo placeholder captions specify exactly what imagery would live in each slot so reviewers understand the imagery intent.
-- Data visualizations use hand-coded SVG styled to match the editorial system — no charting library bloat.
-- Every major component carries a mono label and a "Replaces / Consolidates / Resolves" metadata line so the wireframe is self-documenting.
+## Design tokens
 
-**Not intentional (placeholder)**
-- All names, roles, member organizations, quotes, and stats are plausible fictions for demonstration purposes.
-- Photo placeholders are the opposite of production photography — they exist to show where imagery lives and what it would depict.
-- The logomark is a circle.
+Four-step grayscale ramp plus one accent, defined in `app/globals.css`:
 
-## File
+```css
+--paper: #FFFFFF      /* page background */
+--bg:    #F4F6F8      /* section alternates */
+--box:   #D8DFE5      /* wireframe placeholders */
+--line:  #B8C2CC      /* dividers */
+--ink-3: #8B96A3      /* tertiary text */
+--ink-2: #5B6872      /* secondary text */
+--ink-1: #1A1F24      /* primary text + dark surfaces */
+--accent: #2E5AAC     /* interactive elements only */
+```
 
-- `index.html` — the whole wireframe (~284 KB)
-- `vercel.json` — minimal config
+Single accent reserved for interactive elements per best practice #4. Do not use for decoration.
 
-That's it.
+## Next steps (hypothesis-testable)
+
+1. **Remove the proto banner** for client share. Comment out `<ProtoBanner />` in `app/layout.tsx` or gate on `process.env.NODE_ENV`.
+2. **Add the Fortnightly variant toggle.** Per best practice #6, use a query param like `?variant=sub-brand` or `?variant=endorsed` to toggle the Fortnightly treatment. Same deploy, two hypotheses.
+3. **Real images.** Currently using grey boxes as wireframe placeholders. Swap in real photography where the design direction supports it.
+4. **Instrumentation.** Add Vercel Analytics before sharing with SEPA so you know what they clicked.
+5. **Password protection.** In Vercel project settings → Deployment Protection, if the content is sensitive.
+
+## The hypothesis, written down
+
+Per best practice #1, this prototype exists to test one sentence:
+
+> We believe utility leaders and regulators will engage more deeply with SEPA if the site is organized around shaping the transition rather than describing SEPA's activities.
+
+Success = SEPA's next question is better than their first one.
