@@ -11,19 +11,14 @@ Four screens that test the hypothesis: **utility leaders and regulators will eng
 - `/research` Research hub
 - `/for/utility` Utility leaders audience hub
 
-The organizing idea "Let's shape energy's transition" appears persistently in the tagline strip. Every page closes on the mission.
-
-Annotations are baked into the prototype (hover the blue numbered markers). Toggle them off in the top banner before a client walkthrough if you want to talk them through live.
-
 ## Stack
 
-- Next.js 14 (App Router)
-- React 18
+- Next.js 15 (App Router)
+- React 19
 - TypeScript
-- Tailwind CSS (with SEPA design tokens)
-- Geist font (via `next/font`)
-
-No shadcn/ui components used yet. Add them when the prototype grows interactive components that need accessibility primitives.
+- Tailwind CSS
+- Geist font via `geist` package
+- Node 18.18+ required
 
 ## Local development
 
@@ -32,36 +27,88 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open http://localhost:3000
 
 ## Deploy to Vercel
 
-**Option 1: GitHub + Vercel dashboard (recommended)**
+**The critical setting most people get wrong on first deploy: the root directory.**
 
-1. Push this folder to a new GitHub repo
-2. Go to [vercel.com/new](https://vercel.com/new)
+If you are pushing this project to a GitHub repo, the `sepa-prototype/` folder needs to be either:
+- At the repo root (so `package.json` is directly in the repo root), OR
+- A subfolder, in which case you must tell Vercel to use that subfolder as the root
+
+### If `package.json` is at the repo root
+
+1. Push to GitHub
+2. Go to https://vercel.com/new
 3. Import the repo
-4. Framework preset: Next.js (auto-detected)
-5. Deploy
+4. Framework: Next.js (auto-detected)
+5. Click Deploy
 
-Vercel creates preview URLs for every branch and PR, which is the workflow the best practices doc assumes.
+### If `sepa-prototype/` is a subfolder
 
-**Option 2: Vercel CLI**
+1. Push to GitHub
+2. Go to https://vercel.com/new
+3. Import the repo
+4. Expand **"Build and Output Settings"** or **"Root Directory"**
+5. Set Root Directory to `sepa-prototype`
+6. Framework: Next.js (auto-detected)
+7. Click Deploy
+
+### Vercel CLI alternative (skips GitHub entirely)
 
 ```bash
+cd sepa-prototype
 npm i -g vercel
 vercel
 ```
 
-Follow the prompts. First deploy creates the project, subsequent deploys update it.
+Follow prompts. When it asks "In which directory is your code located?", answer `./`.
+
+## Troubleshooting deploy failures
+
+### "No Framework Detected" or build command not found
+
+Root directory is wrong. See above. The folder with `package.json` must be the root.
+
+### Build fails on `npm install`
+
+Stale lockfile. Delete `package-lock.json`, re-commit, push.
+
+### Build fails on TypeScript or ESLint errors
+
+Run `npm run build` locally first to see the same errors Vercel sees. Fix, commit, push.
+
+### Node version errors
+
+Vercel defaults to Node 22 LTS as of 2026. This project requires Node 18.18+ and works on 18, 20, or 22. If you see a Node version error, check Project Settings → General → Node.js Version and set to 20.x or 22.x.
+
+### Security vulnerability warnings blocking deploy
+
+This project is already on patched versions of Next.js 15 and React 19 as of April 2026. If Vercel still flags vulnerabilities:
+
+```bash
+npm update
+npm audit fix
+```
+
+Commit and push.
+
+### Preview URL deploys but routes 404
+
+Clear the Vercel build cache: Project Settings → General → Build & Development Settings → "Clear Cache". Redeploy.
+
+### Still failing
+
+Copy the exact error message from the Vercel build log (Deployments → click the failed deploy → Build Logs). The log will tell you what file and line is failing.
 
 ## Clean URL
 
-Per best practice #8 in the reference doc, swap the hashed preview URL for something clean before sending to SEPA. Options:
+Per best practice #8 in the Vercel best practices doc, swap the hashed preview URL for something cleaner before sending to SEPA:
 
 - Buy a cheap domain like `sepa-proto.com`
 - Use a subdomain of an existing Antenna domain: `sepa.antennagroup.com`
-- Configure in Vercel project settings → Domains
+- Configure in Vercel Project Settings → Domains
 
 ## File structure
 
@@ -76,19 +123,20 @@ sepa-prototype/
 │   └── for/utility/page.tsx    Utility leaders hub
 ├── components/
 │   ├── Nav.tsx                 Primary navigation
-│   ├── TaglineStrip.tsx        "Let's shape energy's transition" strip
+│   ├── TaglineStrip.tsx        Persistent tagline strip
 │   ├── ProtoBanner.tsx         Dev banner with view switcher + annotation toggle
 │   ├── FooterMission.tsx       Persistent mission block (every page)
 │   ├── Footer.tsx              Footer nav
 │   └── Annotation.tsx          Hoverable annotation marker
 ├── package.json
+├── vercel.json                 Explicit Vercel config
 ├── tailwind.config.ts
 └── tsconfig.json
 ```
 
 ## Design tokens
 
-Four-step grayscale ramp plus one accent, defined in `app/globals.css`:
+Four-step grayscale plus one accent, defined in `app/globals.css`:
 
 ```css
 --paper: #FFFFFF      /* page background */
@@ -101,15 +149,15 @@ Four-step grayscale ramp plus one accent, defined in `app/globals.css`:
 --accent: #2E5AAC     /* interactive elements only */
 ```
 
-Single accent reserved for interactive elements per best practice #4. Do not use for decoration.
+Single accent reserved for interactive elements per best practice #4.
 
 ## Next steps (hypothesis-testable)
 
 1. **Remove the proto banner** for client share. Comment out `<ProtoBanner />` in `app/layout.tsx` or gate on `process.env.NODE_ENV`.
-2. **Add the Fortnightly variant toggle.** Per best practice #6, use a query param like `?variant=sub-brand` or `?variant=endorsed` to toggle the Fortnightly treatment. Same deploy, two hypotheses.
-3. **Real images.** Currently using grey boxes as wireframe placeholders. Swap in real photography where the design direction supports it.
-4. **Instrumentation.** Add Vercel Analytics before sharing with SEPA so you know what they clicked.
-5. **Password protection.** In Vercel project settings → Deployment Protection, if the content is sensitive.
+2. **Add the Fortnightly variant toggle.** Per best practice #6, use a query param like `?variant=sub-brand` vs `?variant=endorsed`. Same deploy, two hypotheses.
+3. **Real images.** Currently using grey boxes as wireframe placeholders.
+4. **Instrumentation.** Add Vercel Analytics before sharing with SEPA.
+5. **Password protection.** In Vercel project settings → Deployment Protection.
 
 ## The hypothesis, written down
 
