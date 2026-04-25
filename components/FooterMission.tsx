@@ -10,7 +10,7 @@ export function FooterMission() {
             Accelerate the electric power sector&apos;s transformation to a modern energy future.
             <Annotation
               number={8}
-              note="Persistent mission block on every page, per the brief. Mission and proof become the closing frame of every user journey."
+              note="The mission lives at the foot of every page so that brand and proof become the closing frame of every user journey. Not buried in About, not assumed — declared."
             />
           </h3>
           <p>

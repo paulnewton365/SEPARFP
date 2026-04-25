@@ -5,7 +5,7 @@ import { ShareButtons } from '@/components/SocialIcons';
 export default function ArticlePage() {
   return (
     <>
-      {/* META BAR - back link, reading time, share */}
+      {/* META BAR */}
       <div className="article-meta-bar">
         <div className="article-meta-bar-inner">
           <Link href="/fortnightly">← Fortnightly</Link>
@@ -16,10 +16,17 @@ export default function ArticlePage() {
         </div>
       </div>
 
+      {/* HERO IMAGE - full bleed, sets the tone */}
+      <div className="article-hero-img">
+        <div className="article-hero-img-inner">
+          <span className="hero-img-caption">Photo · Capitol building, dusk</span>
+        </div>
+      </div>
+
       {/* ARTICLE */}
       <article className="article">
         <header className="article-header">
-          {/* TAGS - up top, signal what this is before you read it */}
+          {/* TAGS */}
           <div className="article-tags">
             <a className="article-tag">Affordability</a>
             <a className="article-tag">Regulatory</a>
@@ -27,7 +34,7 @@ export default function ArticlePage() {
             <a className="article-tag">Rate Design</a>
             <Annotation
               number={25}
-              note="Tags up front act as both signal and filter. Click any tag to see other articles. Progressive disclosure: tags tell you the article's territory before the headline asks for your time."
+              note="Tags up front act as both signal and filter. Click any tag to find related work. They tell the reader what territory the article covers before the headline asks for their time."
             />
           </div>
 
@@ -35,7 +42,6 @@ export default function ArticlePage() {
             Power to the People: NASUCA on affordability
           </h1>
 
-          {/* DECK - the standfirst, written to earn the next 14 minutes */}
           <p className="article-deck">
             The nation&apos;s consumer advocates sit at the table where utility affordability
             gets decided. Three of their leaders tell PUF what it takes to hold that line now
@@ -43,15 +49,38 @@ export default function ArticlePage() {
             at the same time.
           </p>
 
+          {/* BYLINE WITH AUTHOR INTRO */}
           <div className="article-byline-row">
             <div className="article-byline">
-              <div className="article-byline-avatar" />
+              <div className="article-byline-avatars">
+                <div className="article-byline-avatar" />
+                <div className="article-byline-avatar" />
+                <div className="article-byline-avatar" />
+              </div>
               <div>
                 <div className="name">Michael Moody, Tom Content &amp; Anthony Swinger</div>
-                <div className="meta">Published April 2026 · Vol. 164 · Issue 4</div>
+                <div className="meta">Officers, NASUCA · April 2026 · Vol. 164 · Issue 4</div>
               </div>
             </div>
             <ShareButtons title="Power to the People — Fortnightly" />
+          </div>
+
+          {/* SHORT INTRO TO AUTHORS - sits in header before the body starts */}
+          <div className="article-intro-authors">
+            <div className="intro-label">About the contributors</div>
+            <p>
+              Three of the people the sector listens to on rate cases.{' '}
+              <strong>Michael Moody</strong> chairs NASUCA and runs Maryland&apos;s Office of
+              People&apos;s Counsel. <strong>Tom Content</strong> is NASUCA&apos;s vice
+              president and leads the Citizens Utility Board of Wisconsin.{' '}
+              <strong>Anthony Swinger</strong>, NASUCA&apos;s treasurer, is a senior advocate
+              with Tennessee&apos;s consumer affairs office. Together they sit in front of more
+              utility commissions in a year than most people see in a career.
+            </p>
+            <Annotation
+              number={26}
+              note="Author intro runs at the top of the article, not just in a bio at the foot. Readers decide whether to invest 14 minutes partly on who's writing — surfacing that early respects their time."
+            />
           </div>
         </header>
 
@@ -67,10 +96,10 @@ export default function ArticlePage() {
           </p>
 
           <p>
-            Three of NASUCA&apos;s officers — president Michael Moody, vice president Tom Content,
-            and treasurer Anthony Swinger — sat down with <em>Public Utilities Fortnightly</em> to
-            discuss what affordability looks like in 2026, and what advocates are asking for as
-            the sector enters a period of genuinely unprecedented capital deployment.
+            Three of NASUCA&apos;s officers — Moody, Content, and Swinger — sat down with{' '}
+            <em>Public Utilities Fortnightly</em> to discuss what affordability looks like in
+            2026, and what advocates are asking for as the sector enters a period of genuinely
+            unprecedented capital deployment.
           </p>
 
           <h2>The new affordability math</h2>
@@ -83,6 +112,53 @@ export default function ArticlePage() {
             volatile in a way the sector hasn&apos;t seen since the early 1990s, driven by AI
             data centers, transportation electrification, and reshoring of US industrial demand.
           </p>
+
+          {/* FIRST DATA VIZ - the rate base trend */}
+          <figure className="article-figure data-viz">
+            <div className="figure-label">Figure 1 · Source: SEPA analysis of FERC Form 1, 2018–2025</div>
+            <div className="figure-frame">
+              <div className="dataviz-placeholder">
+                <div className="dataviz-title">US investor-owned utility rate base, 2018–2025</div>
+                <div className="dataviz-axis">$ trillion (cumulative)</div>
+                {/* Simple inline SVG chart - not a real chart library, just a placeholder */}
+                <svg viewBox="0 0 600 240" className="dataviz-svg" preserveAspectRatio="none">
+                  <line x1="50" y1="200" x2="580" y2="200" stroke="var(--line)" strokeWidth="1" />
+                  <line x1="50" y1="40" x2="50" y2="200" stroke="var(--line)" strokeWidth="1" />
+                  {/* Bars */}
+                  {[
+                    { x: 70, h: 80, label: '2018' },
+                    { x: 140, h: 92, label: '2019' },
+                    { x: 210, h: 100, label: '2020' },
+                    { x: 280, h: 110, label: '2021' },
+                    { x: 350, h: 122, label: '2022' },
+                    { x: 420, h: 138, label: '2023' },
+                    { x: 490, h: 152, label: '2024' },
+                    { x: 560, h: 168, label: '2025' },
+                  ].map((b, i) => (
+                    <g key={i}>
+                      <rect
+                        x={b.x - 18}
+                        y={200 - b.h}
+                        width="36"
+                        height={b.h}
+                        fill={i >= 5 ? 'var(--accent)' : 'var(--ink-2)'}
+                      />
+                      <text x={b.x} y={218} fontSize="10" fill="var(--ink-3)" textAnchor="middle">{b.label}</text>
+                    </g>
+                  ))}
+                </svg>
+              </div>
+              <div className="figure-caption">
+                Rate base growth accelerated from a 5.4% annual pace (2018–2022) to a 10.7% annual
+                pace (2023–2025), with the bulk concentrated in distribution and generation
+                investments.
+              </div>
+            </div>
+            <Annotation
+              number={27}
+              note="Data visualization placeholder — labeled, captioned, and sourced even in wireframe form. Establishes the editorial discipline: every chart leads with what it shows, not how it was built."
+            />
+          </figure>
 
           <p>
             Each of those drivers has a defensible justification on its own. The problem,
@@ -111,8 +187,23 @@ export default function ArticlePage() {
             customer with a 100+ MW load profile, advocates want the cost of serving that customer
             allocated to the customer, not socialized into the residential class. SEPA&apos;s{' '}
             <Link href="/research">Large Load Playbook</Link> proposed a four-principle framework
-            for this in early 2026; NASUCA was among the first organizations to formally endorse it.
+            for this in early 2026; NASUCA was among the first organizations to formally endorse
+            it.
           </p>
+
+          {/* INLINE PHOTO - mid-article, breaks up the read */}
+          <figure className="article-figure inline-photo">
+            <div className="figure-frame photo">
+              <div className="photo-placeholder">
+                Photo · NASUCA leadership at the 2025 annual meeting
+              </div>
+              <div className="figure-caption">
+                Moody, Content, and Swinger at NASUCA&apos;s November 2025 annual meeting in
+                Phoenix. The cost-causation principle was first drafted in the conference&apos;s
+                rate-design working session.
+              </div>
+            </div>
+          </figure>
 
           <p>
             <strong>Second, transparent forecasting.</strong> Advocates have grown skeptical of
@@ -146,6 +237,42 @@ export default function ArticlePage() {
             <div className="attr">— Anthony Swinger, NASUCA Treasurer</div>
           </div>
 
+          {/* SECOND DATA VIZ - residential bill composition */}
+          <figure className="article-figure data-viz">
+            <div className="figure-label">Figure 2 · Source: SEPA member survey, n=84 IOUs, 2025</div>
+            <div className="figure-frame">
+              <div className="dataviz-placeholder">
+                <div className="dataviz-title">Drivers of projected residential bill increase, 2026–2030</div>
+                <div className="dataviz-axis">% of forecast bill increase by category</div>
+                <svg viewBox="0 0 600 220" className="dataviz-svg" preserveAspectRatio="none">
+                  {/* Stacked horizontal bars showing composition */}
+                  {[
+                    { y: 30, label: 'Distribution capital', pct: 38, color: 'var(--ink-1)' },
+                    { y: 75, label: 'Generation capital', pct: 27, color: 'var(--accent)' },
+                    { y: 120, label: 'Storm / resilience', pct: 14, color: 'var(--ink-2)' },
+                    { y: 165, label: 'Operating costs', pct: 11, color: 'var(--ink-3)' },
+                  ].map((b, i) => (
+                    <g key={i}>
+                      <text x="0" y={b.y + 14} fontSize="11" fill="var(--ink-2)">{b.label}</text>
+                      <rect x="180" y={b.y} width={b.pct * 7} height="22" fill={b.color} />
+                      <text x={185 + b.pct * 7} y={b.y + 16} fontSize="11" fill="var(--ink-1)" fontWeight="500">{b.pct}%</text>
+                    </g>
+                  ))}
+                  {/* Axis */}
+                  <line x1="180" y1="200" x2="580" y2="200" stroke="var(--line)" strokeWidth="1" />
+                  {[0, 25, 50, 75, 100].map((p) => (
+                    <text key={p} x={180 + p * 4} y={216} fontSize="10" fill="var(--ink-3)" textAnchor="middle">{p}%</text>
+                  ))}
+                </svg>
+              </div>
+              <div className="figure-caption">
+                Distribution capital and generation capital together account for 65% of the
+                projected bill increase across the 84 IOUs surveyed — making them the natural
+                focus for advocates seeking to flatten the trajectory.
+              </div>
+            </div>
+          </figure>
+
           <p>
             For NASUCA, the next twelve months will see continued advocacy in front of state
             commissions on cost causation, sharper opposition to load forecasts that assume
@@ -173,26 +300,47 @@ export default function ArticlePage() {
           </p>
         </div>
 
-        {/* AUTHOR BIO */}
-        <div className="article-author-bio">
-          <div className="photo" />
-          <div>
-            <div className="label">About the authors</div>
-            <h4>Michael Moody, Tom Content &amp; Anthony Swinger</h4>
-            <p>
-              Michael Moody is President of NASUCA and Director of the Maryland Office of People&apos;s
-              Counsel. Tom Content is Vice President of NASUCA and Executive Director of the
-              Citizens Utility Board of Wisconsin. Anthony Swinger is Treasurer of NASUCA and a
-              senior advocate with the Tennessee Office of Consumer Affairs.
-            </p>
-            <div className="links">
-              <a>Read more from Michael Moody →</a>
-              <a>About NASUCA →</a>
+        {/* FULL AUTHOR BIOS */}
+        <div className="article-author-bios-full">
+          <div className="author-bios-label">About the contributors</div>
+          <div className="author-bios-grid">
+            <div className="author-bio">
+              <div className="author-photo" />
+              <h4>Michael Moody</h4>
+              <div className="author-role">President, NASUCA</div>
+              <p>
+                Director of the Maryland Office of People&apos;s Counsel since 2019. Previously
+                served as senior counsel for the New Jersey Division of Rate Counsel. Frequent
+                witness in multi-state rate cases and FERC proceedings.
+              </p>
+              <a className="author-link">More from Michael →</a>
+            </div>
+            <div className="author-bio">
+              <div className="author-photo" />
+              <h4>Tom Content</h4>
+              <div className="author-role">Vice President, NASUCA</div>
+              <p>
+                Executive Director of the Citizens Utility Board of Wisconsin. Former
+                Milwaukee Journal Sentinel energy reporter. Published in Energy Law Journal,
+                Public Utilities Fortnightly, and Utility Dive.
+              </p>
+              <a className="author-link">More from Tom →</a>
+            </div>
+            <div className="author-bio">
+              <div className="author-photo" />
+              <h4>Anthony Swinger</h4>
+              <div className="author-role">Treasurer, NASUCA</div>
+              <p>
+                Senior advocate with the Tennessee Office of Consumer Affairs. Twenty-year
+                career across the Southeast in utility regulation, with a focus on rate design,
+                cost allocation, and customer affordability frameworks.
+              </p>
+              <a className="author-link">More from Anthony →</a>
             </div>
           </div>
         </div>
 
-        {/* ARTICLE FOOTER - share + tags */}
+        {/* FOOTER */}
         <div className="article-footer">
           <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
             <span style={{ fontSize: 11, color: 'var(--ink-3)', letterSpacing: '0.1em', textTransform: 'uppercase', alignSelf: 'center', marginRight: 4 }}>Tagged</span>
@@ -205,7 +353,7 @@ export default function ArticlePage() {
         </div>
       </article>
 
-      {/* RELATED CONTENT - cross-link to research and other articles */}
+      {/* RELATED */}
       <section className="article-related" style={{ background: 'var(--bg)' }}>
         <div className="article-related-head">
           <div className="label">Continue reading</div>

@@ -271,7 +271,7 @@ export default function HomePage() {
               Fortnightly
               <Annotation
                 number={4}
-                note="Placement tests the sub-brand hypothesis: PUF keeps its masthead, but its proximity to SEPA's work is clear and intentional."
+                note="Tests the sub-brand hypothesis: PUF keeps its masthead and editorial voice, but the SEPA endorsement is clear and intentional, not hidden in a footer."
               />
             </div>
             <h2>A century of utility thinking, now connected to the sector&apos;s working files.</h2>

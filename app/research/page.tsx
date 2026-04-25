@@ -125,7 +125,7 @@ export default function ResearchPage() {
             Research that helps you decide, not just describe.
             <Annotation
               number={6}
-              note="Research as a noun, not Knowledge Center. Every listing leads with abstract, audience, and decision relevance, directly addressing the assessment's critique."
+              note="Research as a noun, not Knowledge Center. Every listing leads with abstract, audience, and decision relevance — so a reader can tell whether a report is for them before they click."
             />
           </h1>
           <p>

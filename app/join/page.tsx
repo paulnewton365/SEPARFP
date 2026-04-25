@@ -18,7 +18,7 @@ export default function JoinPage() {
               <em>Show up.</em>
               <Annotation
                 number={23}
-                note="Join leads with the principle ('Compound, do not reset' from the Antenna deck) before the form. The hero argues why membership matters before asking for an email."
+                note="Join leads with the principle — compound, do not reset — before the form. The hero argues why membership matters before asking for an email. Conversion happens when the case is made first."
               />
             </h1>
             <p className="lead">

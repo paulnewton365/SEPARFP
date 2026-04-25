@@ -44,7 +44,7 @@ export default function FortnightlyPage() {
               A SEPA publication
               <Annotation
                 number={15}
-                note="The Fortnightly page tests the sub-brand hypothesis from the deck: PUF keeps its masthead and editorial voice, but the SEPA endorsement is clear and intentional, not hidden."
+                note="Sub-brand treatment: PUF keeps its masthead and editorial voice, but the SEPA endorsement is clear and intentional, not hidden. The relationship is asserted on the masthead itself."
               />
             </div>
           </div>
@@ -75,7 +75,7 @@ export default function FortnightlyPage() {
               </Link>
               <Annotation
                 number={16}
-                note="Editorial-first layout. One lead, one image, real bylines. Directly answers the current fortnightly.com problem: dozens of thumbnail-and-link cards with no editorial hierarchy."
+                note="Editorial-first layout. One lead, one image, real bylines. Replaces the typical magazine homepage with dozens of thumbnail cards and no editorial hierarchy."
               />
             </h2>
             <p>

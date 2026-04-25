@@ -34,7 +34,7 @@ export default function AboutPage() {
                 Stop inviting. Start leading.
                 <Annotation
                   number={11}
-                  note="Directly lifts the strategic mandate from the Antenna deck. The About page becomes the place where the brand's values are declared, not just described."
+                  note="The About page declares the brand's values as commitments, not descriptions. Every claim here is a behavior the rest of the site has to honor."
                 />
               </h2>
             </div>
@@ -67,7 +67,7 @@ export default function AboutPage() {
               Neutrality as a principle, not a disclaimer.
               <Annotation
                 number={12}
-                note="The deck flagged that 'SEPA does not lobby' reads as a limitation today. The About page reframes it as the differentiator it actually is."
+                note="'SEPA does not lobby' has historically read as a limitation. Reframed here as the differentiator it actually is — the source of the trust that makes the rest of the work possible."
               />
             </h2>
           </div>
@@ -100,7 +100,7 @@ export default function AboutPage() {
               The people behind the work.
               <Annotation
                 number={13}
-                note="The assessment flagged that SEPA's leadership was listed without photos or context. This surface makes leaders visible, quotable, and linkable to their published thinking."
+                note="Leadership surfaced with photos, focus areas, and links to their published thinking. An organization is more trustworthy when its leaders are visible, quotable, and followable."
               />
             </h2>
             <p className="section-sub">
@@ -159,7 +159,7 @@ export default function AboutPage() {
               Three principles that show up every day.
               <Annotation
                 number={14}
-                note="Culture surfaced as behaviors, not platitudes. The deck called for values that describe how SEPA shows up, not just what it believes."
+                note="Culture surfaced as behaviors, not platitudes. Each principle describes how SEPA shows up — the kind of thing a member or staffer could hold the organization accountable to."
               />
             </h2>
           </div>
@@ -209,7 +209,7 @@ export default function AboutPage() {
             What members tell us, in their own words.
             <Annotation
               number={18}
-              note="Voices moved here from the homepage. Quotes about institutional trust belong with the institutional story — Leadership, Culture, Neutrality. Homepage now lighter."
+              note="Voices live with the institutional story — leadership, culture, neutrality. Quotes about institutional trust belong here, not on the homepage."
             />
           </h2>
         </div>
