@@ -1,7 +1,50 @@
+'use client';
+
 import { Annotation } from '@/components/Annotation';
 import { ArenaSwitcher } from '@/components/ArenaSwitcher';
+import { useAudience, AUDIENCE_LABELS } from '@/components/AudienceContext';
+
+interface Topic {
+  name: string;
+  desc: string;
+  audiences: string[]; // primary audiences for this topic
+}
+
+const TOPICS: Topic[] = [
+  {
+    name: 'Resilience',
+    desc: 'Storm hardening, distributed backup, and the economics of keeping service on.',
+    audiences: ['utility', 'regulator'],
+  },
+  {
+    name: 'Storage',
+    desc: 'Battery deployment, siting frameworks, and the role of long-duration.',
+    audiences: ['utility', 'provider'],
+  },
+  {
+    name: 'Emerging Technology',
+    desc: 'Advanced inverters, grid-enhancing tech, and what\'s ready for deployment.',
+    audiences: ['utility', 'provider'],
+  },
+  {
+    name: 'Policy & Regulation',
+    desc: 'Rate design, cost allocation, and the regulatory frameworks shaping investment.',
+    audiences: ['regulator', 'utility'],
+  },
+];
 
 export default function ShapeGridPage() {
+  const { audience } = useAudience();
+
+  // Reorder topics so the user's primary topic surfaces first
+  const orderedTopics = audience === 'all'
+    ? TOPICS
+    : [
+        ...TOPICS.filter((t) => t.audiences[0] === audience),
+        ...TOPICS.filter((t) => t.audiences[0] !== audience && t.audiences.includes(audience)),
+        ...TOPICS.filter((t) => !t.audiences.includes(audience)),
+      ];
+
   return (
     <>
       {/* ARENA HERO */}
@@ -58,33 +101,47 @@ export default function ShapeGridPage() {
         </div>
       </section>
 
-      {/* TOPICS */}
+      {/* TOPICS - reordered by audience */}
       <section className="section" style={{ background: 'var(--bg)', paddingTop: 48 }}>
         <div className="section-head">
           <div className="eyebrow">Topics we&apos;re shaping</div>
-          <h2>Four threads inside this arena.</h2>
+          <h2>
+            Four threads inside this arena.
+            {audience !== 'all' && (
+              <Annotation
+                number={19}
+                note={`Topics reordered to put ${AUDIENCE_LABELS[audience]}-relevant threads first. Audience selector now actively shapes how this page reads.`}
+              />
+            )}
+          </h2>
+          {audience !== 'all' && (
+            <p className="section-sub">
+              Reordered for {AUDIENCE_LABELS[audience]}. Topics most relevant to your role lead.
+            </p>
+          )}
         </div>
         <div className="topics-grid">
-          <div className="topic-card">
-            <div className="dot" />
-            <h4>Resilience</h4>
-            <p>Storm hardening, distributed backup, and the economics of keeping service on.</p>
-          </div>
-          <div className="topic-card">
-            <div className="dot" />
-            <h4>Storage</h4>
-            <p>Battery deployment, siting frameworks, and the role of long-duration.</p>
-          </div>
-          <div className="topic-card">
-            <div className="dot" />
-            <h4>Emerging Technology</h4>
-            <p>Advanced inverters, grid-enhancing tech, and what&apos;s ready for deployment.</p>
-          </div>
-          <div className="topic-card">
-            <div className="dot" />
-            <h4>Policy &amp; Regulation</h4>
-            <p>Rate design, cost allocation, and the regulatory frameworks shaping investment.</p>
-          </div>
+          {orderedTopics.map((t, i) => {
+            const isPrimary = audience !== 'all' && t.audiences[0] === audience;
+            return (
+              <div
+                key={t.name}
+                className="topic-card"
+                style={isPrimary ? {
+                  background: 'var(--ink-1)',
+                  borderColor: 'var(--ink-1)',
+                  color: 'var(--paper)',
+                } : undefined}
+              >
+                <div
+                  className="dot"
+                  style={isPrimary ? { background: 'var(--paper)' } : undefined}
+                />
+                <h4>{t.name}</h4>
+                <p style={isPrimary ? { color: 'rgba(255,255,255,0.7)' } : undefined}>{t.desc}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 import { VersionBadge } from '@/components/VersionBadge';
 
 function LoginForm() {
@@ -38,14 +39,12 @@ function LoginForm() {
   };
 
   return (
-    <form className="antenna-login-form" onSubmit={handleSubmit}>
-      <label htmlFor="access" className="antenna-login-field-label">
-        Access code
-      </label>
-      <div className="antenna-login-input-row">
+    <form className="tlogin-form" onSubmit={handleSubmit}>
+      <label htmlFor="access" className="tlogin-field-label">Access code</label>
+      <div className="tlogin-input-row">
         <input
           id="access"
-          className={`antenna-login-input ${error ? 'error' : ''}`}
+          className={`tlogin-input ${error ? 'error' : ''}`}
           type="password"
           placeholder="Enter access code"
           value={code}
@@ -54,53 +53,48 @@ function LoginForm() {
           autoComplete="off"
           disabled={submitting}
         />
-        <button type="submit" className="antenna-login-enter" disabled={submitting || !code}>
+        <button type="submit" className="tlogin-enter" disabled={submitting || !code}>
           {submitting ? '...' : 'Enter'}
         </button>
       </div>
       {error && (
-        <div className="antenna-login-error">
-          That code isn&apos;t recognized. Please check and try again.
-        </div>
+        <div className="tlogin-error">That code isn&apos;t recognized. Please check and try again.</div>
       )}
     </form>
   );
 }
 
 export default function LoginPage() {
-  // Ensure page fills viewport without Nav overhead
   useEffect(() => {
-    document.body.classList.add('antenna-login-mode');
-    return () => {
-      document.body.classList.remove('antenna-login-mode');
-    };
+    document.body.classList.add('tlogin-mode');
+    return () => { document.body.classList.remove('tlogin-mode'); };
   }, []);
 
   return (
-    <div className="antenna-login-page">
-      <div className="antenna-login-topbar">
-        <div className="antenna-login-topbar-inner">
-          <div className="antenna-login-brandmark">
-            <div className="antenna-mark" aria-hidden="true">
-              <span className="antenna-mark-sq" />
-              <span className="antenna-mark-sq yellow" />
-            </div>
-            <span className="antenna-wordmark">
-              .<strong>antenna</strong><span className="antenna-sub">group</span>
-            </span>
+    <div className="tlogin-page">
+      <header className="tlogin-topbar">
+        <div className="tlogin-topbar-inner">
+          <div className="tlogin-brand">
+            <Image
+              src="/antenna-logo.svg"
+              alt="Antenna Group"
+              width={140}
+              height={36}
+              priority
+            />
           </div>
-          <div className="antenna-login-status">Confidential Preview</div>
+          <div className="tlogin-status">Confidential Preview</div>
         </div>
-      </div>
+      </header>
 
-      <main className="antenna-login-main">
-        <div className="antenna-login-inner">
-          <div className="antenna-login-eyebrow">SEPA · Proposal prototype</div>
-          <h1 className="antenna-login-heading">
+      <main className="tlogin-main">
+        <div className="tlogin-inner">
+          <div className="tlogin-eyebrow">SEPA · Proposal prototype</div>
+          <h1 className="tlogin-heading">
             Let&apos;s shape<br />
             energy&apos;s transition.
           </h1>
-          <p className="antenna-login-body">
+          <p className="tlogin-body">
             This is a working prototype of a proposed new experience for the Smart Electric Power
             Alliance, prepared by Antenna Group. Enter your access code to continue.
           </p>
@@ -110,10 +104,12 @@ export default function LoginPage() {
         </div>
       </main>
 
-      <footer className="antenna-login-footer">
-        <div className="antenna-login-footer-inner">
-          <div>antennagroup.com</div>
-          <VersionBadge variant="dark" />
+      <footer className="tlogin-footer">
+        <div className="tlogin-footer-inner">
+          <a href="https://antennagroup.com" target="_blank" rel="noopener noreferrer">
+            antennagroup.com
+          </a>
+          <VersionBadge variant="light" />
           <div>© 2026 Antenna Group</div>
         </div>
       </footer>

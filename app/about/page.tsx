@@ -201,6 +201,62 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* VOICES (moved from homepage — sits naturally with leadership and culture) */}
+      <section className="voices" style={{ background: 'var(--paper)', paddingTop: 88, paddingBottom: 88 }}>
+        <div className="section-head">
+          <div className="eyebrow">Voices from the sector</div>
+          <h2>
+            What members tell us, in their own words.
+            <Annotation
+              number={18}
+              note="Voices moved here from the homepage. Quotes about institutional trust belong with the institutional story — Leadership, Culture, Neutrality. Homepage now lighter."
+            />
+          </h2>
+        </div>
+        <div className="voices-grid">
+          <div className="voice">
+            <div className="voice-quote">
+              &ldquo;SEPA is the only room where I can share what we&apos;re piloting before
+              I&apos;ve had to defend it in a rate case. That changes what we&apos;re willing to
+              try.&rdquo;
+            </div>
+            <div className="voice-person">
+              <div className="voice-avatar" />
+              <div>
+                <div className="voice-name">[Utility VP, IOU]</div>
+                <div className="voice-role">Member since 2019</div>
+              </div>
+            </div>
+          </div>
+          <div className="voice">
+            <div className="voice-quote">
+              &ldquo;The research isn&apos;t advocacy. It&apos;s the evidence I take into the
+              commission hearing. That&apos;s why we cite it.&rdquo;
+            </div>
+            <div className="voice-person">
+              <div className="voice-avatar" />
+              <div>
+                <div className="voice-name">[State PUC Commissioner]</div>
+                <div className="voice-role">Policy advisor</div>
+              </div>
+            </div>
+          </div>
+          <div className="voice">
+            <div className="voice-quote">
+              &ldquo;We came in thinking SEPA was for utilities. We stayed because it was the first
+              place buyers, utilities, and regulators could have one conversation.&rdquo;
+            </div>
+            <div className="voice-person">
+              <div className="voice-avatar" />
+              <div>
+                <div className="voice-name">[Head of Clean Energy, Fortune 500]</div>
+                <div className="voice-role">Large buyer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* IMPACT NUMBERS */}
       <section className="about-section" style={{ background: 'var(--bg)' }}>
         <div className="about-section-inner">

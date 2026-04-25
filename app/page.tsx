@@ -7,7 +7,6 @@ import { useAudience } from '@/components/AudienceContext';
 export default function HomePage() {
   const { audience } = useAudience();
 
-  // Order the path cards by which is selected (selected first)
   const paths = [
     {
       key: 'utility' as const,
@@ -40,7 +39,7 @@ export default function HomePage() {
 
   return (
     <>
-      {/* HERO with elevated G/G/G */}
+      {/* SECTION 1: HERO with elevated G/G/G */}
       <section className="hero-arenas">
         <div className="hero-arenas-inner">
           <h1>
@@ -48,7 +47,7 @@ export default function HomePage() {
             energy&apos;s <em>transition.</em>
             <Annotation
               number={1}
-              note="The organizing idea, paired with the three arenas. Grid, Growth, Globe now live on the first screen in indexable text, not buried in a video."
+              note="The organizing idea, paired with the three arenas. Grid, Growth, Globe live on the first screen in indexable text, not buried in a video."
             />
           </h1>
           <p className="hero-sub">
@@ -56,9 +55,9 @@ export default function HomePage() {
             working together, informed by credible evidence, and aligned on what actually works.
           </p>
           <div className="hero-actions" style={{ marginBottom: 60 }}>
-            <a className="btn">Explore the work</a>
+            <a className="btn">Read this quarter&apos;s position paper</a>
             <Link href="/research" className="link-arrow">
-              See this quarter&apos;s research →
+              Browse all research →
             </Link>
           </div>
 
@@ -94,7 +93,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PROOF STRIP */}
+      {/* SECTION 2: PROOF STRIP */}
       <section className="proof">
         <div className="proof-inner">
           <div className="proof-item">
@@ -116,7 +115,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CURRENT POV / CAMPAIGN */}
+      {/* SECTION 3: CURRENT POV / CAMPAIGN */}
       <section className="pov">
         <div className="pov-inner">
           <div className="pov-img">
@@ -145,7 +144,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* RESEARCH SPOTLIGHT */}
+      {/* SECTION 4: RESEARCH SPOTLIGHT */}
       <section className="section">
         <div className="section-head">
           <div className="eyebrow">This month&apos;s evidence</div>
@@ -190,69 +189,52 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* VOICES */}
-      <section className="voices">
+      {/* SECTION 5: WHERE TO START - merged Convening + Paths into one decisive section */}
+      <section className="paths" style={{ background: 'var(--bg)' }}>
         <div className="section-head">
-          <div className="eyebrow">Voices from the sector</div>
+          <div className="eyebrow">Where to start</div>
           <h2>
-            The people doing the shaping.
+            {audience === 'all' ? 'Three ways in.' : 'Curated for you.'}
             <Annotation
-              number={3}
-              note="Elevating leaders, members, and staff on the homepage directly addresses the assessment's finding that SEPA feels institutional rather than human."
+              number={5}
+              note="Merged the previous Convening list and audience Paths into one decisive 'where to start' section. Reduces homepage from 10 sections to 6."
             />
           </h2>
+          <p className="section-sub">
+            {audience === 'all'
+              ? "Pick the entry point closest to how you'll actually use SEPA."
+              : "Your selected role is featured first. Three concrete starts. Change your role in the nav anytime."}
+          </p>
         </div>
-        <div className="voices-grid">
-          <div className="voice">
-            <div className="voice-quote">
-              &ldquo;SEPA is the only room where I can share what we&apos;re piloting before
-              I&apos;ve had to defend it in a rate case. That changes what we&apos;re willing to
-              try.&rdquo;
-            </div>
-            <div className="voice-person">
-              <div className="voice-avatar" />
-              <div>
-                <div className="voice-name">[Utility VP, IOU]</div>
-                <div className="voice-role">Member since 2019</div>
-              </div>
-            </div>
-          </div>
-          <div className="voice">
-            <div className="voice-quote">
-              &ldquo;The research isn&apos;t advocacy. It&apos;s the evidence I take into the
-              commission hearing. That&apos;s why we cite it.&rdquo;
-            </div>
-            <div className="voice-person">
-              <div className="voice-avatar" />
-              <div>
-                <div className="voice-name">[State PUC Commissioner]</div>
-                <div className="voice-role">Policy advisor</div>
-              </div>
-            </div>
-          </div>
-          <div className="voice">
-            <div className="voice-quote">
-              &ldquo;We came in thinking SEPA was for utilities. We stayed because it was the first
-              place buyers, utilities, and regulators could have one conversation.&rdquo;
-            </div>
-            <div className="voice-person">
-              <div className="voice-avatar" />
-              <div>
-                <div className="voice-name">[Head of Clean Energy, Fortune 500]</div>
-                <div className="voice-role">Large buyer</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* CONVENING NOW */}
-      <section className="convene-strip">
-        <div className="section-head">
-          <div className="eyebrow">Convening now</div>
-          <h2>What&apos;s happening this month.</h2>
+        {/* Audience paths */}
+        <div className="paths-grid" style={{ marginBottom: 16 }}>
+          {orderedPaths.map((p) => {
+            const isSelected = audience === p.key;
+            return (
+              <Link
+                key={p.key}
+                href={p.href}
+                className="path-card"
+                style={isSelected ? {
+                  background: 'var(--ink-1)',
+                  borderColor: 'var(--ink-1)',
+                  color: 'var(--paper)',
+                } : undefined}
+              >
+                <div className="path-label" style={isSelected ? { color: 'rgba(255,255,255,0.5)' } : undefined}>
+                  {isSelected ? 'Your view' : 'For'}
+                </div>
+                <h4>{p.title}</h4>
+                <p style={isSelected ? { color: 'rgba(255,255,255,0.7)' } : undefined}>{p.body}</p>
+                <div className="arrow" style={isSelected ? { color: 'var(--paper)' } : undefined}>→</div>
+              </Link>
+            );
+          })}
         </div>
-        <div className="events-list">
+
+        {/* Inline events list - kept for the "convening now" signal but tighter */}
+        <div className="events-list" style={{ marginTop: 40 }}>
           <div className="event-row">
             <div className="event-date">May 14, 2026</div>
             <div className="event-type">Working group</div>
@@ -268,13 +250,6 @@ export default function HomePage() {
             <div className="event-arrow">→</div>
           </div>
           <div className="event-row">
-            <div className="event-date">Jun 3, 2026</div>
-            <div className="event-type">Academy</div>
-            <div className="event-title">DER Integration Certification, Cohort 12</div>
-            <div className="event-topic">8-week program · Utility staff, regulators</div>
-            <div className="event-arrow">→</div>
-          </div>
-          <div className="event-row">
             <div className="event-date">Jun 18, 2026</div>
             <div className="event-type">Webinar</div>
             <div className="event-title">What the data centers want, what the grid can deliver</div>
@@ -282,9 +257,12 @@ export default function HomePage() {
             <div className="event-arrow">→</div>
           </div>
         </div>
+        <div style={{ textAlign: 'center', marginTop: 32 }}>
+          <a className="link-arrow">See all upcoming convenings →</a>
+        </div>
       </section>
 
-      {/* FORTNIGHTLY */}
+      {/* SECTION 6: FORTNIGHTLY */}
       <section className="fortnightly">
         <div className="fortnightly-inner">
           <div className="fortnightly-cover">Vol. 164 · Issue 4</div>
@@ -308,49 +286,6 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* AUDIENCE PATHS - audience-aware ordering */}
-      <section className="paths">
-        <div className="section-head">
-          <div className="eyebrow">Find your path</div>
-          <h2>
-            {audience === 'all' ? 'What brought you here?' : 'Curated for you.'}
-            <Annotation
-              number={5}
-              note="Four curated entry points. When an audience is selected from the nav, their path leads and gets a highlighted treatment. Same content, different framings per role."
-            />
-          </h2>
-          <p className="section-sub">
-            {audience === 'all'
-              ? "We've curated the work four ways, so you don't have to browse 482 reports to find yours."
-              : "Your selected role is featured first. Change it in the nav anytime."}
-          </p>
-        </div>
-        <div className="paths-grid">
-          {orderedPaths.map((p) => {
-            const isSelected = audience === p.key;
-            return (
-              <Link
-                key={p.key}
-                href={p.href}
-                className="path-card"
-                style={isSelected ? {
-                  background: 'var(--ink-1)',
-                  borderColor: 'var(--ink-1)',
-                  color: 'var(--paper)',
-                } : undefined}
-              >
-                <div className="path-label" style={isSelected ? { color: 'rgba(255,255,255,0.5)' } : undefined}>
-                  {isSelected ? 'Your view' : 'For'}
-                </div>
-                <h4>{p.title}</h4>
-                <p style={isSelected ? { color: 'rgba(255,255,255,0.7)' } : undefined}>{p.body}</p>
-                <div className="arrow" style={isSelected ? { color: 'var(--paper)' } : undefined}>→</div>
-              </Link>
-            );
-          })}
         </div>
       </section>
     </>
