@@ -16,13 +16,6 @@ export default function ArticlePage() {
         </div>
       </div>
 
-      {/* HERO IMAGE - full bleed, sets the tone */}
-      <div className="article-hero-img">
-        <div className="article-hero-img-inner">
-          <span className="hero-img-caption">Photo · Capitol building, dusk</span>
-        </div>
-      </div>
-
       {/* ARTICLE */}
       <article className="article">
         <header className="article-header">
@@ -83,6 +76,19 @@ export default function ArticlePage() {
             />
           </div>
         </header>
+
+        {/* HERO IMAGE - sits between header and body, the visual transition into reading */}
+        <figure className="article-figure article-hero-fig">
+          <div className="figure-frame">
+            <div className="article-hero-photo">
+              <span className="hero-img-caption">Photo · Capitol building, dusk</span>
+            </div>
+            <div className="figure-caption">
+              State capitols are where most rate cases are decided. NASUCA has consumer-advocate
+              members in 41 of them.
+            </div>
+          </div>
+        </figure>
 
         {/* BODY */}
         <div className="article-body">
