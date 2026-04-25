@@ -65,18 +65,6 @@ export default function ShapeGridPage() {
 
       <ArenaSwitcher showAnnotation />
 
-      {/* SUB NAV */}
-      <div className="arena-subnav">
-        <div className="arena-subnav-inner">
-          <a className="active">Overview</a>
-          <a>Our position</a>
-          <a>Research</a>
-          <a>Working groups</a>
-          <a>Events</a>
-          <a>Tools &amp; data</a>
-        </div>
-      </div>
-
       {/* POSITION */}
       <section className="section" style={{ background: 'var(--paper)' }}>
         <div className="two-col">
