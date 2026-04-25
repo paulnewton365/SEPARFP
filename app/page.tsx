@@ -265,7 +265,7 @@ export default function HomePage() {
       {/* SECTION 6: FORTNIGHTLY */}
       <section className="fortnightly">
         <div className="fortnightly-inner">
-          <div className="fortnightly-cover">Vol. 164 · Issue 4</div>
+          <Link href="/fortnightly" className="fortnightly-cover" style={{ cursor: 'pointer', textDecoration: 'none' }}>Vol. 164 · Issue 4</Link>
           <div>
             <div className="eyebrow">
               Fortnightly

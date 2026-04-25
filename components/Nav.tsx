@@ -34,7 +34,9 @@ export function Nav() {
             </Link>
           </li>
           <li>
-            <a>Convene</a>
+            <Link href="/convene" className={isActive('/convene') ? 'active' : ''}>
+              Convene
+            </Link>
           </li>
           <li>
             <Link href="/fortnightly" className={isActive('/fortnightly') ? 'active' : ''}>
@@ -42,7 +44,9 @@ export function Nav() {
             </Link>
           </li>
           <li>
-            <a>Join</a>
+            <Link href="/join" className={isActive('/join') ? 'active' : ''}>
+              Join
+            </Link>
           </li>
           <li>
             <Link href="/about" className={isActive('/about') ? 'active' : ''}>

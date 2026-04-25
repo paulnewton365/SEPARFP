@@ -1,3 +1,5 @@
+import { SocialLinks } from './SocialIcons';
+
 export function Footer() {
   return (
     <footer className="footer">
@@ -14,6 +16,9 @@ export function Footer() {
             <br />
             1401 Wilson Blvd, Arlington, VA 22209
           </p>
+          <div style={{ marginTop: 20 }}>
+            <SocialLinks variant="light" />
+          </div>
         </div>
         <div className="footer-col">
           <h5>Shape</h5>

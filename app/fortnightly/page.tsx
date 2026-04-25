@@ -64,13 +64,15 @@ export default function FortnightlyPage() {
       {/* LEAD FEATURE */}
       <section className="fn-lead">
         <div className="fn-lead-inner">
-          <div className="fn-lead-img">
+          <Link href="/fortnightly/large-load-playbook" className="fn-lead-img" style={{ textDecoration: 'none', cursor: 'pointer' }}>
             Cover image · Affordability
-          </div>
+          </Link>
           <div>
             <div className="fn-lead-cat">Lead feature · Affordability</div>
             <h2>
-              Power to the People: NASUCA on affordability
+              <Link href="/fortnightly/large-load-playbook" style={{ color: 'inherit', textDecoration: 'none' }}>
+                Power to the People: NASUCA on affordability
+              </Link>
               <Annotation
                 number={16}
                 note="Editorial-first layout. One lead, one image, real bylines. Directly answers the current fortnightly.com problem: dozens of thumbnail-and-link cards with no editorial hierarchy."
@@ -89,6 +91,9 @@ export default function FortnightlyPage() {
             <div className="byline">
               <strong>Michael Moody, Tom Content &amp; Anthony Swinger</strong> &middot; 14 min read
             </div>
+            <Link href="/fortnightly/large-load-playbook" className="link-arrow" style={{ display: 'inline-block', marginTop: 20, color: 'var(--paper)', borderColor: 'var(--paper)' }}>
+              Read the article →
+            </Link>
           </div>
         </div>
       </section>
