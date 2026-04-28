@@ -1,390 +1,408 @@
-'use client';
-
-import { useState } from 'react';
+import Link from 'next/link';
 import { Annotation } from '@/components/Annotation';
 
-interface CalEvent {
-  day: number;
-  title: string;
-  type: 'group' | 'convening' | 'webinar' | 'academy';
-}
-
-// May 2026 calendar — Friday May 1 starts the month
-const MAY_EVENTS: CalEvent[] = [
-  { day: 14, title: 'Large Load WG · Session 4', type: 'group' },
-  { day: 22, title: 'Grid Resilience Summit', type: 'convening' },
-  { day: 28, title: 'Resilience Planning WG', type: 'group' },
-];
-
-const TODAY_DAY = 6; // mock today
-
-function MayCalendar() {
-  // May 2026 starts on Friday (day 5 of the week, 0=Sun)
-  const startOffset = 5;
-  const daysInMay = 31;
-  const cells = [];
-
-  // Empty cells before May 1
-  for (let i = 0; i < startOffset; i++) {
-    cells.push(
-      <div key={`pre-${i}`} className="calendar-cell muted">
-        <div className="day-num">{30 - (startOffset - 1 - i)}</div>
-      </div>
-    );
-  }
-
-  // Days of May
-  for (let day = 1; day <= daysInMay; day++) {
-    const events = MAY_EVENTS.filter((e) => e.day === day);
-    const isToday = day === TODAY_DAY;
-    cells.push(
-      <div key={day} className={`calendar-cell ${isToday ? 'today' : ''}`}>
-        <div className="day-num">{day}</div>
-        {events.map((e, i) => (
-          <a key={i} className={`cal-event ${e.type === 'convening' ? 'dark' : ''}`}>
-            {e.title}
-          </a>
-        ))}
-      </div>
-    );
-  }
-
-  // Trailing cells to fill to 35 (5 rows x 7)
-  const totalSoFar = startOffset + daysInMay;
-  const trailing = totalSoFar > 35 ? 42 - totalSoFar : 35 - totalSoFar;
-  for (let i = 1; i <= trailing; i++) {
-    cells.push(
-      <div key={`post-${i}`} className="calendar-cell muted">
-        <div className="day-num">{i}</div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="calendar">
-      <div className="calendar-head">
-        <h3>May 2026</h3>
-        <div className="calendar-controls">
-          <button aria-label="Previous month">‹</button>
-          <button aria-label="Next month">›</button>
-        </div>
-      </div>
-      <div className="calendar-grid">
-        {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((d) => (
-          <div key={d} className="calendar-dow">{d}</div>
-        ))}
-        {cells}
-      </div>
-    </div>
-  );
-}
-
-export default function ConvenePage() {
-  const [view, setView] = useState<'calendar' | 'list'>('calendar');
-
+export default function MembershipPage() {
   return (
     <>
       {/* HERO */}
-      <section className="convene-hero">
-        <div className="convene-hero-inner">
-          <div className="eyebrow">Convene</div>
-          <h1>
-            Where the shaping<br />
-            <em>actually happens.</em>
-            <Annotation
-              number={20}
-              note="Convene leads with the verb that defines SEPA's value: shaping happens in rooms, in working groups, in the relationships that get built across rate cases. Page treats events as outcomes, not invitations."
-            />
-          </h1>
-          <p className="lead">
-            Working groups, in-person convenings, the SEPA Academy, and the Power Player Awards.
-            Four ways the sector comes together to compare notes, run pilots, and write the
-            next set of practices on purpose, not by accident.
-          </p>
+      <section className="section section-hero" style={{ paddingBottom: 32 }}>
+        <div className="eyebrow">Membership</div>
+        <h1 className="page-title" style={{ maxWidth: 920 }}>
+          The room compounds. <span className="ink-3">Show up.</span>
+        </h1>
+        <p className="lede" style={{ maxWidth: 760 }}>
+          Membership is how decisions get made faster, with better evidence, alongside the
+          people doing the same work. Not a directory you join. A room you walk into,
+          and walk out of with a sharper view of what to do next.
+          <Annotation
+            number={20}
+            note="Membership leads with the principle, not the form. Compound, do not reset — the case for being in the room is made before any ask. Conversion happens after the argument is won, not before."
+          />
+        </p>
+
+        {/* IMPACT STRIP - what membership produces, in numbers */}
+        <div className="member-impact-strip">
+          <div className="member-impact-stat">
+            <div className="num">2,400+</div>
+            <div className="label">utility, regulator, and provider participants in working groups since 2023</div>
+          </div>
+          <div className="member-impact-stat">
+            <div className="num">147</div>
+            <div className="label">tariff filings tracked in IOUs, drawn from working group contributions</div>
+          </div>
+          <div className="member-impact-stat">
+            <div className="num">42</div>
+            <div className="label">state commissions cited SEPA research in 2025 dockets</div>
+          </div>
+          <div className="member-impact-stat">
+            <div className="num">$340M</div>
+            <div className="label">in member-reported pilot savings attributed to SEPA peer benchmarks</div>
+          </div>
+          <Annotation
+            number={28}
+            note="The impact strip leads with what membership produces, not what SEPA does. Numbers chosen to be defensible, decision-relevant, and not generic engagement metrics."
+          />
         </div>
       </section>
 
-      {/* IMPACT BAND - the stakes upfront */}
-      <section className="impact-band">
-        <div className="impact-band-inner">
-          <div className="eyebrow" style={{ color: 'rgba(255,255,255,0.5)' }}>The work, in numbers</div>
-          <h2 style={{ color: 'var(--paper)', fontSize: 40, fontWeight: 500, letterSpacing: '-0.02em' }}>
-            What collaboration produces.
-          </h2>
-          <div className="impact-grid">
-            <div className="impact-item">
-              <div className="num">2,400+</div>
-              <div className="label">utility, regulator, and provider participants in working groups since 2022</div>
-            </div>
-            <div className="impact-item">
-              <div className="num">147</div>
-              <div className="label">tariff filings tracked in DELTa, drawn from working group contributions</div>
-            </div>
-            <div className="impact-item">
-              <div className="num">42</div>
-              <div className="label">state commissions cited SEPA research in 2025 dockets</div>
-            </div>
-            <div className="impact-item">
-              <div className="num">$340M</div>
-              <div className="label">in member-reported pilot savings attributed to SEPA peer benchmarks</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CALENDAR / LIST TOGGLE */}
-      <section className="section" style={{ background: 'var(--paper)' }}>
-        <div className="section-head" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 16 }}>
-          <div>
-            <div className="eyebrow">Upcoming</div>
-            <h2>What&apos;s on the calendar.</h2>
-            <p className="section-sub">
-              Events are open, member-only, or by-invitation. Filter when you find your role above.
-            </p>
-          </div>
-          <div style={{ display: 'flex', gap: 4, border: '1px solid var(--line)', borderRadius: 2, overflow: 'hidden' }}>
-            <button
-              onClick={() => setView('calendar')}
-              style={{
-                padding: '8px 14px', background: view === 'calendar' ? 'var(--ink-1)' : 'var(--paper)',
-                color: view === 'calendar' ? 'var(--paper)' : 'var(--ink-2)',
-                border: 'none', fontSize: 12, fontFamily: 'inherit', cursor: 'pointer',
-                letterSpacing: '0.05em', textTransform: 'uppercase',
-              }}
-            >Calendar</button>
-            <button
-              onClick={() => setView('list')}
-              style={{
-                padding: '8px 14px', background: view === 'list' ? 'var(--ink-1)' : 'var(--paper)',
-                color: view === 'list' ? 'var(--paper)' : 'var(--ink-2)',
-                border: 'none', fontSize: 12, fontFamily: 'inherit', cursor: 'pointer',
-                letterSpacing: '0.05em', textTransform: 'uppercase',
-              }}
-            >List</button>
-          </div>
-        </div>
-
-        {view === 'calendar' ? (
-          <MayCalendar />
-        ) : (
-          <div className="events-list" style={{ maxWidth: 'var(--max)', margin: '0 auto' }}>
-            <div className="event-row">
-              <div className="event-date">May 14, 2026</div>
-              <div className="event-type">Working group</div>
-              <div className="event-title">Large Load Tariff Principles, Session 4</div>
-              <div className="event-topic">Cost allocation frameworks · Members only</div>
-              <div className="event-arrow">→</div>
-            </div>
-            <div className="event-row">
-              <div className="event-date">May 22, 2026</div>
-              <div className="event-type">Convening</div>
-              <div className="event-title">Grid Resilience Summit · Raleigh, NC</div>
-              <div className="event-topic">Post-storm recovery, investment planning · Open</div>
-              <div className="event-arrow">→</div>
-            </div>
-            <div className="event-row">
-              <div className="event-date">May 28, 2026</div>
-              <div className="event-type">Working group</div>
-              <div className="event-title">Resilience Planning WG, Q2 session</div>
-              <div className="event-topic">Storm hardening economics · Members only</div>
-              <div className="event-arrow">→</div>
-            </div>
-            <div className="event-row">
-              <div className="event-date">Jun 3, 2026</div>
-              <div className="event-type">Academy</div>
-              <div className="event-title">DER Integration Certification, Cohort 12</div>
-              <div className="event-topic">8-week program · Utility staff, regulators</div>
-              <div className="event-arrow">→</div>
-            </div>
-            <div className="event-row">
-              <div className="event-date">Jun 18, 2026</div>
-              <div className="event-type">Webinar</div>
-              <div className="event-title">What the data centers want, what the grid can deliver</div>
-              <div className="event-topic">Q2 briefing · Open to all</div>
-              <div className="event-arrow">→</div>
-            </div>
-          </div>
-        )}
-      </section>
-
-      {/* OPPORTUNITIES TO COLLABORATE */}
-      <section className="section" style={{ background: 'var(--bg)' }}>
+      {/* MEMBER STORIES - the spine of the page */}
+      <section className="section section-light" style={{ background: 'var(--bg)' }}>
         <div className="section-head">
-          <div className="eyebrow">Open invitations</div>
-          <h2>
-            Three ways to step in this quarter.
+          <div className="eyebrow">Member stories</div>
+          <h2>Decisions, in their words.</h2>
+          <p className="lede" style={{ maxWidth: 720 }}>
+            Six stories from the last twelve months. Each one is a decision that
+            membership made faster, sharper, or possible at all.
             <Annotation
-              number={21}
-              note="The page distinguishes between attending an event (passive) and joining a collaboration (active). Active invitations live here as named, open opportunities."
+              number={29}
+              note="Stories foreground decisions and decision-makers, not the SEPA brand. The brand is the room these stories happen in. Members showcase what membership produces; SEPA earns credibility by making them the protagonists."
             />
-          </h2>
-          <p className="section-sub">
-            Active calls for participation. Co-author a report, host a member visit, or join a peer review panel.
           </p>
         </div>
-        <div className="collab-grid">
-          <div className="collab-card">
-            <div className="label">Co-author · Open until June 1</div>
-            <h4>Heat pump deployment economics: A four-utility benchmark</h4>
+
+        <div className="member-stories-grid">
+          <article className="member-story">
+            <div className="member-story-meta">
+              <span className="role-tag role-utility">Utility leader</span>
+              <span className="org">[Mid-Atlantic IOU]</span>
+            </div>
+            <h3>&ldquo;We brought a 90-day rate-design timeline back from a conversation that started in a working group.&rdquo;</h3>
             <p>
-              Three utilities have committed to share 2024-2025 data. We&apos;re seeking one more
-              partner — ideally a southwest IOU or a New England muni — to round out regional coverage.
+              [Name], VP of Regulatory Strategy, used the Large Load Tariff working group
+              to pressure-test a cost-allocation model with peers from four other IOUs
+              before filing. The model survived intervenor scrutiny in the first round.
             </p>
-            <div className="stat">3 of 4 partners committed · 6 months</div>
-          </div>
-          <div className="collab-card">
-            <div className="label">Host · Open until July 15</div>
-            <h4>Member site visit: Storm-hardened distribution in practice</h4>
+            <div className="member-story-foot">
+              <span>Working Group: Large Load Tariffs</span>
+              <span>Read the full story →</span>
+            </div>
+          </article>
+
+          <article className="member-story">
+            <div className="member-story-meta">
+              <span className="role-tag role-regulator">Regulator</span>
+              <span className="org">[Western state PUC]</span>
+            </div>
+            <h3>&ldquo;The DELTa data let me cite peer-state evidence in three different orders this year.&rdquo;</h3>
             <p>
-              SEPA is organizing a two-day site visit to a utility that completed major resilience
-              upgrades after the 2024 hurricane season. Hosting utilities get reimbursed for staff
-              time and gain peer reviewers.
+              [Name], Commissioner, used SEPA&apos;s DELTa platform as the source for
+              cross-jurisdictional comparisons in dockets covering rate design,
+              interconnection queues, and IRP review. Cited eleven times in 2025.
             </p>
-            <div className="stat">12 utility seats remaining</div>
-          </div>
-          <div className="collab-card">
-            <div className="label">Review panel · Rolling</div>
-            <h4>DELTa methodology: Quarterly peer review</h4>
+            <div className="member-story-foot">
+              <span>Tool: DELTa Cross-Jurisdictional Database</span>
+              <span>Read the full story →</span>
+            </div>
+          </article>
+
+          <article className="member-story">
+            <div className="member-story-meta">
+              <span className="role-tag role-provider">Solution provider</span>
+              <span className="org">[Series B grid software]</span>
+            </div>
+            <h3>&ldquo;Three months in the working group taught us what we&apos;d have spent a year learning at conferences.&rdquo;</h3>
             <p>
-              The Database of Emerging Large-Load Tariffs is reviewed every quarter by a panel of
-              utility analysts and regulator staff. Q2 panel slots are open through May 30.
+              [Name], CEO, joined SEPA at Series B specifically to compress the learning
+              curve on utility procurement timelines. Closed first IOU pilot inside six
+              months of joining.
             </p>
-            <div className="stat">5 panelists per quarter · ~6 hours</div>
-          </div>
+            <div className="member-story-foot">
+              <span>Working Group: DERMS Integration</span>
+              <span>Read the full story →</span>
+            </div>
+          </article>
+
+          <article className="member-story">
+            <div className="member-story-meta">
+              <span className="role-tag role-buyer">Large energy user</span>
+              <span className="org">[Fortune 100 industrial]</span>
+            </div>
+            <h3>&ldquo;The roadmap clarity from membership shaped a $400M procurement decision.&rdquo;</h3>
+            <p>
+              [Name], Head of Sustainability, used the Buyer-Utility Dialogue series to
+              align internal procurement timelines with utility resource plans across
+              twelve service territories.
+            </p>
+            <div className="member-story-foot">
+              <span>Series: Buyer-Utility Dialogue</span>
+              <span>Read the full story →</span>
+            </div>
+          </article>
+
+          <article className="member-story">
+            <div className="member-story-meta">
+              <span className="role-tag role-utility">Utility leader</span>
+              <span className="org">[Rural electric cooperative]</span>
+            </div>
+            <h3>&ldquo;A small co-op got the same caliber of evidence as a major IOU. That changes the conversation.&rdquo;</h3>
+            <p>
+              [Name], CEO, brought SEPA peer-benchmark data to a board discussion on
+              distribution-grid modernization. Approved a five-year capital plan in a
+              single board cycle.
+            </p>
+            <div className="member-story-foot">
+              <span>Research: Rural Modernization Benchmark</span>
+              <span>Read the full story →</span>
+            </div>
+          </article>
+
+          <article className="member-story">
+            <div className="member-story-meta">
+              <span className="role-tag role-regulator">Consumer advocate</span>
+              <span className="org">[State office]</span>
+            </div>
+            <h3>&ldquo;I needed cost-causation language a commission would actually accept. The working group draft did the work.&rdquo;</h3>
+            <p>
+              [Name], Senior Advocate, contributed to the Large Load Tariff principles
+              draft and used the framework verbatim in two state proceedings. NASUCA
+              endorsed the framework in early 2026.
+            </p>
+            <div className="member-story-foot">
+              <span>Working Group: Large Load Tariffs</span>
+              <span>Read the full story →</span>
+            </div>
+          </article>
         </div>
       </section>
 
-      {/* PAST IMPACT - Storytelling */}
-      <section className="section" style={{ background: 'var(--paper)' }}>
+      {/* MEMBERSHIP TIERS / WHO IT IS FOR */}
+      <section className="section">
         <div className="section-head">
-          <div className="eyebrow">What collaboration produces</div>
-          <h2>
-            Stories from the room.
-            <Annotation
-              number={22}
-              note="Past events are framed as stories with named outcomes, not nostalgia. Each story closes with the metric that proves collaboration changed something concrete in the sector."
-            />
-          </h2>
-          <p className="section-sub">
-            Three from the last twelve months. The pattern: SEPA convenes the people, the people
-            do the work, the work moves a decision somewhere it wouldn&apos;t have moved alone.
-          </p>
+          <div className="eyebrow">Who&apos;s in the room</div>
+          <h2>Designed for the people deciding the transition.</h2>
+          <Annotation
+            number={30}
+            note="Tiers are framed as roles in the conversation, not pricing categories. The decision a member is trying to make is the organizing logic. Pricing lives on the join page; this page is about who's in the room and why."
+          />
         </div>
 
-        <div className="story-grid">
-          <div className="story-img">Photo · 2025 RE+ Anaheim</div>
-          <div className="story-content">
-            <div className="story-cat">2025 RE+ Anaheim · 1,400 attendees</div>
-            <h3>Six utilities walked in with separate large-load problems. They walked out with one principle.</h3>
+        <div className="member-roles">
+          <div className="member-role">
+            <div className="role-tag role-utility" style={{ marginBottom: 14 }}>Utility leader</div>
+            <h4>You set strategy. We sharpen it with peer evidence.</h4>
             <p>
-              In a closed-door session at the 2025 convening, six investor-owned utilities compared
-              data center interconnection requests they were each handling individually. Within
-              two days they identified that they were collectively negotiating against the same
-              three hyperscalers — without realizing it.
+              Strategy, innovation, and resource officers at IOUs, munis, and co-ops.
+              Membership gives you peer-tested benchmarks, working group access on the
+              decisions you&apos;re actually making, and credible cover for the bold moves
+              you bring to your board.
             </p>
-            <p>
-              The session produced the first draft of what became the Large Load Cost Allocation
-              Principles, now cited in 14 state rate case filings.
-            </p>
-            <div className="story-outcomes">
-              <div className="story-outcome">
-                <div className="num">14</div>
-                <div className="label">state rate cases citing the principles</div>
-              </div>
-              <div className="story-outcome">
-                <div className="num">$2.1B</div>
-                <div className="label">in cost-allocation decisions affected</div>
-              </div>
-              <div className="story-outcome">
-                <div className="num">9 mo</div>
-                <div className="label">from session to first regulatory adoption</div>
-              </div>
+            <div className="role-meta">
+              <span>1,200+ utility leaders</span>
+              <span>13 active working groups</span>
             </div>
           </div>
-        </div>
 
-        <div className="story-grid" style={{ marginTop: 80 }}>
-          <div className="story-content">
-            <div className="story-cat">Resilience Working Group · 18-month arc</div>
-            <h3>What 2024&apos;s storm season cost. What 2025&apos;s spent preparing.</h3>
+          <div className="member-role">
+            <div className="role-tag role-regulator" style={{ marginBottom: 14 }}>Regulator and policymaker</div>
+            <h4>You weigh the evidence. We make sure it&apos;s defensible.</h4>
             <p>
-              After Hurricane Beryl in 2024, five utilities in the Resilience Working Group
-              committed to publish their post-event recovery playbooks together. Eighteen months
-              later, the synthesis report was downloaded by 67 utilities and cited in three
-              federal proceedings.
+              State PUCs, legislators, and federal agencies. Membership is access to
+              cross-jurisdictional evidence, neutral ground to engage industry without
+              appearing captured, and a peer network across forty-one states.
             </p>
-            <p>
-              The follow-on impact: four utilities adopted shared procurement standards for storm
-              response equipment, dropping unit costs by an average of 11%.
-            </p>
-            <div className="story-outcomes">
-              <div className="story-outcome">
-                <div className="num">67</div>
-                <div className="label">utilities downloaded the playbook</div>
-              </div>
-              <div className="story-outcome">
-                <div className="num">11%</div>
-                <div className="label">avg. procurement cost reduction</div>
-              </div>
-              <div className="story-outcome">
-                <div className="num">3</div>
-                <div className="label">federal proceedings cited it</div>
-              </div>
+            <div className="role-meta">
+              <span>180+ regulator participants</span>
+              <span>Public-interest pricing tier</span>
             </div>
           </div>
-          <div className="story-img">Photo · After-storm deployment</div>
-        </div>
 
-        <div className="story-grid" style={{ marginTop: 80 }}>
-          <div className="story-img">Photo · Power Player Awards 2025</div>
-          <div className="story-content">
-            <div className="story-cat">2025 Power Player Awards</div>
-            <h3>Recognition that changes what happens next.</h3>
+          <div className="member-role">
+            <div className="role-tag role-provider" style={{ marginBottom: 14 }}>Solution provider</div>
+            <h4>You build for the grid. We connect you to the buyers.</h4>
             <p>
-              The 2025 Power Player Awards recognized seven utility projects across DER deployment,
-              workforce equity, and customer programs. What we didn&apos;t plan: every awarded
-              project saw their methodology adopted by at least one peer utility within twelve
-              months of the recognition.
+              Tech, software, storage, DER, and emerging clean-energy companies selling
+              into utilities. Membership compresses your learning curve on utility
+              procurement and puts you in the room where pilots are scoped.
             </p>
+            <div className="role-meta">
+              <span>440+ provider members</span>
+              <span>Tiered fees by company stage</span>
+            </div>
+          </div>
+
+          <div className="member-role">
+            <div className="role-tag role-buyer" style={{ marginBottom: 14 }}>Large energy user</div>
+            <h4>You set the demand signal. We help utilities answer it.</h4>
             <p>
-              The Awards aren&apos;t about prestige. They&apos;re about turning isolated wins into
-              transferable practice.
+              Fortune 500 sustainability leads, industrials, and data center operators.
+              Membership translates procurement ambition into what utilities can actually
+              deliver, on timelines that work for both sides.
             </p>
-            <div className="story-outcomes">
-              <div className="story-outcome">
-                <div className="num">7</div>
-                <div className="label">projects recognized</div>
-              </div>
-              <div className="story-outcome">
-                <div className="num">100%</div>
-                <div className="label">methodology replicated by peers</div>
-              </div>
-              <div className="story-outcome">
-                <div className="num">23</div>
-                <div className="label">total utilities adopting practices</div>
-              </div>
+            <div className="role-meta">
+              <span>New tier, launching 2026</span>
+              <span>Buyer-Utility Dialogue series</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="pov" style={{ background: 'var(--bg)' }}>
-        <div className="pov-inner" style={{ gridTemplateColumns: '1fr 1fr' }}>
-          <div>
-            <div className="eyebrow">Get involved</div>
-            <h2>The next thing in this calendar happens with you in it, or without.</h2>
-            <p>
-              Members get priority access to working groups, free attendance at convenings,
-              and full participation in research review panels. Non-members can attend open
-              webinars, the annual RE+ event, and selected site visits.
-            </p>
-            <div className="hero-actions">
-              <a href="/join" className="btn">See membership options</a>
-              <a className="link-arrow">Browse all upcoming events →</a>
+      {/* EVENTS - now framed as the calendar of the room */}
+      <section className="section section-light" style={{ background: 'var(--bg)' }}>
+        <div className="section-head">
+          <div className="eyebrow">The calendar</div>
+          <h2>Where members show up next.</h2>
+          <p className="lede" style={{ maxWidth: 720 }}>
+            Working groups, summits, briefings, and dialogues. Filter by your role above
+            to see what&apos;s open to you.
+            <Annotation
+              number={31}
+              note="Events sit downstream of the membership story, not at the top of the page. They're the expression of what membership does — the rooms members show up in — not the headline reason to join."
+            />
+          </p>
+        </div>
+
+        {/* FEATURED EVENT */}
+        <div className="featured-event">
+          <div className="featured-event-meta">
+            <div className="featured-event-tag">Flagship · Members + invited guests</div>
+            <div className="featured-event-date">May 14, 2026 · 1:00–4:30 PM ET · Virtual</div>
+          </div>
+          <h3>Large Load Tariff Principles · Session 4</h3>
+          <p>
+            The fourth working session refining the cost-causation framework that NASUCA
+            endorsed in early 2026. Bringing together 60+ utility, regulatory, and
+            consumer-advocate leads to pressure-test the principles against four real-world
+            tariff cases currently under commission review.
+          </p>
+          <div className="featured-event-roles">
+            <span>Utility leaders</span>
+            <span>Regulators</span>
+            <span>Consumer advocates</span>
+          </div>
+          <div className="featured-event-cta">
+            <button className="btn btn-primary">Reserve your seat</button>
+            <button className="btn btn-secondary">Read the principles draft</button>
+          </div>
+        </div>
+
+        {/* CALENDAR - simplified list */}
+        <div className="event-list">
+          <div className="event-list-head">
+            <h3>What&apos;s on the calendar</h3>
+            <div className="event-filter-tabs">
+              <button className="active">All</button>
+              <button>Working groups</button>
+              <button>Briefings</button>
+              <button>Summits</button>
+              <button>Open to non-members</button>
             </div>
           </div>
-          <div></div>
+
+          <div className="event-row">
+            <div className="event-row-date">
+              <div className="month">May</div>
+              <div className="day">14</div>
+            </div>
+            <div className="event-row-body">
+              <div className="event-row-tags">
+                <span className="event-type">Working group</span>
+                <span className="event-access">Members + invited</span>
+              </div>
+              <h4>Large Load Tariff Principles · Session 4</h4>
+              <div className="event-row-meta">Virtual · 1:00–4:30 PM ET</div>
+            </div>
+            <div className="event-row-cta">Reserve →</div>
+          </div>
+
+          <div className="event-row">
+            <div className="event-row-date">
+              <div className="month">May</div>
+              <div className="day">21</div>
+            </div>
+            <div className="event-row-body">
+              <div className="event-row-tags">
+                <span className="event-type">Briefing</span>
+                <span className="event-access open">Open to all</span>
+              </div>
+              <h4>The State of DERMS · Quarterly Briefing</h4>
+              <div className="event-row-meta">Virtual · 2:00–3:00 PM ET</div>
+            </div>
+            <div className="event-row-cta">Register →</div>
+          </div>
+
+          <div className="event-row">
+            <div className="event-row-date">
+              <div className="month">Jun</div>
+              <div className="day">3–5</div>
+            </div>
+            <div className="event-row-body">
+              <div className="event-row-tags">
+                <span className="event-type">Summit</span>
+                <span className="event-access">Members + registered</span>
+              </div>
+              <h4>Energy Evolution Summit 2026</h4>
+              <div className="event-row-meta">Washington, D.C. · Three days · 1,400+ attendees expected</div>
+            </div>
+            <div className="event-row-cta">Register →</div>
+          </div>
+
+          <div className="event-row">
+            <div className="event-row-date">
+              <div className="month">Jun</div>
+              <div className="day">12</div>
+            </div>
+            <div className="event-row-body">
+              <div className="event-row-tags">
+                <span className="event-type">Dialogue</span>
+                <span className="event-access">Members only</span>
+              </div>
+              <h4>Buyer-Utility Dialogue · Q2 Session</h4>
+              <div className="event-row-meta">Virtual · 11:00 AM–1:00 PM ET</div>
+            </div>
+            <div className="event-row-cta">Reserve →</div>
+          </div>
+
+          <div className="event-row">
+            <div className="event-row-date">
+              <div className="month">Jun</div>
+              <div className="day">18</div>
+            </div>
+            <div className="event-row-body">
+              <div className="event-row-tags">
+                <span className="event-type">Working group</span>
+                <span className="event-access">Members + invited</span>
+              </div>
+              <h4>Rural Modernization · Working Session</h4>
+              <div className="event-row-meta">Virtual · 1:00–3:00 PM ET</div>
+            </div>
+            <div className="event-row-cta">Reserve →</div>
+          </div>
+
+          <div className="event-row">
+            <div className="event-row-date">
+              <div className="month">Jul</div>
+              <div className="day">9</div>
+            </div>
+            <div className="event-row-body">
+              <div className="event-row-tags">
+                <span className="event-type">Briefing</span>
+                <span className="event-access open">Open to all</span>
+              </div>
+              <h4>Mid-Year Affordability Outlook</h4>
+              <div className="event-row-meta">Virtual · 2:00–3:30 PM ET</div>
+            </div>
+            <div className="event-row-cta">Register →</div>
+          </div>
+
+          <div className="event-list-foot">
+            <Link href="#" className="link-arrow">View the full 2026 calendar →</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA — the close */}
+      <section className="section section-cta">
+        <div className="cta-card">
+          <div className="eyebrow">Membership</div>
+          <h2>The transition is being shaped right now. Be in the room.</h2>
+          <p className="lede" style={{ maxWidth: 640, marginInline: 'auto' }}>
+            Membership opens working groups, dialogues, and the data the sector is using
+            to decide what comes next. Thirty seconds to start.
+          </p>
+          <div style={{ marginTop: 24, display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link href="/join" className="btn btn-primary">Join SEPA</Link>
+            <Link href="#" className="btn btn-secondary">Talk to membership</Link>
+          </div>
         </div>
       </section>
     </>

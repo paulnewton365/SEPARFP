@@ -1,95 +1,196 @@
-# Screened
+# SEPA Prototype
 
-An app that helps parents make informed choices about TV shows and films
-their children watch. Aggregates and synthesises parent feedback,
-scored against a thoughtful framework, with a per-child fit verdict.
+A working prototype for the proposed SEPA information architecture and brand direction. Built on the stack defined in the Vercel best practices doc: Next.js on Vercel, Tailwind, shadcn/ui-ready.
+
+---
+
+## ⚠️ Deployment checklist — read this if the gate isn't working
+
+If you deploy this zip and see an old SEPA-branded login page (instead of the dark Antenna-branded one), or if `antennagroup` doesn't unlock the site, you are running an older version. Fix:
+
+1. **Push this zip's contents to your GitHub repo.** Replace everything — do not try to merge into an older commit. Use `git add -A && git commit -m "refresh prototype" && git push --force-with-lease`.
+2. **Trigger a fresh Vercel build.** Either push the new commit (Vercel auto-builds on push) or go to Vercel → Deployments → "..." → Redeploy → uncheck "Use existing Build Cache".
+3. **Clear your browser cookies for the preview domain.** Old login sessions can linger.
+4. **Verify:** visit the root URL — you should be redirected to `/login` with a dark Antenna-branded gate. Password: `antennagroup`.
+
+The middleware file at `/middleware.ts` is what enforces the gate. If your Vercel deployment isn't picking it up, check Project Settings → General → Framework Preset = Next.js, and Root Directory = `sepa-prototype` (or the repo root, depending on how you pushed it).
+
+---
+
+## What this is
+
+Working prototype for a proposed SEPA experience. Seven screens that test a single hypothesis: **utility leaders, regulators, and other sector actors will engage more deeply with SEPA if the site is organized around shaping the transition rather than describing SEPA's activities.**
+
+- `/` Home — Grid/Growth/Globe elevated into the hero, audience-aware path reordering
+- `/login` Antenna-branded access gate (password: `antennagroup`) — Next.js middleware enforces the gate across the whole site
+- `/shape/grid` Shape / Grid arena with persistent arena switcher
+- `/shape/growth` Shape / Growth arena
+- `/shape/globe` Shape / Globe arena
+- `/research` Research hub — DELTa + Carbon-Reduction Tracker surfaced as branded assets
+- `/for/utility` Utility leaders audience hub
+- `/fortnightly` Public Utilities Fortnightly — sub-brand treatment, magazine-quality layout
+- `/about` About SEPA — positioning-led, neutrality as principle, leadership visible
+
+The organizing idea "Let's shape energy's transition" appears persistently in the tagline strip. Every main-site page closes on the mission. Fortnightly and login have their own identities.
+
+**Features worth clicking:**
+- **Audience selector** in the nav: self-identify as Utility / Regulator / Provider / Buyer to personalize the home experience. Selection persists across pages via localStorage.
+- **Search field** in nav: stubbed to an alert, ready to wire to a real `/search` route.
+- **Arena switcher** on Shape pages: Grid, Growth, Globe always one click apart.
+- **Annotations toggle** in the proto banner: blue numbered markers explain structural decisions. Hover to read. Toggle off before a client walkthrough.
 
 ## Stack
 
-- **Next.js 16** with App Router and Turbopack
-- **TypeScript** with strict mode
-- **Tailwind CSS 4** for styling
-- **Supabase** for auth and Postgres
-- **Anthropic Claude** for analysis
-- **TMDB** for title metadata
-- **pnpm** for package management
+- Next.js 15 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS
+- Geist font via `geist` package
+- Node 18.18+ required
 
-## Getting started
+## Local development
 
-You need:
+```bash
+npm install
+npm run dev
+```
 
-- Node.js 20+ and pnpm 10+
-- A Supabase project with the migrations from `../supabase` applied
-- An Anthropic API key
-- A TMDB API key (free, takes 2 minutes)
+Open http://localhost:3000
 
-Steps:
+## Deploy to Vercel
 
-1. Install dependencies: `pnpm install`
-2. Copy the env template: `cp .env.local.example .env.local`
-3. Fill in `.env.local` with your real credentials (see file for guidance)
-4. Run the dev server: `pnpm dev`
-5. Open [http://localhost:3000](http://localhost:3000)
+**The critical setting most people get wrong on first deploy: the root directory.**
 
-The app will fail with a clear error message at boot if any required env
-var is missing — that's by design.
+If you are pushing this project to a GitHub repo, the `sepa-prototype/` folder needs to be either:
+- At the repo root (so `package.json` is directly in the repo root), OR
+- A subfolder, in which case you must tell Vercel to use that subfolder as the root
 
-## Project structure
+### If `package.json` is at the repo root
+
+1. Push to GitHub
+2. Go to https://vercel.com/new
+3. Import the repo
+4. Framework: Next.js (auto-detected)
+5. Click Deploy
+
+### If `sepa-prototype/` is a subfolder
+
+1. Push to GitHub
+2. Go to https://vercel.com/new
+3. Import the repo
+4. Expand **"Build and Output Settings"** or **"Root Directory"**
+5. Set Root Directory to `sepa-prototype`
+6. Framework: Next.js (auto-detected)
+7. Click Deploy
+
+### Vercel CLI alternative (skips GitHub entirely)
+
+```bash
+cd sepa-prototype
+npm i -g vercel
+vercel
+```
+
+Follow prompts. When it asks "In which directory is your code located?", answer `./`.
+
+## Troubleshooting deploy failures
+
+### "No Framework Detected" or build command not found
+
+Root directory is wrong. See above. The folder with `package.json` must be the root.
+
+### Build fails on `npm install`
+
+Stale lockfile. Delete `package-lock.json`, re-commit, push.
+
+### Build fails on TypeScript or ESLint errors
+
+Run `npm run build` locally first to see the same errors Vercel sees. Fix, commit, push.
+
+### Node version errors
+
+Vercel defaults to Node 22 LTS as of 2026. This project requires Node 18.18+ and works on 18, 20, or 22. If you see a Node version error, check Project Settings → General → Node.js Version and set to 20.x or 22.x.
+
+### Security vulnerability warnings blocking deploy
+
+This project is already on patched versions of Next.js 15 and React 19 as of April 2026. If Vercel still flags vulnerabilities:
+
+```bash
+npm update
+npm audit fix
+```
+
+Commit and push.
+
+### Preview URL deploys but routes 404
+
+Clear the Vercel build cache: Project Settings → General → Build & Development Settings → "Clear Cache". Redeploy.
+
+### Still failing
+
+Copy the exact error message from the Vercel build log (Deployments → click the failed deploy → Build Logs). The log will tell you what file and line is failing.
+
+## Clean URL
+
+Per best practice #8 in the Vercel best practices doc, swap the hashed preview URL for something cleaner before sending to SEPA:
+
+- Buy a cheap domain like `sepa-proto.com`
+- Use a subdomain of an existing Antenna domain: `sepa.antennagroup.com`
+- Configure in Vercel Project Settings → Domains
+
+## File structure
 
 ```
-src/
-├── app/                  # Next.js App Router pages and layouts
-│   ├── layout.tsx        # Root layout with editorial typography
-│   ├── globals.css       # Editorial design system
-│   ├── page.tsx          # Landing page
-│   ├── login/            # Auth pages (placeholder, full flow next)
-│   ├── signup/
-│   └── dashboard/        # Authed dashboard (placeholder)
+sepa-prototype/
+├── app/
+│   ├── layout.tsx              Root layout with persistent shell
+│   ├── globals.css             Design tokens + wireframe styles
+│   ├── page.tsx                Home
+│   ├── shape/grid/page.tsx     Shape / Grid arena
+│   ├── research/page.tsx       Research hub
+│   └── for/utility/page.tsx    Utility leaders hub
 ├── components/
-│   ├── ui/               # Primitives (Button, Card, Input)
-│   └── editorial/        # Branded components (Headline, Pullquote, Scorecard)
-├── lib/
-│   ├── env/              # Environment validation with Zod
-│   ├── supabase/         # Client, server, and service-role Supabase helpers
-│   ├── claude/           # Analysis pipeline (next iteration)
-│   ├── tmdb/             # Title metadata client (next iteration)
-│   └── scoring/          # Deterministic fit rules and overall score
-├── types/
-│   └── database.ts       # Supabase-generated DB types
-└── middleware.ts         # Session refresh + auth-protected routing
+│   ├── Nav.tsx                 Primary navigation
+│   ├── TaglineStrip.tsx        Persistent tagline strip
+│   ├── ProtoBanner.tsx         Dev banner with view switcher + annotation toggle
+│   ├── FooterMission.tsx       Persistent mission block (every page)
+│   ├── Footer.tsx              Footer nav
+│   └── Annotation.tsx          Hoverable annotation marker
+├── package.json
+├── vercel.json                 Explicit Vercel config
+├── tailwind.config.ts
+└── tsconfig.json
 ```
 
-## Conventions
+## Design tokens
 
-- Server-side code reads env via `getServerEnv()` from `@/lib/env`
-- Browser-side code reads env via `getClientEnv()` from `@/lib/env`
-- Database access from server components/routes uses `createClient()` from
-  `@/lib/supabase/server` — runs as the logged-in user, RLS enforced
-- Database access from client components uses `createClient()` from
-  `@/lib/supabase/client` — also runs as the logged-in user
-- Service-role access (analysis pipeline, global title cache writes) uses
-  `createServiceRoleClient()` from `@/lib/supabase/service` — bypasses RLS,
-  use sparingly and never expose to the browser
+Four-step grayscale plus one accent, defined in `app/globals.css`:
 
-## Generating Database types
-
-After applying schema migrations to your Supabase project, regenerate
-types with:
-
-```bash
-pnpm dlx supabase gen types typescript --project-id <your-project-ref> > src/types/database.ts
+```css
+--paper: #FFFFFF      /* page background */
+--bg:    #F4F6F8      /* section alternates */
+--box:   #D8DFE5      /* wireframe placeholders */
+--line:  #B8C2CC      /* dividers */
+--ink-3: #8B96A3      /* tertiary text */
+--ink-2: #5B6872      /* secondary text */
+--ink-1: #1A1F24      /* primary text + dark surfaces */
+--accent: #2E5AAC     /* interactive elements only */
 ```
 
-The placeholder type in `src/types/database.ts` works without this but
-loses autocomplete on database queries.
+Single accent reserved for interactive elements per best practice #4.
 
-## Building for production
+## Next steps (hypothesis-testable)
 
-```bash
-pnpm build
-pnpm start
-```
+1. **Remove the proto banner** for client share. Comment out `<ProtoBanner />` in `app/layout.tsx` or gate on `process.env.NODE_ENV`.
+2. **Add the Fortnightly variant toggle.** Per best practice #6, use a query param like `?variant=sub-brand` vs `?variant=endorsed`. Same deploy, two hypotheses.
+3. **Real images.** Currently using grey boxes as wireframe placeholders.
+4. **Instrumentation.** Add Vercel Analytics before sharing with SEPA.
+5. **Password protection.** In Vercel project settings → Deployment Protection.
 
-The build requires network access to fetch Google Fonts (Source Serif 4
-and Inter). If your build environment is offline, swap to system fonts
-in `src/app/layout.tsx`.
+## The hypothesis, written down
+
+Per best practice #1, this prototype exists to test one sentence:
+
+> We believe utility leaders and regulators will engage more deeply with SEPA if the site is organized around shaping the transition rather than describing SEPA's activities.
+
+Success = SEPA's next question is better than their first one.

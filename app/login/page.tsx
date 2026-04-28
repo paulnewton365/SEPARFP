@@ -54,7 +54,7 @@ function LoginForm() {
           disabled={submitting}
         />
         <button type="submit" className="tlogin-enter" disabled={submitting || !code}>
-          {submitting ? '...' : 'Enter'}
+          {submitting ? '...' : 'Enter the prototype'}
         </button>
       </div>
       {error && (
@@ -89,18 +89,68 @@ export default function LoginPage() {
 
       <main className="tlogin-main">
         <div className="tlogin-inner">
-          <div className="tlogin-eyebrow">SEPA · Proposal prototype</div>
+          <div className="tlogin-eyebrow">SEPA · Working prototype</div>
           <h1 className="tlogin-heading">
-            Let&apos;s shape<br />
-            energy&apos;s transition.
+            From idea,<br />
+            to architecture.
           </h1>
           <p className="tlogin-body">
-            This is a working prototype of a proposed new experience for the Smart Electric Power
-            Alliance, prepared by Antenna Group. Enter your access code to continue.
+            A clickable hypothesis of how the organizing idea — <em>let&apos;s shape
+            energy&apos;s transition</em> — becomes a structure people can walk through.
+            Built so you can argue with it.
           </p>
+
           <Suspense fallback={null}>
             <LoginForm />
           </Suspense>
+
+          {/* ORIENTATION GRID - three columns of context */}
+          <div className="tlogin-orient">
+            <div className="tlogin-orient-col">
+              <div className="tlogin-orient-label">How to walk it</div>
+              <p>
+                Start on the homepage. Click into Shape, Research, Membership, Fortnightly,
+                Join, About. Open the article inside Fortnightly. Set your role using the
+                audience selector in the top nav and watch the experience reorder.
+              </p>
+              <p>
+                Every link works. Every form submits. Browse it on your phone if you want.
+              </p>
+            </div>
+
+            <div className="tlogin-orient-col">
+              <div className="tlogin-orient-label">
+                <span className="tlogin-annot-marker" aria-hidden="true">1</span>
+                The blue numbers
+              </div>
+              <p>
+                Every page carries blue numbered markers. They&apos;re annotations.
+                <strong> Hover any marker to read why a structural decision was made</strong>{' '}
+                — what it&apos;s arguing for, what it replaces, and what we&apos;d want
+                to test with you.
+              </p>
+              <p>
+                The annotations are the reasoning that travels with the work. Think of them
+                as a designer talking you through a wall of pinups.
+              </p>
+            </div>
+
+            <div className="tlogin-orient-col">
+              <div className="tlogin-orient-label">What this is not</div>
+              <p>
+                <strong>Not a finalized design.</strong> Visual identity, photography,
+                illustration, and motion all live in the design phase ahead.
+              </p>
+              <p>
+                <strong>Not a messaging recommendation.</strong> Copy is indicative, written
+                to test structure. Final language gets developed in collaboration with you.
+              </p>
+              <p>
+                <strong>Not a conclusion.</strong> A working hypothesis, sharper for being
+                challenged. Disagreement is the most useful thing you can give us.
+              </p>
+            </div>
+          </div>
         </div>
       </main>
 

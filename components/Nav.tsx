@@ -35,7 +35,7 @@ export function Nav() {
           </li>
           <li>
             <Link href="/convene" className={isActive('/convene') ? 'active' : ''}>
-              Convene
+              Membership
             </Link>
           </li>
           <li>

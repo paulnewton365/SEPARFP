@@ -39,7 +39,7 @@ export function Footer() {
           </ul>
         </div>
         <div className="footer-col">
-          <h5>Convene</h5>
+          <h5>Membership</h5>
           <ul>
             <li><a>Events</a></li>
             <li><a>Working groups</a></li>

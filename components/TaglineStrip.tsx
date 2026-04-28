@@ -8,7 +8,7 @@ const breadcrumbs: Record<string, string> = {
   '/shape/growth': 'Home › Shape › Growth',
   '/shape/globe': 'Home › Shape › Globe',
   '/research': 'Home › Research',
-  '/convene': 'Home › Convene',
+  '/convene': 'Home › Membership',
   '/for/utility': 'Home › For utility leaders',
   '/fortnightly': 'Home › Fortnightly',
   '/fortnightly/large-load-playbook': 'Home › Fortnightly › Power to the People',
