@@ -1,30 +1,30 @@
 import Link from 'next/link';
 import { Annotation } from '@/components/Annotation';
+import { MemberRoleTabs } from '@/components/MemberRoleTabs';
 
 export default function MembershipPage() {
   return (
     <>
-      {/* HERO - dark inverted, gives the page gravity on arrival */}
+      {/* HERO - dark inverted */}
       <section className="member-hero">
         <div className="member-hero-inner">
           <div className="eyebrow">Membership</div>
           <h1>
-            The room <em>compounds.</em><br />
-            Show up.
+            Membership is how decisions <em>get made faster.</em>
           </h1>
           <p className="lead">
-            Membership is how decisions get made faster, with better evidence, alongside
-            the people doing the same work. Not a directory you join. A room you walk into,
-            and walk out of with a sharper view of what to do next.
+            Energy&apos;s future will be shaped by utilities, regulators, providers, and
+            buyers working together &mdash; informed by credible evidence and aligned on
+            what actually works. Membership is how that shaping happens.
             <Annotation
               number={20}
-              note="Membership leads with the principle, not the form. Compound, do not reset — the case for being in the room is made before any ask. Conversion happens after the argument is won, not before."
+              note="Membership leads with the principle, not the form. The case for being in the room is made before any ask. Conversion happens after the argument is won, not before."
             />
           </p>
         </div>
       </section>
 
-      {/* IMPACT STRIP - own section, white bg */}
+      {/* IMPACT STRIP */}
       <section className="section" style={{ paddingTop: 56, paddingBottom: 56 }}>
         <div className="section-inner">
           <div className="eyebrow">The work, in numbers</div>
@@ -32,8 +32,8 @@ export default function MembershipPage() {
 
           <div className="member-impact-strip">
             <div className="member-impact-stat">
-              <div className="num">2,400+</div>
-              <div className="label">utility, regulator, and provider participants in working groups since 2023</div>
+              <div className="num">1,000+</div>
+              <div className="label">members across utilities, regulators, providers, buyers, and academia</div>
             </div>
             <div className="member-impact-stat">
               <div className="num">147</div>
@@ -49,208 +49,265 @@ export default function MembershipPage() {
             </div>
             <Annotation
               number={28}
-              note="The impact strip leads with what membership produces, not what SEPA does. Numbers chosen to be defensible, decision-relevant, and not generic engagement metrics."
+              note="The impact strip leads with what membership produces, not what SEPA does. Numbers chosen to be defensible, decision-relevant, and not generic engagement metrics. The 1,000+ figure carries forward existing SEPA framing."
             />
           </div>
         </div>
       </section>
 
-      {/* MEMBER STORIES */}
+      {/* MEMBER SPOTLIGHTS - the "members on stage" idea */}
       <section className="section" style={{ background: 'var(--bg)' }}>
         <div className="section-inner">
           <div className="member-section-head">
-            <div className="eyebrow">Member stories</div>
-            <h2>Decisions, in their words.</h2>
-            <p className="lede" style={{ maxWidth: 720 }}>
-              Six stories from the last twelve months. Each one is a decision that
-              membership made faster, sharper, or possible at all.
+            <div className="eyebrow">Members on stage</div>
+            <h2>The brand revealed by the people who chose it.</h2>
+            <p className="lede" style={{ maxWidth: 680 }}>
+              Four members, in their own words, on what membership produces.
+              Their stories are the brand&apos;s expression &mdash; SEPA is the frame.
               <Annotation
-                number={29}
-                note="Stories foreground decisions and decision-makers, not the SEPA brand. The brand is the room these stories happen in. Members showcase what membership produces; SEPA earns credibility by making them the protagonists."
+                number={32}
+                note="Spotlights embody the 'members on stage' idea — SEPA as the frame, members as the subject. Larger, more cinematic treatment than a quote grid. The brand gets revealed by the people who chose it, not by the brand talking about itself."
               />
             </p>
           </div>
 
-          <div className="member-stories-grid">
-            <article className="member-story">
-              <div className="member-story-meta">
-                <span className="role-tag role-utility">Utility leader</span>
-                <span className="org">[Mid-Atlantic IOU]</span>
+          <div className="spotlights-grid">
+            <article className="spotlight">
+              <div className="spotlight-media">
+                <span className="spotlight-media-label">Photo · Member portrait</span>
+                <div className="spotlight-media-play" aria-hidden="true">▶</div>
               </div>
-              <h3>&ldquo;We brought a 90-day rate-design timeline back from a conversation that started in a working group.&rdquo;</h3>
-              <p>
-                [Name], VP of Regulatory Strategy, used the Large Load Tariff working group
-                to pressure-test a cost-allocation model with peers from four other IOUs
-                before filing. The model survived intervenor scrutiny in the first round.
-              </p>
-              <div className="member-story-foot">
-                <span>Working Group: Large Load Tariffs</span>
-                <span>Read the full story →</span>
-              </div>
-            </article>
-
-            <article className="member-story">
-              <div className="member-story-meta">
-                <span className="role-tag role-regulator">Regulator</span>
-                <span className="org">[Western state PUC]</span>
-              </div>
-              <h3>&ldquo;The DELTa data let me cite peer-state evidence in three different orders this year.&rdquo;</h3>
-              <p>
-                [Name], Commissioner, used SEPA&apos;s DELTa platform as the source for
-                cross-jurisdictional comparisons in dockets covering rate design,
-                interconnection queues, and IRP review. Cited eleven times in 2025.
-              </p>
-              <div className="member-story-foot">
-                <span>Tool: DELTa Cross-Jurisdictional Database</span>
-                <span>Read the full story →</span>
+              <div className="spotlight-body">
+                <div className="spotlight-quote">
+                  &ldquo;SEPA basically gets you to the information you need that much
+                  faster. SEPA gives you that forum to discuss openly and freely with
+                  other program managers and utilities what they&apos;ve learned.&rdquo;
+                </div>
+                <div className="spotlight-attr">
+                  <div className="name">Jake Wade</div>
+                  <div className="role">Renewable Energy Program Manager</div>
+                  <div className="org">Seattle City Light</div>
+                </div>
+                <div className="spotlight-foot">
+                  <span className="role-tag role-utility">Utility</span>
+                  <span className="spotlight-link">Watch Jake&apos;s story →</span>
+                </div>
               </div>
             </article>
 
-            <article className="member-story">
-              <div className="member-story-meta">
-                <span className="role-tag role-provider">Solution provider</span>
-                <span className="org">[Series B grid software]</span>
+            <article className="spotlight">
+              <div className="spotlight-media">
+                <span className="spotlight-media-label">Photo · Member portrait</span>
+                <div className="spotlight-media-play" aria-hidden="true">▶</div>
               </div>
-              <h3>&ldquo;Three months in the working group taught us what we&apos;d have spent a year learning at conferences.&rdquo;</h3>
-              <p>
-                [Name], CEO, joined SEPA at Series B specifically to compress the learning
-                curve on utility procurement timelines. Closed first IOU pilot inside six
-                months of joining.
-              </p>
-              <div className="member-story-foot">
-                <span>Working Group: DERMS Integration</span>
-                <span>Read the full story →</span>
-              </div>
-            </article>
-
-            <article className="member-story">
-              <div className="member-story-meta">
-                <span className="role-tag role-buyer">Large energy user</span>
-                <span className="org">[Fortune 100 industrial]</span>
-              </div>
-              <h3>&ldquo;The roadmap clarity from membership shaped a $400M procurement decision.&rdquo;</h3>
-              <p>
-                [Name], Head of Sustainability, used the Buyer-Utility Dialogue series to
-                align internal procurement timelines with utility resource plans across
-                twelve service territories.
-              </p>
-              <div className="member-story-foot">
-                <span>Series: Buyer-Utility Dialogue</span>
-                <span>Read the full story →</span>
+              <div className="spotlight-body">
+                <div className="spotlight-quote">
+                  &ldquo;SEPA provides us the depth of knowledge that I can&apos;t get
+                  on my own. The research is an immeasurable benefit to utilities that
+                  don&apos;t have the staff, you provide that to us.&rdquo;
+                </div>
+                <div className="spotlight-attr">
+                  <div className="name">Gerald Buydos</div>
+                  <div className="role">Solar Program Manager</div>
+                  <div className="org">City of Riverside, CA</div>
+                </div>
+                <div className="spotlight-foot">
+                  <span className="role-tag role-utility">Utility</span>
+                  <span className="spotlight-link">Read Gerald&apos;s story →</span>
+                </div>
               </div>
             </article>
 
-            <article className="member-story">
-              <div className="member-story-meta">
-                <span className="role-tag role-utility">Utility leader</span>
-                <span className="org">[Rural electric cooperative]</span>
+            <article className="spotlight">
+              <div className="spotlight-media">
+                <span className="spotlight-media-label">Photo · Member portrait</span>
+                <div className="spotlight-media-play" aria-hidden="true">▶</div>
               </div>
-              <h3>&ldquo;A small co-op got the same caliber of evidence as a major IOU. That changes the conversation.&rdquo;</h3>
-              <p>
-                [Name], CEO, brought SEPA peer-benchmark data to a board discussion on
-                distribution-grid modernization. Approved a five-year capital plan in a
-                single board cycle.
-              </p>
-              <div className="member-story-foot">
-                <span>Research: Rural Modernization Benchmark</span>
-                <span>Read the full story →</span>
+              <div className="spotlight-body">
+                <div className="spotlight-quote">
+                  &ldquo;The cross-jurisdictional evidence let me cite peer-state precedent
+                  in three different orders this year. That kind of comparison work used to
+                  take months of staff time. SEPA does it for me.&rdquo;
+                </div>
+                <div className="spotlight-attr">
+                  <div className="name">[Commissioner Name]</div>
+                  <div className="role">Commissioner</div>
+                  <div className="org">[Western state PUC]</div>
+                </div>
+                <div className="spotlight-foot">
+                  <span className="role-tag role-regulator">Regulator</span>
+                  <span className="spotlight-link">Read the story →</span>
+                </div>
               </div>
             </article>
 
-            <article className="member-story">
-              <div className="member-story-meta">
-                <span className="role-tag role-regulator">Consumer advocate</span>
-                <span className="org">[State office]</span>
+            <article className="spotlight">
+              <div className="spotlight-media">
+                <span className="spotlight-media-label">Photo · Member portrait</span>
+                <div className="spotlight-media-play" aria-hidden="true">▶</div>
               </div>
-              <h3>&ldquo;I needed cost-causation language a commission would actually accept. The working group draft did the work.&rdquo;</h3>
-              <p>
-                [Name], Senior Advocate, contributed to the Large Load Tariff principles
-                draft and used the framework verbatim in two state proceedings. NASUCA
-                endorsed the framework in early 2026.
-              </p>
-              <div className="member-story-foot">
-                <span>Working Group: Large Load Tariffs</span>
-                <span>Read the full story →</span>
+              <div className="spotlight-body">
+                <div className="spotlight-quote">
+                  &ldquo;Three months in the working group taught us what we&apos;d have
+                  spent a year learning at conferences. We closed our first IOU pilot inside
+                  six months of joining.&rdquo;
+                </div>
+                <div className="spotlight-attr">
+                  <div className="name">[Founder Name]</div>
+                  <div className="role">CEO</div>
+                  <div className="org">[Series B grid software]</div>
+                </div>
+                <div className="spotlight-foot">
+                  <span className="role-tag role-provider">Provider</span>
+                  <span className="spotlight-link">Read the story →</span>
+                </div>
               </div>
             </article>
           </div>
         </div>
       </section>
 
-      {/* WHO'S IN THE ROOM */}
+      {/* THE PEOPLE DECIDING THE TRANSITION - interactive tabs */}
       <section className="section">
         <div className="section-inner">
           <div className="member-section-head">
             <div className="eyebrow">Who&apos;s in the room</div>
-            <h2>Designed for the people deciding the transition.</h2>
-            <Annotation
-              number={30}
-              note="Tiers are framed as roles in the conversation, not pricing categories. The decision a member is trying to make is the organizing logic. Pricing lives on the join page; this page is about who's in the room and why."
-            />
+            <h2>The people deciding the transition.</h2>
+            <p className="lede" style={{ maxWidth: 680 }}>
+              Four roles. Four different decisions to make. One room.
+              Choose a role to see what membership opens.
+              <Annotation
+                number={33}
+                note="Interactive tabs replace the parallel card grid. Different visual treatment from the spotlights above, and the tab interaction lets the user examine one role in depth without scrolling past three others. Single content panel respects attention."
+              />
+            </p>
           </div>
 
-          <div className="member-roles">
-            <div className="member-role">
-              <div className="role-tag role-utility" style={{ marginBottom: 14 }}>Utility leader</div>
-              <h4>You set strategy. We sharpen it with peer evidence.</h4>
-              <p>
-                Strategy, innovation, and resource officers at IOUs, munis, and co-ops.
-                Membership gives you peer-tested benchmarks, working group access on the
-                decisions you&apos;re actually making, and credible cover for the bold moves
-                you bring to your board.
-              </p>
-              <div className="role-meta">
-                <span>1,200+ utility leaders</span>
-                <span>13 active working groups</span>
-              </div>
-            </div>
+          <MemberRoleTabs />
+        </div>
+      </section>
 
-            <div className="member-role">
-              <div className="role-tag role-regulator" style={{ marginBottom: 14 }}>Regulator and policymaker</div>
-              <h4>You weigh the evidence. We make sure it&apos;s defensible.</h4>
+      {/* MEMBER COMPOSITION DATA VIZ */}
+      <section className="section" style={{ background: 'var(--bg)' }}>
+        <div className="section-inner">
+          <div className="composition-grid">
+            <div className="composition-text">
+              <div className="eyebrow">The composition</div>
+              <h2>One thousand members. Eight stakeholder classes.</h2>
               <p>
-                State PUCs, legislators, and federal agencies. Membership is access to
-                cross-jurisdictional evidence, neutral ground to engage industry without
-                appearing captured, and a peer network across forty-one states.
+                Investor-owned utilities, electric cooperatives, public power, technology
+                companies, state utility commissions, consumer advocates, large energy users,
+                and academic institutions. The breadth is the point &mdash; no single
+                perspective dominates the room.
               </p>
-              <div className="role-meta">
-                <span>180+ regulator participants</span>
-                <span>Public-interest pricing tier</span>
-              </div>
+              <p>
+                <Link href="#" className="link-arrow">View the full member directory →</Link>
+              </p>
+              <Annotation
+                number={34}
+                note="Composition data visualized rather than listed. The breadth of stakeholder classes is itself the proof that SEPA's neutrality has substance — it shows up in who's actually in the room."
+              />
             </div>
-
-            <div className="member-role">
-              <div className="role-tag role-provider" style={{ marginBottom: 14 }}>Solution provider</div>
-              <h4>You build for the grid. We connect you to the buyers.</h4>
-              <p>
-                Tech, software, storage, DER, and emerging clean-energy companies selling
-                into utilities. Membership compresses your learning curve on utility
-                procurement and puts you in the room where pilots are scoped.
-              </p>
-              <div className="role-meta">
-                <span>440+ provider members</span>
-                <span>Tiered fees by company stage</span>
-              </div>
-            </div>
-
-            <div className="member-role">
-              <div className="role-tag role-buyer" style={{ marginBottom: 14 }}>Large energy user</div>
-              <h4>You set the demand signal. We help utilities answer it.</h4>
-              <p>
-                Fortune 500 sustainability leads, industrials, and data center operators.
-                Membership translates procurement ambition into what utilities can actually
-                deliver, on timelines that work for both sides.
-              </p>
-              <div className="role-meta">
-                <span>New tier, launching 2026</span>
-                <span>Buyer-Utility Dialogue series</span>
+            <div className="composition-viz">
+              <div className="composition-viz-label">Member composition by class · 2026</div>
+              <svg viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Donut chart of member composition">
+                {/* Donut chart - segments calculated as cumulative arc paths */}
+                {(() => {
+                  const segments = [
+                    { label: 'Utility', pct: 52, color: 'var(--accent)' },
+                    { label: 'Solution provider', pct: 26, color: 'var(--ink-1)' },
+                    { label: 'Regulator/Gov', pct: 10, color: 'var(--ink-2)' },
+                    { label: 'Large energy user', pct: 6, color: 'var(--ink-3)' },
+                    { label: 'Academic/NGO', pct: 6, color: 'var(--line)' },
+                  ];
+                  const cx = 190;
+                  const cy = 190;
+                  const r = 140;
+                  const innerR = 90;
+                  let cumulative = 0;
+                  return segments.map((s, i) => {
+                    const startAngle = (cumulative / 100) * Math.PI * 2 - Math.PI / 2;
+                    cumulative += s.pct;
+                    const endAngle = (cumulative / 100) * Math.PI * 2 - Math.PI / 2;
+                    const x1 = cx + r * Math.cos(startAngle);
+                    const y1 = cy + r * Math.sin(startAngle);
+                    const x2 = cx + r * Math.cos(endAngle);
+                    const y2 = cy + r * Math.sin(endAngle);
+                    const x3 = cx + innerR * Math.cos(endAngle);
+                    const y3 = cy + innerR * Math.sin(endAngle);
+                    const x4 = cx + innerR * Math.cos(startAngle);
+                    const y4 = cy + innerR * Math.sin(startAngle);
+                    const largeArc = s.pct > 50 ? 1 : 0;
+                    const path = `M ${x1} ${y1} A ${r} ${r} 0 ${largeArc} 1 ${x2} ${y2} L ${x3} ${y3} A ${innerR} ${innerR} 0 ${largeArc} 0 ${x4} ${y4} Z`;
+                    return <path key={i} d={path} fill={s.color} stroke="var(--paper)" strokeWidth="2" />;
+                  });
+                })()}
+                <text x="190" y="186" textAnchor="middle" fontSize="42" fontWeight="500" fill="var(--ink-1)" letterSpacing="-1">1,000+</text>
+                <text x="190" y="208" textAnchor="middle" fontSize="11" fill="var(--ink-3)" letterSpacing="2">MEMBERS</text>
+              </svg>
+              <div className="composition-legend">
+                <div className="composition-legend-item"><span className="swatch" style={{ background: 'var(--accent)' }} /> Utility · 52%</div>
+                <div className="composition-legend-item"><span className="swatch" style={{ background: 'var(--ink-1)' }} /> Solution provider · 26%</div>
+                <div className="composition-legend-item"><span className="swatch" style={{ background: 'var(--ink-2)' }} /> Regulator and government · 10%</div>
+                <div className="composition-legend-item"><span className="swatch" style={{ background: 'var(--ink-3)' }} /> Large energy user · 6%</div>
+                <div className="composition-legend-item"><span className="swatch" style={{ background: 'var(--line)' }} /> Academic and NGO · 6%</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* UPCOMING EVENTS - tighter component, not a full calendar */}
+      {/* LEADERSHIP TEAM */}
+      <section className="section">
+        <div className="section-inner">
+          <div className="member-section-head">
+            <div className="eyebrow">Your members team</div>
+            <h2>The people you actually work with.</h2>
+            <p className="lede" style={{ maxWidth: 680 }}>
+              Membership is a relationship, not a subscription. Four leaders run the program
+              that connects you to the people, the research, and the rooms where decisions
+              get made.
+              <Annotation
+                number={35}
+                note="Leadership surfaced because the team running membership is the day-to-day relationship members actually experience. Pulling forward the names already on sepapower.org so the new experience feels familiar from day one."
+              />
+            </p>
+          </div>
+
+          <div className="leadership-grid">
+            <div className="leader">
+              <div className="leader-photo" />
+              <h4>Sheri Givens</h4>
+              <div className="leader-role">President &amp; CEO</div>
+              <p>Leads SEPA&apos;s strategic direction since November 2022. Twenty-plus years across utility regulation, consumer advocacy, and energy policy.</p>
+              <a className="leader-link">Connect on LinkedIn →</a>
+            </div>
+            <div className="leader">
+              <div className="leader-photo" />
+              <h4>Courtney Galatioto</h4>
+              <div className="leader-role">VP, Membership</div>
+              <p>Steers the membership program &mdash; engagement, retention, growth. A decade in the energy sector. Master&apos;s in energy and climate change from Johns Hopkins.</p>
+              <a className="leader-link">Connect on LinkedIn →</a>
+            </div>
+            <div className="leader">
+              <div className="leader-photo" />
+              <h4>Sarah Gott</h4>
+              <div className="leader-role">Director, Utility Engagement</div>
+              <p>Leads the utility relationships that anchor the membership. Twenty years in strategic relationship management, including fifteen at an electric utility.</p>
+              <a className="leader-link">Connect on LinkedIn →</a>
+            </div>
+            <div className="leader">
+              <div className="leader-photo" />
+              <h4>Monica Trauzzi</h4>
+              <div className="leader-role">Chief Communications Officer</div>
+              <p>Oversees communications, marketing, brand, and Public Utilities Fortnightly since August 2025. Former journalist. Two decades at the energy &amp; climate intersection.</p>
+              <a className="leader-link">Connect on LinkedIn →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* UPCOMING EVENTS - compact component */}
       <section className="section" style={{ background: 'var(--bg)' }}>
         <div className="section-inner">
           <div className="upcoming-events-head">
@@ -262,7 +319,7 @@ export default function MembershipPage() {
           </div>
           <Annotation
             number={31}
-            note="Upcoming events live as a compact component, not a full calendar. The page is about membership; the calendar is one expression of it. A short list with a link to depth respects the page's purpose."
+            note="Upcoming events live as a compact component, not a full calendar. The page is about membership; the calendar is one expression of it."
           />
 
           <div className="upcoming-events">
@@ -323,7 +380,7 @@ export default function MembershipPage() {
                   <span className="event-type">Summit</span>
                   <span className="event-access">Members + registered</span>
                 </div>
-                <h3>Energy Evolution Summit 2026</h3>
+                <h3>Grid Evolution Summit 2026</h3>
                 <div className="upcoming-event-meta">
                   <span>Washington, D.C.</span>
                   <span>Three days</span>

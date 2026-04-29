@@ -1,6 +1,7 @@
 'use client';
 
 import { Annotation } from '@/components/Annotation';
+import Link from 'next/link';
 import { ArenaSwitcher } from '@/components/ArenaSwitcher';
 import { useAudience, AUDIENCE_LABELS } from '@/components/AudienceContext';
 
@@ -172,6 +173,34 @@ export default function ShapeGridPage() {
               <span>Jan 2026</span>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* MEMBERS LEADING THIS WORK */}
+      <section className="section members-leading-strip">
+        <div className="section-inner">
+          <div className="eyebrow">Members leading this work</div>
+          <h3 className="members-leading-title">
+            Twenty utilities, four state commissions, eleven providers in the room.
+          </h3>
+          <div className="members-leading-logos">
+            <span>[Mid-Atlantic IOU]</span>
+            <span>[Western coop]</span>
+            <span>[Southeast IOU]</span>
+            <span>[Texas muni]</span>
+            <span>[NW utility]</span>
+            <span>[State PUC]</span>
+            <span>[Grid software co.]</span>
+            <span>[Storage provider]</span>
+            <span>+ many more</span>
+          </div>
+          <Link href="/convene" className="link-arrow" style={{ marginTop: 20, display: 'inline-block' }}>
+            See members shaping the grid →
+          </Link>
+          <Annotation
+            number={37}
+            note="Each Shape page surfaces who's actually leading the work in that arena. Members are not the audience — they are the protagonists. Logo placeholders mark where to feature member organizations once selected."
+          />
         </div>
       </section>
 

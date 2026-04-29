@@ -1,4 +1,6 @@
 import { ArenaSwitcher } from '@/components/ArenaSwitcher';
+import { Annotation } from '@/components/Annotation';
+import Link from 'next/link';
 
 export default function ShapeGlobePage() {
   return (
@@ -108,6 +110,32 @@ export default function ShapeGlobePage() {
               <span>Dec 2025</span>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* MEMBERS LEADING THIS WORK */}
+      <section className="section members-leading-strip">
+        <div className="section-inner">
+          <div className="eyebrow">Members leading this work</div>
+          <h3 className="members-leading-title">
+            Eight utilities and three federal labs in cross-border conversations.
+          </h3>
+          <div className="members-leading-logos">
+            <span>[Border IOU]</span>
+            <span>[Federal lab]</span>
+            <span>[Cross-border RTO]</span>
+            <span>[State energy office]</span>
+            <span>[Equity NGO]</span>
+            <span>[Academic partner]</span>
+            <span>+ many more</span>
+          </div>
+          <Link href="/convene" className="link-arrow" style={{ marginTop: 20, display: 'inline-block' }}>
+            See members shaping the global conversation →
+          </Link>
+          <Annotation
+            number={37}
+            note="Each Shape page surfaces who's actually leading the work in that arena. Members are not the audience — they are the protagonists."
+          />
         </div>
       </section>
     </>

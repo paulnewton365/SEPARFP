@@ -115,6 +115,36 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* MEMBERS LEAD - small pull quote from real member, anchored to membership page */}
+      <section className="section members-lead">
+        <div className="section-inner">
+          <div className="members-lead-grid">
+            <div>
+              <div className="eyebrow">Members lead the work</div>
+              <h2>
+                The room is the product.
+                <Annotation
+                  number={36}
+                  note="Home page anchors membership as the substrate of everything else. The proof section above shows what membership covers in the sector; this section shows what membership produces in member voice. Links straight through to /convene."
+                />
+              </h2>
+            </div>
+            <div className="members-lead-quote">
+              <div className="quote-mark" aria-hidden="true">&ldquo;</div>
+              <p>
+                SEPA basically gets you to the information you need that much faster.
+                It gives you that forum to discuss openly and freely with other program
+                managers and utilities what they&apos;ve learned.
+              </p>
+              <div className="members-lead-attr">
+                <strong>Jake Wade</strong>, Renewable Energy Program Manager · Seattle City Light
+              </div>
+              <Link href="/convene" className="link-arrow">See how membership works →</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 3: CURRENT POV / CAMPAIGN */}
       <section className="pov">
         <div className="pov-inner">

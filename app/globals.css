@@ -1767,6 +1767,90 @@ body.annotations-off .anno { display: none; }
 }
 
 /* ============ MEMBERSHIP PAGE (formerly /convene) ============ */
+/* Home page - members lead callout */
+.members-lead-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 56px;
+  align-items: start;
+}
+.members-lead h2 {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ink-1);
+  margin-top: 8px;
+}
+.members-lead-quote {
+  position: relative;
+  padding-left: 32px;
+  border-left: 3px solid var(--accent);
+}
+.members-lead-quote .quote-mark {
+  position: absolute;
+  top: -16px;
+  left: 22px;
+  font-size: 64px;
+  color: var(--accent);
+  line-height: 1;
+  font-family: Georgia, serif;
+}
+.members-lead-quote p {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  color: var(--ink-1);
+  margin-bottom: 18px;
+}
+.members-lead-attr {
+  font-size: 13px;
+  color: var(--ink-2);
+  margin-bottom: 14px;
+}
+.members-lead-attr strong { color: var(--ink-1); }
+
+/* Shape page - members leading strip */
+.members-leading-strip {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 48px 24px;
+}
+.members-leading-title {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin-top: 8px;
+  margin-bottom: 24px;
+  color: var(--ink-1);
+  max-width: 780px;
+}
+.members-leading-logos {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.members-leading-logos span {
+  display: inline-block;
+  padding: 8px 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 12px;
+  color: var(--ink-2);
+  letter-spacing: 0.02em;
+}
+.members-leading-logos span:last-child {
+  background: transparent;
+  border-color: transparent;
+  color: var(--ink-3);
+  font-style: italic;
+}
+
 /* Hero - dark inverted block, gives the page gravity */
 .member-hero {
   background: var(--ink-1);
@@ -1925,41 +2009,343 @@ body.annotations-off .anno { display: none; }
 .role-tag.role-buyer { color: #6B2E6E; border-color: #9C5A9F; background: #F5EAF6; }
 
 /* Member roles section */
-.member-roles {
+/* === Member spotlights - "members on stage" === */
+.spotlights-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 32px;
+  margin-top: 40px;
+}
+.spotlight {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0;
+  overflow: hidden;
+}
+.spotlight-media {
+  background: linear-gradient(135deg, var(--ink-1) 0%, var(--ink-2) 100%);
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  min-height: 280px;
+}
+.spotlight-media-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+.spotlight-media-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--paper);
+  font-size: 16px;
+  padding-left: 4px;
+}
+.spotlight-body {
+  padding: 28px 28px 24px;
+  display: flex;
+  flex-direction: column;
+}
+.spotlight-quote {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  line-height: 1.4;
+  color: var(--ink-1);
+  margin-bottom: 22px;
+  flex-grow: 1;
+}
+.spotlight-attr {
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  margin-bottom: 16px;
+}
+.spotlight-attr .name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-1);
+  margin-bottom: 2px;
+}
+.spotlight-attr .role {
+  font-size: 12px;
+  color: var(--ink-2);
+}
+.spotlight-attr .org {
+  font-size: 12px;
+  color: var(--ink-3);
+  font-style: italic;
+}
+.spotlight-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+.spotlight-link {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* === Role tabs - interactive component === */
+.role-tabs {
   margin-top: 32px;
 }
-.member-role {
-  border: 1px solid var(--line);
-  padding: 32px;
-  background: var(--paper);
-  border-radius: var(--radius);
+.role-tabs-nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+  margin-bottom: 0;
 }
-.member-role h4 {
-  font-size: 22px;
+.role-tab {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: 16px 22px;
+  font-family: inherit;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: -0.01em;
-  line-height: 1.25;
-  color: var(--ink-1);
-  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+  margin-bottom: -1px;
+  position: relative;
 }
-.member-role p {
+.role-tab:hover { color: var(--ink-2); }
+.role-tab.active {
+  color: var(--ink-1);
+  border-bottom-color: var(--accent);
+}
+.role-tab.active.role-tab-utility { border-bottom-color: #2E5AAC; }
+.role-tab.active.role-tab-regulator { border-bottom-color: #B5904D; }
+.role-tab.active.role-tab-provider { border-bottom-color: #4A8B7A; }
+.role-tab.active.role-tab-buyer { border-bottom-color: #9C5A9F; }
+
+.role-tabs-panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: none;
+  padding: 40px;
+}
+.role-panel-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 56px;
+}
+.role-panel-main h3 {
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  color: var(--ink-1);
+  margin-bottom: 28px;
+}
+.role-panel-block { margin-bottom: 22px; }
+.role-panel-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.role-panel-block p {
   font-size: 14px;
   color: var(--ink-2);
   line-height: 1.6;
-  margin-bottom: 20px;
 }
-.role-meta {
-  display: flex;
-  gap: 20px;
-  font-size: 11px;
-  letter-spacing: 0.04em;
+.role-panel-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.role-panel-list li {
+  font-size: 14px;
+  color: var(--ink-2);
+  line-height: 1.5;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  padding-left: 18px;
+}
+.role-panel-list li:last-child { border-bottom: none; }
+.role-panel-list li::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 500;
+}
+.role-panel-side {
+  border-left: 1px solid var(--line);
+  padding-left: 32px;
+}
+.role-panel-stats {
+  margin-bottom: 24px;
+}
+.role-panel-stat {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+.role-panel-stat:last-child { border-bottom: none; }
+.role-panel-stat .num {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink-1);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.role-panel-stat .label {
+  font-size: 12px;
   color: var(--ink-3);
-  padding-top: 16px;
+  line-height: 1.45;
+}
+.role-panel-example {
+  background: var(--bg);
+  padding: 20px;
+  border-left: 3px solid var(--accent);
+}
+.role-panel-example p {
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.55;
+  font-style: italic;
+}
+
+/* === Composition viz === */
+.composition-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 64px;
+  align-items: center;
+}
+.composition-text h2 {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ink-1);
+  margin: 8px 0 20px;
+}
+.composition-text p {
+  font-size: 15px;
+  color: var(--ink-2);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  max-width: 480px;
+}
+.composition-viz {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 32px;
+}
+.composition-viz-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.composition-viz svg {
+  display: block;
+  margin: 0 auto;
+  max-width: 380px;
+  width: 100%;
+  height: auto;
+}
+.composition-legend {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 20px;
   border-top: 1px solid var(--line);
-  flex-wrap: wrap;
+}
+.composition-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.composition-legend-item .swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* === Leadership grid === */
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+}
+.leader .leader-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, var(--box) 0%, var(--box-2) 100%);
+  margin-bottom: 16px;
+}
+.leader h4 {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  margin-bottom: 4px;
+  color: var(--ink-1);
+}
+.leader-role {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.leader p {
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+.leader-link {
+  font-size: 12px;
+  color: var(--ink-1);
+  border-bottom: 1px solid var(--ink-1);
+  padding-bottom: 1px;
+  cursor: pointer;
+}
+.leader-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 /* Upcoming events - compact component, not a full calendar */
@@ -3591,22 +3977,38 @@ body.antenna-login-mode { background: var(--antenna-bg); }
   .benefit:last-child { border-bottom: none; }
 
   /* Membership page responsive */
+  .members-lead-grid { grid-template-columns: 1fr; gap: 28px; }
+  .members-lead h2 { font-size: 26px; }
+  .members-lead-quote p { font-size: 18px; }
+  .members-leading-title { font-size: 19px; }
+  .member-hero { padding: 64px 24px 56px; }
+  .member-hero h1 { font-size: 44px; line-height: 1.05; }
+  .member-hero .lead { font-size: 16px; }
+  .impact-title { font-size: 26px; }
   .member-impact-strip { grid-template-columns: 1fr 1fr; }
   .member-impact-stat { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .member-impact-stat:nth-child(2n) { border-right: none; }
   .member-impact-stat:nth-last-child(-n+2) { border-bottom: none; }
   .member-impact-stat .num { font-size: 32px; }
-  .member-stories-grid { grid-template-columns: 1fr; }
-  .member-story { padding: 24px; }
-  .member-story h3 { font-size: 17px; }
-  .member-roles { grid-template-columns: 1fr; }
-  .member-role { padding: 24px; }
-  .member-role h4 { font-size: 18px; }
-  .featured-event { padding: 28px 20px; }
-  .featured-event h3 { font-size: 22px; }
-  .event-row { grid-template-columns: 64px 1fr; gap: 16px; }
-  .event-row-cta { grid-column: 2; padding-top: 8px; }
-  .event-list-head { flex-direction: column; align-items: flex-start; }
+  .spotlights-grid { grid-template-columns: 1fr; gap: 20px; }
+  .spotlight { grid-template-columns: 1fr; }
+  .spotlight-media { min-height: 200px; }
+  .spotlight-body { padding: 24px; }
+  .spotlight-quote { font-size: 16px; }
+  .role-tabs-nav { overflow-x: auto; flex-wrap: nowrap; }
+  .role-tab { padding: 14px 16px; font-size: 12px; white-space: nowrap; }
+  .role-tabs-panel { padding: 24px; }
+  .role-panel-grid { grid-template-columns: 1fr; gap: 32px; }
+  .role-panel-side { border-left: none; padding-left: 0; padding-top: 24px; border-top: 1px solid var(--line); }
+  .role-panel-main h3 { font-size: 22px; }
+  .composition-grid { grid-template-columns: 1fr; gap: 32px; }
+  .composition-text h2 { font-size: 26px; }
+  .leadership-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .upcoming-events-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .upcoming-event { grid-template-columns: 80px 1fr; gap: 16px; padding: 18px; }
+  .upcoming-event-date .day { font-size: 24px; }
+  .upcoming-event-featured h3 { font-size: 19px; }
+  .upcoming-event-meta span:last-child { margin-left: 0; }
   .cta-card { padding: 32px 20px; }
   .cta-card h2 { font-size: 22px; }
   .join-hero-inner { grid-template-columns: 1fr; gap: 40px; }

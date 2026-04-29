@@ -1,4 +1,6 @@
 import { ArenaSwitcher } from '@/components/ArenaSwitcher';
+import { Annotation } from '@/components/Annotation';
+import Link from 'next/link';
 
 export default function ShapeGrowthPage() {
   return (
@@ -107,6 +109,33 @@ export default function ShapeGrowthPage() {
               <span>Mar 2026</span>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* MEMBERS LEADING THIS WORK */}
+      <section className="section members-leading-strip">
+        <div className="section-inner">
+          <div className="eyebrow">Members leading this work</div>
+          <h3 className="members-leading-title">
+            Sixteen utilities and twenty-two providers shaping how growth gets met.
+          </h3>
+          <div className="members-leading-logos">
+            <span>[Hyperscaler buyer]</span>
+            <span>[Industrial buyer]</span>
+            <span>[Western IOU]</span>
+            <span>[Texas IOU]</span>
+            <span>[Storage provider]</span>
+            <span>[DERMS vendor]</span>
+            <span>[EV charging co.]</span>
+            <span>+ many more</span>
+          </div>
+          <Link href="/convene" className="link-arrow" style={{ marginTop: 20, display: 'inline-block' }}>
+            See members shaping growth →
+          </Link>
+          <Annotation
+            number={37}
+            note="Each Shape page surfaces who's actually leading the work in that arena. Members are not the audience — they are the protagonists."
+          />
         </div>
       </section>
     </>
