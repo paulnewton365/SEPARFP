@@ -14,7 +14,7 @@ export default function MembershipPage() {
           </h1>
           <p className="lead">
             Energy&apos;s future will be shaped by utilities, regulators, providers, and
-            buyers working together &mdash; informed by credible evidence and aligned on
+            buyers working together, informed by credible evidence and aligned on
             what actually works. Membership is how that shaping happens.
             <Annotation
               number={20}
@@ -63,10 +63,10 @@ export default function MembershipPage() {
             <h2>The brand revealed by the people who chose it.</h2>
             <p className="lede" style={{ maxWidth: 680 }}>
               Four members, in their own words, on what membership produces.
-              Their stories are the brand&apos;s expression &mdash; SEPA is the frame.
+              Their stories are the brand&apos;s expression, SEPA is the frame.
               <Annotation
                 number={32}
-                note="Spotlights embody the members-on-stage idea — SEPA as the frame, members as the subject. The brand is revealed by the people who chose it, not by the brand talking about itself. Maps to RFP language around members feeling more connected and around proactive narrative leadership."
+                note="Spotlights embody the members-on-stage idea, SEPA as the frame, members as the subject. The brand is revealed by the people who chose it, not by the brand talking about itself. Maps to RFP language around members feeling more connected and around proactive narrative leadership."
               />
             </p>
           </div>
@@ -193,11 +193,11 @@ export default function MembershipPage() {
           <div className="composition-grid">
             <div className="composition-text">
               <div className="eyebrow">The composition</div>
-              <h2>One thousand members. Eight stakeholder classes.</h2>
+              <h2>Our breadth is our power.</h2>
               <p>
                 Investor-owned utilities, electric cooperatives, public power, technology
                 companies, state utility commissions, consumer advocates, large energy users,
-                and academic institutions. The breadth is the point &mdash; no single
+                and academic institutions. The breadth is the point, no single
                 perspective dominates the room.
               </p>
               <p>
@@ -205,7 +205,7 @@ export default function MembershipPage() {
               </p>
               <Annotation
                 number={34}
-                note="Composition visualized so the breadth of stakeholder classes becomes legible at a glance. The composition itself is proof that SEPA's neutrality has substance — it shows up in who is in the room. Maps to RFP language around being sought out as a go-to authority."
+                note="Composition visualized so the breadth of stakeholder classes becomes legible at a glance. The composition itself is proof that SEPA's neutrality has substance, it shows up in who is in the room. Maps to RFP language around being sought out as a go-to authority."
               />
             </div>
             <div className="composition-viz">
@@ -286,7 +286,7 @@ export default function MembershipPage() {
               <div className="leader-photo" />
               <h4>Courtney Galatioto</h4>
               <div className="leader-role">VP, Membership</div>
-              <p>Steers the membership program &mdash; engagement, retention, growth. A decade in the energy sector. Master&apos;s in energy and climate change from Johns Hopkins.</p>
+              <p>Steers the membership program, engagement, retention, growth. A decade in the energy sector. Master&apos;s in energy and climate change from Johns Hopkins.</p>
               <a className="leader-link">Connect on LinkedIn →</a>
             </div>
             <div className="leader">

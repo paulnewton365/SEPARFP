@@ -21,7 +21,7 @@ const labels: Record<string, string> = {
 export function TaglineStrip() {
   const pathname = usePathname();
 
-  // Hide on login, Fortnightly, and article pages — they have their own identity
+  // Hide on login, Fortnightly, and article pages, they have their own identity
   if (
     pathname === '/login' ||
     pathname === '/fortnightly' ||
@@ -30,7 +30,7 @@ export function TaglineStrip() {
     return null;
   }
 
-  // Don't render breadcrumb on home — only the tagline
+  // Don't render breadcrumb on home, only the tagline
   const isHome = pathname === '/';
 
   const parts = pathname.split('/').filter(Boolean);

@@ -13,13 +13,13 @@ export default function ShapeIndexPage() {
           </h1>
           <p className="lead">
             Let&apos;s shape energy&apos;s transition. The future will be shaped by
-            utilities, regulators, providers, and buyers working together &mdash;
+            utilities, regulators, providers, and buyers working together ,
             informed by credible evidence and aligned on what actually works.
             SEPA&apos;s members are doing the shaping. Three arenas. One transition.
             Each one is a piece of the work.
             <Annotation
               number={44}
-              note="An index page so the three arenas land with equal billing on first arrival. The lead activates the organizing idea — Let's shape energy's transition — and names who does the shaping. Each arena card holds the same shape and depth, so the choice of where to start is the reader's. Maps to RFP language around a unified digital experience and the brand being understandable and inspiring."
+              note="An index page so the three arenas land with equal billing on first arrival. The lead activates the organizing idea, Let's shape energy's transition, and names who does the shaping. Each arena card holds the same shape and depth, so the choice of where to start is the reader's. Maps to RFP language around a unified digital experience and the brand being understandable and inspiring."
             />
           </p>
         </div>
@@ -40,7 +40,7 @@ export default function ShapeIndexPage() {
             <p>
               For utility leaders managing storm response and capital plans, transmission
               planners under FERC pressure, and commissioners weighing whether the rate
-              base can absorb what the grid actually needs &mdash; Grid is the work of
+              base can absorb what the grid actually needs, Grid is the work of
               keeping reliability and modernization on speaking terms.
             </p>
             <div className="arena-segment-stats">
@@ -70,7 +70,7 @@ export default function ShapeIndexPage() {
             <p>
               For utility resource planners absorbing data centers and fleet electrification,
               regulators rewriting the rate cases that follow, and Fortune 500 buyers trying
-              to plan around utility timelines &mdash; Growth is the conversation that
+              to plan around utility timelines, Growth is the conversation that
               compounds across every other decision.
             </p>
             <div className="arena-segment-stats">
@@ -102,7 +102,7 @@ export default function ShapeIndexPage() {
             <p>
               For utility planners citing international precedent, federal labs running
               comparative work, and state offices learning from regimes that solved
-              specific problems first &mdash; Globe is the comparative evidence base US
+              specific problems first, Globe is the comparative evidence base US
               policy can stop relying on intuition for.
             </p>
             <div className="arena-segment-stats">
@@ -125,7 +125,7 @@ export default function ShapeIndexPage() {
             <p className="lede" style={{ maxWidth: 720 }}>
               SEPA used to talk in six focus areas. Then four pathways. Then five priorities.
               The framework changed; the framing did not. Three arenas is what stuck because
-              it is what the work actually looks like &mdash; the foundation members maintain,
+              it is what the work actually looks like, the foundation members maintain,
               the demand picture they have to absorb, and the comparative evidence they
               bring back from the rest of the world.
             </p>

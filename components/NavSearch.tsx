@@ -39,7 +39,7 @@ export function NavSearch() {
 
   const handleKey = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && query.trim()) {
-      alert(`Search for "${query}"\n\n(Wireframe stub — would route to /search.)`);
+      alert(`Search for "${query}"\n\n(Wireframe stub, would route to /search.)`);
       setQuery('');
       setOpen(false);
     }

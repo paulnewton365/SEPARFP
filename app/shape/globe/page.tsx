@@ -6,7 +6,7 @@ export default function ShapeGlobePage() {
       slug="globe"
       label="Globe"
       number="03"
-      heroHeadline={<>The lessons we bring back to the US sector <em>—</em> and make the case for.</>}
+      heroHeadline={<>The lessons we bring back to the US sector <em>,</em> and make the case for.</>}
       heroLead="Innovation crosses borders. The work scans cross-border lessons, climate-equity outcomes, and the international evidence base that informs how the US sector can do better."
       impact={[
         { num: '12', label: 'cross-border collaborations with utilities and federal labs since 2023' },

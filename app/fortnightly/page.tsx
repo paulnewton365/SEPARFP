@@ -45,7 +45,7 @@ export default function FortnightlyPage() {
           <div className="fn-attribution">A publication of the Smart Electric Power Alliance · Since 1928</div>
           <Annotation
             number={38}
-            note="Publication identity in three lines — name, tagline, and attribution. The masthead introduces what this is, what it does, and where it sits, before any content appears. The brand-architecture decision (sub-brand, endorsed brand, or other) is one of the strategic outcomes of the work ahead; this masthead identifies the relationship without pre-committing to a model. Maps to RFP language around being sought out as a go-to authority."
+            note="Publication identity in three lines, name, tagline, and attribution. The masthead introduces what this is, what it does, and where it sits, before any content appears. The brand-architecture decision (sub-brand, endorsed brand, or other) is one of the strategic outcomes of the work ahead; this masthead identifies the relationship without pre-committing to a model. Maps to RFP language around being sought out as a go-to authority."
           />
         </div>
       </header>
@@ -77,7 +77,7 @@ export default function FortnightlyPage() {
           </Link>
           <Annotation
             number={16}
-            note="Lead story above the fold. The most consequential story is the first thing a reader sees — image, headline, deck, byline, and a clear path to read it. Editorial judgment is expressed through placement, not assertion. Maps to RFP language around proactive narrative leadership."
+            note="Lead story above the fold. The most consequential story is the first thing a reader sees, image, headline, deck, byline, and a clear path to read it. Editorial judgment is expressed through placement, not assertion. Maps to RFP language around proactive narrative leadership."
           />
         </div>
       </section>
@@ -156,7 +156,7 @@ export default function FortnightlyPage() {
           </div>
           <Annotation
             number={43}
-            note="Themes are the active editorial conversations PUF is following — distinct from topic clusters, which are the full taxonomic browse. Themes carry editorial judgment (what is worth following now); topics carry discoverability (what we have ever published). Both serve RFP language around being sought out as a go-to authority and discoverability across traditional and AI search."
+            note="Themes are the active editorial conversations PUF is following, distinct from topic clusters, which are the full taxonomic browse. Themes carry editorial judgment (what is worth following now); topics carry discoverability (what we have ever published). Both serve RFP language around being sought out as a go-to authority and discoverability across traditional and AI search."
           />
         </div>
       </section>
@@ -179,7 +179,7 @@ export default function FortnightlyPage() {
                 <span className="fn-tag">Rate Design</span>
               </div>
               <h4>Schopenhauer on the rate-case clock: A meditation on amortization</h4>
-              <p>How recovery periods quietly compound — or contain — affordability pressure.</p>
+              <p>How recovery periods quietly compound, or contain, affordability pressure.</p>
               <div className="fn-byline">
                 <span>By Steven Mitnick</span>
                 <span className="fn-read-time">9 min</span>
@@ -218,7 +218,7 @@ export default function FortnightlyPage() {
                 <span className="fn-tag">Workforce</span>
               </div>
               <h4>Who builds the grid of 2030? A workforce shortage we can name</h4>
-              <p>Lineworkers, planners, engineers — the bench is thinner than the capital plan assumes.</p>
+              <p>Lineworkers, planners, engineers, the bench is thinner than the capital plan assumes.</p>
               <div className="fn-byline">
                 <span>By Howard Axelrod</span>
                 <span className="fn-read-time">8 min</span>

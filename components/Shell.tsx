@@ -12,7 +12,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
   const isLogin = pathname === '/login';
   const isFortnightly = pathname === '/fortnightly';
 
-  // On /login, show ONLY the login page — no proto banner, no nav, no footer.
+  // On /login, show ONLY the login page, no proto banner, no nav, no footer.
   // It is a pure access gate.
   if (isLogin) {
     return <>{children}</>;

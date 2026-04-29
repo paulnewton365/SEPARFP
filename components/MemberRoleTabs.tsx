@@ -80,7 +80,7 @@ const roles: RoleContent[] = [
       'Utility roadmaps to plan your own decarbonization',
       'Collective voice into the supply side through Buyer-Utility Dialogue',
       'Translation between procurement targets and utility delivery capability',
-      'New tier for 2026 — early-access pricing available',
+      'New tier for 2026, early-access pricing available',
     ],
     participation: [
       { count: 'Launching 2026', detail: 'as a dedicated membership tier' },

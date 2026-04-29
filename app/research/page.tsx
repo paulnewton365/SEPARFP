@@ -125,7 +125,7 @@ export default function ResearchPage() {
             Research that helps you decide, not just describe.
             <Annotation
               number={6}
-              note="Research as a noun. Every listing leads with abstract, audience, and the decision the report helps a reader make — so usefulness is visible before the click. Maps to RFP language around being sought out as a go-to authority."
+              note="Research as a noun. Every listing leads with abstract, audience, and the decision the report helps a reader make, so usefulness is visible before the click. Maps to RFP language around being sought out as a go-to authority."
             />
           </h1>
           <p>

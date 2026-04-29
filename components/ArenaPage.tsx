@@ -111,7 +111,7 @@ export function ArenaPage(props: ArenaPageProps) {
                 Three members on what they brought to the room and what they took back.
                 <Annotation
                   number={43}
-                  note="The three arena pages share a common layout rhythm — hero, impact, spotlights, working groups — so a reader learns the structure once and applies it to whichever arena they care about most. Maps to RFP language around a unified digital experience."
+                  note="The three arena pages share a common layout rhythm, hero, impact, spotlights, working groups, so a reader learns the structure once and applies it to whichever arena they care about most. Maps to RFP language around a unified digital experience."
                 />
               </p>
             )}

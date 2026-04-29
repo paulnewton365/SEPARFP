@@ -5,7 +5,7 @@ import { Shell } from '@/components/Shell';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: "SEPA Wireframe — Let's shape energy's transition",
+  title: "SEPA Wireframe, Let's shape energy's transition",
   description:
     "Prototype information architecture for the Smart Electric Power Alliance. Working document, for internal review.",
 };

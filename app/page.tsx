@@ -122,7 +122,7 @@ export default function HomePage() {
             <div>
               <div className="eyebrow">Members lead the work</div>
               <h2>
-                The room is the product.
+                Our members accelerate transformation.
                 <Annotation
                   number={36}
                   note="The home page anchors membership as the substrate of everything else SEPA does. The proof section above shows what membership covers in the sector; this callout shows what membership produces in member voice. Maps to RFP language around members feeling more connected, not less."
@@ -222,12 +222,12 @@ export default function HomePage() {
       {/* SECTION 5: WHERE TO START - merged Convening + Paths into one decisive section */}
       <section className="paths" style={{ background: 'var(--bg)' }}>
         <div className="section-head">
-          <div className="eyebrow">Where to start</div>
+          <div className="eyebrow">We are here for you</div>
           <h2>
-            {audience === 'all' ? 'Three ways in.' : 'Curated for you.'}
+            {audience === 'all' ? 'Whoever you are.' : 'Curated for you.'}
             <Annotation
               number={5}
-              note="Merged the previous Convening list and audience Paths into one decisive 'where to start' section. Reduces homepage from 10 sections to 6."
+              note="The audience paths section answers a reader's quiet first question, is this place for me, and if so, where do I start. Three concrete entry points by role address the four primary audiences the RFP names: utility leaders, regulators, providers, and large energy users."
             />
           </h2>
           <p className="section-sub">
@@ -301,7 +301,7 @@ export default function HomePage() {
               Fortnightly
               <Annotation
                 number={4}
-                note="PUF presented as a publication within the SEPA ecosystem. The brand-architecture decision — sub-brand, endorsed brand, or other — is one of the strategic outcomes of the work ahead. Maps to RFP language around SEPA and PUF as distinct but mutually reinforcing brands."
+                note="PUF presented as a publication within the SEPA ecosystem. The brand-architecture decision, sub-brand, endorsed brand, or other, is one of the strategic outcomes of the work ahead. Maps to RFP language around SEPA and PUF as distinct but mutually reinforcing brands."
               />
             </div>
             <h2>A century of utility thinking, now connected to the sector&apos;s working files.</h2>

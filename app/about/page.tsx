@@ -67,7 +67,7 @@ export default function AboutPage() {
               Neutrality as a principle, not a disclaimer.
               <Annotation
                 number={12}
-                note="'SEPA does not lobby' presented as the differentiator it is — the source of regulatory citation, peer trust, and member candor. Maps to RFP language around being sought out as a go-to authority on complex energy issues."
+                note="'SEPA does not lobby' presented as the differentiator it is, the source of regulatory citation, peer trust, and member candor. Maps to RFP language around being sought out as a go-to authority on complex energy issues."
               />
             </h2>
           </div>
@@ -159,7 +159,7 @@ export default function AboutPage() {
               Three principles that show up every day.
               <Annotation
                 number={14}
-                note="Culture surfaced as behaviors, not platitudes. Each principle describes how SEPA shows up — the kind of thing a member or staffer could hold the organization accountable to. Maps to RFP language around making the brand understandable and inspiring."
+                note="Culture surfaced as behaviors, not platitudes. Each principle describes how SEPA shows up, the kind of thing a member or staffer could hold the organization accountable to. Maps to RFP language around making the brand understandable and inspiring."
               />
             </h2>
           </div>
@@ -201,7 +201,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* VOICES (moved from homepage — sits naturally with leadership and culture) */}
+      {/* VOICES (moved from homepage, sits naturally with leadership and culture) */}
       <section className="voices" style={{ background: 'var(--paper)', paddingTop: 88, paddingBottom: 88 }}>
         <div className="section-head">
           <div className="eyebrow">Voices from the sector</div>
@@ -209,7 +209,7 @@ export default function AboutPage() {
             What members tell us, in their own words.
             <Annotation
               number={18}
-              note="Voices live with the institutional story — leadership, culture, neutrality. Quotes about institutional trust belong on the page that makes that case in full."
+              note="Voices live with the institutional story, leadership, culture, neutrality. Quotes about institutional trust belong on the page that makes that case in full."
             />
           </h2>
         </div>

@@ -5,13 +5,26 @@ import { ShareButtons } from '@/components/SocialIcons';
 export default function ArticlePage() {
   return (
     <>
+      {/* BREADCRUMB - sits above article meta to orient reader within site */}
+      <div className="article-breadcrumb">
+        <div className="article-breadcrumb-inner">
+          <nav aria-label="Breadcrumb">
+            <Link href="/" className="article-breadcrumb-link">Home</Link>
+            <span className="article-breadcrumb-sep" aria-hidden="true">›</span>
+            <Link href="/fortnightly" className="article-breadcrumb-link">Fortnightly</Link>
+            <span className="article-breadcrumb-sep" aria-hidden="true">›</span>
+            <span className="article-breadcrumb-current" aria-current="page">Power to the People</span>
+          </nav>
+        </div>
+      </div>
+
       {/* META BAR */}
       <div className="article-meta-bar">
         <div className="article-meta-bar-inner">
           <Link href="/fortnightly">← Fortnightly</Link>
           <div style={{ color: 'var(--ink-3)', display: 'flex', gap: 16, alignItems: 'center' }}>
             <span>14 min read</span>
-            <ShareButtons title="Power to the People — Fortnightly" />
+            <ShareButtons title="Power to the People, Fortnightly" />
           </div>
         </div>
       </div>
@@ -55,7 +68,7 @@ export default function ArticlePage() {
                 <div className="meta">Officers, NASUCA · April 2026 · Vol. 164 · Issue 4</div>
               </div>
             </div>
-            <ShareButtons title="Power to the People — Fortnightly" />
+            <ShareButtons title="Power to the People, Fortnightly" />
           </div>
 
           {/* SHORT INTRO TO AUTHORS - sits in header before the body starts */}
@@ -72,7 +85,7 @@ export default function ArticlePage() {
             </p>
             <Annotation
               number={26}
-              note="Author intro runs at the top of the article, not just in a bio at the foot. Readers decide whether to invest 14 minutes partly on who's writing — surfacing that early respects their time."
+              note="Author intro runs at the top of the article, not just in a bio at the foot. Readers decide whether to invest 14 minutes partly on who's writing, surfacing that early respects their time."
             />
           </div>
         </header>
@@ -96,13 +109,13 @@ export default function ArticlePage() {
             For most utility customers, the experience of an affordability crisis arrives in a
             single moment: opening a bill that&apos;s materially higher than last month&apos;s.
             For the National Association of State Utility Consumer Advocates, that moment is the
-            end of a chain that starts much earlier — in rate case filings, in capital plan
+            end of a chain that starts much earlier, in rate case filings, in capital plan
             approvals, in the way utilities forecast load and propose to recover the cost of
             meeting it.
           </p>
 
           <p>
-            Three of NASUCA&apos;s officers — Moody, Content, and Swinger — sat down with{' '}
+            Three of NASUCA&apos;s officers, Moody, Content, and Swinger, sat down with{' '}
             <em>Public Utilities Fortnightly</em> to discuss what affordability looks like in
             2026, and what advocates are asking for as the sector enters a period of genuinely
             unprecedented capital deployment.
@@ -162,7 +175,7 @@ export default function ArticlePage() {
             </div>
             <Annotation
               number={27}
-              note="Data visualization placeholder — labeled, captioned, and sourced even in wireframe form. Establishes the editorial discipline: every chart leads with what it shows, not how it was built."
+              note="Data visualization placeholder, labeled, captioned, and sourced even in wireframe form. Establishes the editorial discipline: every chart leads with what it shows, not how it was built."
             />
           </figure>
 
@@ -178,7 +191,7 @@ export default function ArticlePage() {
               average bill, then the question isn&apos;t whether each project is reasonable.
               It&apos;s who pays for them and on what timeline.&rdquo;
             </div>
-            <div className="attr">— Michael Moody, NASUCA President</div>
+            <div className="attr">, Michael Moody, NASUCA President</div>
           </div>
 
           <h2>What advocates are asking for</h2>
@@ -231,7 +244,7 @@ export default function ArticlePage() {
           <p>
             Affordability has become the ground on which the politics of the energy transition
             are being fought. Swinger writes that it&apos;s also the ground on which the
-            transition can be defended — if the conversation stays grounded in evidence rather
+            transition can be defended, if the conversation stays grounded in evidence rather
             than rhetoric.
           </p>
 
@@ -240,7 +253,7 @@ export default function ArticlePage() {
               &ldquo;You can&apos;t out-message a bill increase. You can only out-evidence it.
               That means showing your work, not just defending the outcome.&rdquo;
             </div>
-            <div className="attr">— Anthony Swinger, NASUCA Treasurer</div>
+            <div className="attr">, Anthony Swinger, NASUCA Treasurer</div>
           </div>
 
           {/* SECOND DATA VIZ - residential bill composition */}
@@ -273,7 +286,7 @@ export default function ArticlePage() {
               </div>
               <div className="figure-caption">
                 Distribution capital and generation capital together account for 65% of the
-                projected bill increase across the 84 IOUs surveyed — making them the natural
+                projected bill increase across the 84 IOUs surveyed, making them the natural
                 focus for advocates seeking to flatten the trajectory.
               </div>
             </div>
@@ -283,7 +296,7 @@ export default function ArticlePage() {
             For NASUCA, the next twelve months will see continued advocacy in front of state
             commissions on cost causation, sharper opposition to load forecasts that assume
             customers who haven&apos;t yet signed, and a push to standardize how affordability
-            is measured across regulatory filings — currently a patchwork of metrics that vary
+            is measured across regulatory filings, currently a patchwork of metrics that vary
             by state.
           </p>
 
@@ -291,8 +304,8 @@ export default function ArticlePage() {
 
           <p>
             The affordability debate is not a backlash against the energy transition. It&apos;s
-            the test the transition has to pass. Sectors that fail this test — that ask customers
-            to bear costs they didn&apos;t cause, on timelines they didn&apos;t agree to — lose
+            the test the transition has to pass. Sectors that fail this test, that ask customers
+            to bear costs they didn&apos;t cause, on timelines they didn&apos;t agree to, lose
             the political support that the transition needs to keep moving.
           </p>
 
@@ -300,7 +313,7 @@ export default function ArticlePage() {
             For utilities, that means rate case discipline. For regulators, it means tighter
             scrutiny of forecasts and cost allocation. For advocates, it means continuing to
             translate technical filings into language that the public can engage with. And for
-            buyers — particularly the large data center customers driving much of the new load —
+            buyers, particularly the large data center customers driving much of the new load ,
             it means accepting that the cost of being served may need to sit closer to the cost
             of serving them.
           </p>
@@ -355,7 +368,7 @@ export default function ArticlePage() {
             <a className="article-tag">Consumer Advocacy</a>
             <a className="article-tag">Rate Design</a>
           </div>
-          <ShareButtons title="Power to the People — Fortnightly" />
+          <ShareButtons title="Power to the People, Fortnightly" />
         </div>
       </article>
 

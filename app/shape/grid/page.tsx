@@ -48,7 +48,7 @@ export default function ShapeGridPage() {
       ]}
       workingGroups={[
         { count: '01', name: 'Distribution System Planning', desc: 'How distribution utilities are integrating DERs, EVs, and load growth into their planning cycles.' },
-        { count: '02', name: 'Storm Resilience and Recovery', desc: 'Five utilities, five playbooks for post-event recovery — and the patterns that travel.' },
+        { count: '02', name: 'Storm Resilience and Recovery', desc: 'Five utilities, five playbooks for post-event recovery, and the patterns that travel.' },
         { count: '03', name: 'Transmission and Interconnection', desc: 'The interconnection queue crisis, the new FERC orders, and what utilities are doing to clear bottlenecks.' },
         { count: '04', name: 'Rate Design for Reliability', desc: 'Cost-of-service studies, performance-based rates, and the language commissions actually accept.' },
       ]}
