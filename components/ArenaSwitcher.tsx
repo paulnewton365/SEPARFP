@@ -5,37 +5,53 @@ import { usePathname } from 'next/navigation';
 import { Annotation } from './Annotation';
 
 const arenas = [
-  { slug: 'grid', label: 'Grid' },
-  { slug: 'growth', label: 'Growth' },
-  { slug: 'globe', label: 'Globe' },
+  {
+    slug: 'grid',
+    label: 'Grid',
+    blurb: 'The physical and regulatory foundation of the transition.',
+  },
+  {
+    slug: 'growth',
+    label: 'Growth',
+    blurb: 'Demand planning for the defining utility challenge of the decade.',
+  },
+  {
+    slug: 'globe',
+    label: 'Globe',
+    blurb: 'The lessons we bring back to the US sector and make the case for.',
+  },
 ];
 
 export function ArenaSwitcher({ showAnnotation = false }: { showAnnotation?: boolean }) {
   const pathname = usePathname();
 
   return (
-    <div className="arena-switcher">
-      <div className="arena-switcher-inner">
-        <div className="arena-switcher-label">
-          Shaping
+    <div className="arena-peers">
+      <div className="arena-peers-inner">
+        <div className="arena-peers-label">
+          The three arenas
           {showAnnotation && (
             <Annotation
               number={9}
-              note="Arena switcher sits above every Shape page. Grid/Growth/Globe are always visible and one click apart, so the framework becomes the skeleton of the Shape experience."
+              note="Arena navigation as peer cards, not tabs. All three arenas remain equally visible regardless of which page you are on, so Growth and Globe never feel secondary to Grid. Active state is signaled clearly without making the others feel like also-rans."
             />
           )}
         </div>
-        <div className="arena-switcher-links">
+        <div className="arena-peers-grid">
           {arenas.map((a) => {
             const active = pathname === `/shape/${a.slug}`;
             return (
               <Link
                 key={a.slug}
                 href={`/shape/${a.slug}`}
-                className={`arena-switcher-link ${active ? 'active' : ''}`}
+                className={`arena-peer ${active ? 'active' : ''} arena-peer-${a.slug}`}
               >
-                <span className="dot" />
-                {a.label}
+                <div className="arena-peer-head">
+                  <span className="arena-peer-marker" aria-hidden="true">{active ? '●' : '○'}</span>
+                  <span className="arena-peer-label">{a.label}</span>
+                  <span className="arena-peer-state">{active ? 'You are here' : 'Explore →'}</span>
+                </div>
+                <p className="arena-peer-blurb">{a.blurb}</p>
               </Link>
             );
           })}

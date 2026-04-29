@@ -1,256 +1,82 @@
-'use client';
-
-import { Annotation } from '@/components/Annotation';
-import Link from 'next/link';
-import { ArenaSwitcher } from '@/components/ArenaSwitcher';
-import { useAudience, AUDIENCE_LABELS } from '@/components/AudienceContext';
-
-interface Topic {
-  name: string;
-  desc: string;
-  audiences: string[]; // primary audiences for this topic
-}
-
-const TOPICS: Topic[] = [
-  {
-    name: 'Resilience',
-    desc: 'Storm hardening, distributed backup, and the economics of keeping service on.',
-    audiences: ['utility', 'regulator'],
-  },
-  {
-    name: 'Storage',
-    desc: 'Battery deployment, siting frameworks, and the role of long-duration.',
-    audiences: ['utility', 'provider'],
-  },
-  {
-    name: 'Emerging Technology',
-    desc: 'Advanced inverters, grid-enhancing tech, and what\'s ready for deployment.',
-    audiences: ['utility', 'provider'],
-  },
-  {
-    name: 'Policy & Regulation',
-    desc: 'Rate design, cost allocation, and the regulatory frameworks shaping investment.',
-    audiences: ['regulator', 'utility'],
-  },
-];
+import { ArenaPage } from '@/components/ArenaPage';
 
 export default function ShapeGridPage() {
-  const { audience } = useAudience();
-
-  // Reorder topics so the user's primary topic surfaces first
-  const orderedTopics = audience === 'all'
-    ? TOPICS
-    : [
-        ...TOPICS.filter((t) => t.audiences[0] === audience),
-        ...TOPICS.filter((t) => t.audiences[0] !== audience && t.audiences.includes(audience)),
-        ...TOPICS.filter((t) => !t.audiences.includes(audience)),
-      ];
-
   return (
-    <>
-      {/* ARENA HERO */}
-      <section className="arena-hero">
-        <div className="arena-hero-inner">
-          <div className="arena-number">Arena 01 · Grid</div>
-          <h1>
-            Let&apos;s shape{' '}
-            <em style={{ fontStyle: 'normal', color: 'var(--ink-2)' }}>the grid.</em>
-          </h1>
-          <p className="stance">
-            Keeping the lights on while rebuilding the system that delivers them. The grid is
-            both the constraint and the opportunity. Every decarbonization pathway, every large
-            load interconnection, every new rate design lives or dies here.
-          </p>
-        </div>
-      </section>
-
-      <ArenaSwitcher showAnnotation />
-
-      {/* POSITION */}
-      <section className="section" style={{ background: 'var(--paper)' }}>
-        <div className="two-col">
-          <div>
-            <div className="eyebrow">SEPA&apos;s position</div>
-            <h2 style={{ fontSize: 40 }}>
-              The grid is the bottleneck. That makes it the leverage point.
-            </h2>
-          </div>
-          <div>
-            <p style={{ fontSize: 15, color: 'var(--ink-2)', lineHeight: 1.6, marginBottom: 24 }}>
-              Transmission queues are backed up with decades of projects. Distribution planning has
-              not caught up with electrification. Resilience investments compete with affordability
-              in every rate case. These are not separate problems. They are one system under pressure.
-            </p>
-            <p style={{ fontSize: 15, color: 'var(--ink-2)', lineHeight: 1.6 }}>
-              SEPA&apos;s role is not to pick a winning technology or lobby for a policy.
-              It&apos;s to give the sector the evidence, the forums, and the benchmarks to make
-              the next set of grid decisions on purpose.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* TOPICS - reordered by audience */}
-      <section className="section" style={{ background: 'var(--bg)', paddingTop: 48 }}>
-        <div className="section-head">
-          <div className="eyebrow">Topics we&apos;re shaping</div>
-          <h2>
-            Four threads inside this arena.
-            {audience !== 'all' && (
-              <Annotation
-                number={19}
-                note={`Topics reordered to put ${AUDIENCE_LABELS[audience]}-relevant threads first. Audience selector now actively shapes how this page reads.`}
-              />
-            )}
-          </h2>
-          {audience !== 'all' && (
-            <p className="section-sub">
-              Reordered for {AUDIENCE_LABELS[audience]}. Topics most relevant to your role lead.
-            </p>
-          )}
-        </div>
-        <div className="topics-grid">
-          {orderedTopics.map((t, i) => {
-            const isPrimary = audience !== 'all' && t.audiences[0] === audience;
-            return (
-              <div
-                key={t.name}
-                className="topic-card"
-                style={isPrimary ? {
-                  background: 'var(--ink-1)',
-                  borderColor: 'var(--ink-1)',
-                  color: 'var(--paper)',
-                } : undefined}
-              >
-                <div
-                  className="dot"
-                  style={isPrimary ? { background: 'var(--paper)' } : undefined}
-                />
-                <h4>{t.name}</h4>
-                <p style={isPrimary ? { color: 'rgba(255,255,255,0.7)' } : undefined}>{t.desc}</p>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* RESEARCH FROM ARENA */}
-      <section className="section">
-        <div className="section-head">
-          <div className="eyebrow">Latest from this arena</div>
-          <h2>What we&apos;ve published on the grid.</h2>
-        </div>
-        <div className="research-grid">
-          <div className="research-card feature">
-            <div className="research-label">Quarterly · Resilient by Design</div>
-            <h3>After the storm: Five utilities, five playbooks for post-event recovery</h3>
-            <p>
-              A cross-utility synthesis of what worked and what didn&apos;t in the 2025 storm
-              season. Includes cost data, restoration timelines, and communications frameworks.
-            </p>
-            <div className="meta">
-              <span>58 pages</span>
-              <span>Utility, Regulator</span>
-              <span>Mar 2026</span>
-            </div>
-          </div>
-          <div className="research-card">
-            <div className="research-label">Brief</div>
-            <h3>Grid-enhancing technologies: Deployment status across 30 utilities</h3>
-            <p>
-              Where dynamic line rating, topology optimization, and power flow control are
-              actually running.
-            </p>
-            <div className="meta">
-              <span>Feb 2026</span>
-            </div>
-          </div>
-          <div className="research-card">
-            <div className="research-label">Blog</div>
-            <h3>Why distribution planning needs to catch up with the load forecast</h3>
-            <p>A perspective from SEPA&apos;s Grid Modernization team on the decade ahead.</p>
-            <div className="meta">
-              <span>Jan 2026</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* MEMBERS LEADING THIS WORK */}
-      <section className="section members-leading-strip">
-        <div className="section-inner">
-          <div className="eyebrow">Members leading this work</div>
-          <h3 className="members-leading-title">
-            Twenty utilities, four state commissions, eleven providers in the room.
-          </h3>
-          <div className="members-leading-logos">
-            <span>[Mid-Atlantic IOU]</span>
-            <span>[Western coop]</span>
-            <span>[Southeast IOU]</span>
-            <span>[Texas muni]</span>
-            <span>[NW utility]</span>
-            <span>[State PUC]</span>
-            <span>[Grid software co.]</span>
-            <span>[Storage provider]</span>
-            <span>+ many more</span>
-          </div>
-          <Link href="/convene" className="link-arrow" style={{ marginTop: 20, display: 'inline-block' }}>
-            See members shaping the grid →
-          </Link>
-          <Annotation
-            number={37}
-            note="Each Shape page surfaces who's actually leading the work in that arena. Members are not the audience — they are the protagonists. Logo placeholders mark where to feature member organizations once selected."
-          />
-        </div>
-      </section>
-
-      {/* JOIN */}
-      <section className="pov">
-        <div className="pov-inner">
-          <div>
-            <div className="eyebrow">Ways to participate</div>
-            <h2>Three ways to shape this arena.</h2>
-            <div style={{ marginTop: 32 }}>
-              <div className="bullet">
-                <div className="bullet-dot" />
-                <div>
-                  <h4>Join a working group</h4>
-                  <p>
-                    Four active groups meet monthly. Rate design. Resilience planning. Storage
-                    siting. Grid modernization.
-                  </p>
-                </div>
-              </div>
-              <div className="bullet">
-                <div className="bullet-dot" />
-                <div>
-                  <h4>Contribute to research</h4>
-                  <p>
-                    Every flagship report includes member utilities as data contributors and
-                    co-authors where appropriate.
-                  </p>
-                </div>
-              </div>
-              <div className="bullet">
-                <div className="bullet-dot" />
-                <div>
-                  <h4>Attend the convening</h4>
-                  <p>
-                    Grid Resilience Summit, May 22 in Raleigh. Open to members and invited
-                    non-members.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="pov-img" style={{ aspectRatio: '3 / 4' }}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-              <rect x="3" y="6" width="18" height="12" strokeWidth="1" />
-              <path d="M3 10h18M8 6v12M16 6v12" />
-            </svg>
-          </div>
-        </div>
-      </section>
-    </>
+    <ArenaPage
+      slug="grid"
+      label="Grid"
+      number="01"
+      heroHeadline={<>The physical and regulatory <em>foundation</em> of the transition.</>}
+      heroLead="Keeping the lights on while rebuilding the system that delivers them. The work covers reliability, distribution, transmission, interconnection, and the regulatory frameworks that govern all of it."
+      impact={[
+        { num: '74%', label: 'of US megawatt-hours sold come from utilities in the Grid working groups' },
+        { num: '23', label: 'state commissions cited Grid arena research in 2025' },
+        { num: '147', label: 'tariff filings tracked in DELTa across distribution and transmission' },
+        { num: '$2.1B', label: 'in member-reported avoided cost through peer-tested grid investments' },
+      ]}
+      topics={[
+        { title: 'Storms and resilience', blurb: 'Hardening the grid against the weather events that already happen.', meta: '8 active members · 3 reports in 2026' },
+        { title: 'Emerging tech', blurb: 'Grid-enhancing technologies, dynamic line ratings, advanced inverters.', meta: '12 active members · 2 reports in 2026' },
+        { title: 'Rate design', blurb: 'How distribution capital gets recovered without breaking affordability.', meta: '14 active members · NASUCA endorsement, Apr 2026' },
+        { title: 'Policy', blurb: 'FERC orders, state IRPs, and the federal-state divide on transmission.', meta: '9 active members · Quarterly briefing series' },
+      ]}
+      spotlights={[
+        {
+          quote: 'SEPA basically gets you to the information you need that much faster. It gives you that forum to discuss openly and freely with other program managers and utilities what they have learned.',
+          name: 'Jake Wade',
+          role: 'Renewable Energy Program Manager',
+          org: 'Seattle City Light',
+          tag: 'Utility',
+          tagColor: 'utility',
+        },
+        {
+          quote: 'SEPA provides us the depth of knowledge that I cannot get on my own. The research is an immeasurable benefit to utilities that do not have the staff.',
+          name: 'Gerald Buydos',
+          role: 'Solar Program Manager',
+          org: 'City of Riverside, CA',
+          tag: 'Utility',
+          tagColor: 'utility',
+        },
+        {
+          quote: 'The cross-jurisdictional evidence let me cite peer-state precedent in three different orders this year. That kind of comparison work used to take months.',
+          name: '[Commissioner Name]',
+          role: 'Commissioner',
+          org: '[Western state PUC]',
+          tag: 'Regulator',
+          tagColor: 'regulator',
+        },
+      ]}
+      workingGroups={[
+        { count: '01', name: 'Distribution System Planning', desc: 'How distribution utilities are integrating DERs, EVs, and load growth into their planning cycles.' },
+        { count: '02', name: 'Storm Resilience and Recovery', desc: 'Five utilities, five playbooks for post-event recovery — and the patterns that travel.' },
+        { count: '03', name: 'Transmission and Interconnection', desc: 'The interconnection queue crisis, the new FERC orders, and what utilities are doing to clear bottlenecks.' },
+        { count: '04', name: 'Rate Design for Reliability', desc: 'Cost-of-service studies, performance-based rates, and the language commissions actually accept.' },
+      ]}
+      research={[
+        {
+          label: 'Flagship · Apr 2026',
+          title: 'After the storm: Five utilities, five playbooks for post-event recovery',
+          blurb: 'A pattern study of utility response to 2024-25 storm events. What worked, what scaled, what only worked once.',
+          meta: ['38 pages', 'Utility, Regulator', 'Apr 2026'],
+          feature: true,
+        },
+        {
+          label: 'Research · Mar 2026',
+          title: 'Grid-enhancing technologies: Deployment status across 30 utilities',
+          blurb: 'Dynamic line ratings, advanced power flow control, and topology optimization in the field.',
+          meta: ['Mar 2026'],
+        },
+        {
+          label: 'Snapshot · Feb 2026',
+          title: 'Why distribution planning needs to catch up with the load forecast',
+          blurb: 'A short brief on the gap between integrated resource plans and what distribution actually has to deliver.',
+          meta: ['Feb 2026'],
+        },
+      ]}
+      membersLeading={{
+        headline: 'Twenty utilities, four state commissions, eleven providers shaping the grid.',
+        logos: ['[Mid-Atlantic IOU]', '[Western coop]', '[Southeast IOU]', '[Texas muni]', '[NW utility]', '[State PUC]', '[Grid software co.]', '[Storage provider]', '+ many more'],
+      }}
+    />
   );
 }

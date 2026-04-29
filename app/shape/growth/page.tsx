@@ -1,143 +1,82 @@
-import { ArenaSwitcher } from '@/components/ArenaSwitcher';
-import { Annotation } from '@/components/Annotation';
-import Link from 'next/link';
+import { ArenaPage } from '@/components/ArenaPage';
 
 export default function ShapeGrowthPage() {
   return (
-    <>
-      <section className="arena-hero">
-        <div className="arena-hero-inner">
-          <div className="arena-number">Arena 02 · Growth</div>
-          <h1>
-            Let&apos;s shape{' '}
-            <em style={{ fontStyle: 'normal', color: 'var(--ink-2)' }}>demand.</em>
-          </h1>
-          <p className="stance">
-            AI, data centers, transportation fleets, and heat pumps are remaking US electricity
-            demand on a scale the sector hasn&apos;t seen since WWII. Planning for that growth,
-            without breaking affordability, is the defining utility challenge of the decade.
-          </p>
-        </div>
-      </section>
-
-      <ArenaSwitcher />
-
-      <section className="section" style={{ background: 'var(--paper)' }}>
-        <div className="two-col">
-          <div>
-            <div className="eyebrow">SEPA&apos;s position</div>
-            <h2 style={{ fontSize: 40 }}>
-              Load growth isn&apos;t a problem to absorb. It&apos;s a planning question to answer.
-            </h2>
-          </div>
-          <div>
-            <p style={{ fontSize: 15, color: 'var(--ink-2)', lineHeight: 1.6, marginBottom: 24 }}>
-              US peak demand is forecast to rise faster in the next five years than in the previous
-              twenty combined. Most of that comes from four sources: data center hyperscalers,
-              transportation electrification, industrial reshoring, and building electrification.
-            </p>
-            <p style={{ fontSize: 15, color: 'var(--ink-2)', lineHeight: 1.6 }}>
-              Each of those sources has different characteristics, different geographies, and
-              different rate implications. SEPA&apos;s job is to help utilities, regulators, and
-              buyers plan for them as one coordinated growth story, not four competing ones.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section" style={{ background: 'var(--bg)', paddingTop: 48 }}>
-        <div className="section-head">
-          <div className="eyebrow">Topics we&apos;re shaping</div>
-          <h2>Four threads inside this arena.</h2>
-        </div>
-        <div className="topics-grid">
-          <div className="topic-card">
-            <div className="dot" />
-            <h4>Large Loads</h4>
-            <p>Data centers, industrial, and the tariff design that keeps them fair to everyone else.</p>
-          </div>
-          <div className="topic-card">
-            <div className="dot" />
-            <h4>Transportation</h4>
-            <p>EV charging, fleet electrification, and managed charging at scale.</p>
-          </div>
-          <div className="topic-card">
-            <div className="dot" />
-            <h4>Electrification</h4>
-            <p>Buildings, heat pumps, and the residential demand shape ahead.</p>
-          </div>
-          <div className="topic-card">
-            <div className="dot" />
-            <h4>Demand Management</h4>
-            <p>Virtual power plants, DERs, and the flexibility that keeps the lights on.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="section-head">
-          <div className="eyebrow">Latest from this arena</div>
-          <h2>What we&apos;ve published on growth.</h2>
-        </div>
-        <div className="research-grid">
-          <div className="research-card feature">
-            <div className="research-label">Flagship · Large Load Playbook</div>
-            <h3>Principles for rate design in a data center decade</h3>
-            <p>
-              A cross-jurisdictional framework for utilities and regulators managing 100+ MW
-              customer requests. Draws on 147 tariff filings and six utility benchmarks.
-            </p>
-            <div className="meta">
-              <span>42 pages</span>
-              <span>Utility, Regulator</span>
-              <span>Apr 2026</span>
-            </div>
-          </div>
-          <div className="research-card">
-            <div className="research-label">Research</div>
-            <h3>Transportation electrification: Charging the heavy-duty decade</h3>
-            <p>MHD fleet pilots across 12 utilities. Load profiles, costs, and customer acquisition.</p>
-            <div className="meta">
-              <span>Jan 2026</span>
-            </div>
-          </div>
-          <div className="research-card">
-            <div className="research-label">Snapshot</div>
-            <h3>VPP & DER policy developments, Q1 2026</h3>
-            <p>Quarterly map of VPP and DER policy across 50 states. Enrollment and compensation.</p>
-            <div className="meta">
-              <span>Mar 2026</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* MEMBERS LEADING THIS WORK */}
-      <section className="section members-leading-strip">
-        <div className="section-inner">
-          <div className="eyebrow">Members leading this work</div>
-          <h3 className="members-leading-title">
-            Sixteen utilities and twenty-two providers shaping how growth gets met.
-          </h3>
-          <div className="members-leading-logos">
-            <span>[Hyperscaler buyer]</span>
-            <span>[Industrial buyer]</span>
-            <span>[Western IOU]</span>
-            <span>[Texas IOU]</span>
-            <span>[Storage provider]</span>
-            <span>[DERMS vendor]</span>
-            <span>[EV charging co.]</span>
-            <span>+ many more</span>
-          </div>
-          <Link href="/convene" className="link-arrow" style={{ marginTop: 20, display: 'inline-block' }}>
-            See members shaping growth →
-          </Link>
-          <Annotation
-            number={37}
-            note="Each Shape page surfaces who's actually leading the work in that arena. Members are not the audience — they are the protagonists."
-          />
-        </div>
-      </section>
-    </>
+    <ArenaPage
+      slug="growth"
+      label="Growth"
+      number="02"
+      heroHeadline={<>Demand planning for the <em>defining</em> utility challenge of the decade.</>}
+      heroLead="AI data centers, fleet electrification, and reshored industrial load are remaking the demand picture. The work covers large-load tariffs, planning, transportation electrification, and the buyer-utility conversations that compound them."
+      impact={[
+        { num: '147', label: 'large-load tariff filings tracked in DELTa, drawn from working group contributions' },
+        { num: '60+', label: 'utility, regulatory, and consumer-advocate leads in the Large Load working group' },
+        { num: 'Q1 2026', label: 'NASUCA endorsement of the Large Load Tariff Principles drafted in this arena' },
+        { num: '$340M', label: 'in member-reported pilot savings attributed to Growth-arena peer benchmarks' },
+      ]}
+      topics={[
+        { title: 'Large-load tariffs', blurb: 'Cost causation, allocation, and the principles that survive intervenor scrutiny.', meta: '14 active members · NASUCA endorsement, Apr 2026' },
+        { title: 'Transportation electrification', blurb: 'MHD fleet pilots, depot infrastructure, and the rate designs that make them work.', meta: '11 active members · 12-utility benchmark study' },
+        { title: 'Buyer-utility dialogue', blurb: 'Where Fortune 500 procurement targets meet utility delivery capability.', meta: '9 active members · Quarterly series' },
+        { title: 'Demand-side flexibility', blurb: 'VPPs, DERMS, and the residential and commercial programs feeding them.', meta: '13 active members · Policy map updated quarterly' },
+      ]}
+      spotlights={[
+        {
+          quote: 'The roadmap clarity from membership shaped a $400M procurement decision. We aligned procurement timelines with utility resource plans across twelve service territories.',
+          name: '[Sustainability Lead]',
+          role: 'Head of Sustainability',
+          org: '[Fortune 100 industrial]',
+          tag: 'Buyer',
+          tagColor: 'buyer',
+        },
+        {
+          quote: 'We brought a 90-day rate-design timeline back from a conversation that started in a working group. The model survived intervenor scrutiny in the first round.',
+          name: '[VP Regulatory Strategy]',
+          role: 'VP, Regulatory Strategy',
+          org: '[Mid-Atlantic IOU]',
+          tag: 'Utility',
+          tagColor: 'utility',
+        },
+        {
+          quote: 'Three months in the working group taught us what we would have spent a year learning at conferences. Closed our first IOU pilot inside six months.',
+          name: '[Founder Name]',
+          role: 'CEO',
+          org: '[Series B grid software]',
+          tag: 'Provider',
+          tagColor: 'provider',
+        },
+      ]}
+      workingGroups={[
+        { count: '01', name: 'Large Load Tariff Principles', desc: 'The cross-jurisdictional cost-causation framework NASUCA endorsed in early 2026.' },
+        { count: '02', name: 'Transportation Electrification', desc: 'MHD fleet electrification pilots across twelve utilities. Load profiles, rates, and customer acquisition.' },
+        { count: '03', name: 'Buyer-Utility Dialogue', desc: 'Quarterly sessions where Fortune 500 procurement leads and utility resource planners reconcile timelines.' },
+        { count: '04', name: 'DERMS Integration', desc: 'How utilities are wiring distributed energy resources into their grid management software stack.' },
+      ]}
+      research={[
+        {
+          label: 'Flagship · Apr 2026',
+          title: 'Principles for rate design in a data center decade',
+          blurb: 'A cross-jurisdictional framework for utilities and regulators managing 100+ MW customer requests. Draws on 147 tariff filings.',
+          meta: ['42 pages', 'Utility, Regulator', 'Apr 2026'],
+          feature: true,
+        },
+        {
+          label: 'Research · Jan 2026',
+          title: 'Transportation electrification: Charging the heavy-duty decade',
+          blurb: 'MHD fleet pilots across 12 utilities. Load profiles, costs, and customer acquisition.',
+          meta: ['Jan 2026'],
+        },
+        {
+          label: 'Snapshot · Mar 2026',
+          title: 'VPP and DER policy developments, Q1 2026',
+          blurb: 'Quarterly map of VPP and DER policy across 50 states. Enrollment and compensation.',
+          meta: ['Mar 2026'],
+        },
+      ]}
+      membersLeading={{
+        headline: 'Sixteen utilities and twenty-two providers shaping how growth gets met.',
+        logos: ['[Hyperscaler buyer]', '[Industrial buyer]', '[Western IOU]', '[Texas IOU]', '[Storage provider]', '[DERMS vendor]', '[EV charging co.]', '+ many more'],
+      }}
+    />
   );
 }

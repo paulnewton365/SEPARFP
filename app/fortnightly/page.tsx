@@ -6,268 +6,279 @@ import Link from 'next/link';
 export default function FortnightlyPage() {
   return (
     <div className="fn-page">
-      {/* Return path to SEPA - important for users landing here directly */}
-      <div style={{
-        padding: '14px 24px',
-        borderBottom: '1px solid rgba(255,255,255,0.08)',
-        fontSize: 11,
-        letterSpacing: '0.08em',
-        textTransform: 'uppercase',
-      }}>
-        <div style={{
-          maxWidth: 1280,
-          margin: '0 auto',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          color: 'rgba(255,255,255,0.5)',
-          fontWeight: 500,
-        }}>
-          <Link href="/" style={{ color: 'rgba(255,255,255,0.75)', textDecoration: 'none' }}>
-            ← SEPA
-          </Link>
-          <span>Public Utilities Fortnightly</span>
+      {/* JSON-LD schema for AI discoverability — visible response to RFP critique #7 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'NewsMediaOrganization',
+            name: 'Public Utilities Fortnightly',
+            alternateName: 'PUF',
+            url: 'https://separfp.vercel.app/fortnightly',
+            foundingDate: '1928',
+            parentOrganization: {
+              '@type': 'NonprofitOrganization',
+              name: 'Smart Electric Power Alliance',
+            },
+            description:
+              'An independent editorial publication covering the US utility sector. Editorially independent. Published by SEPA.',
+          }),
+        }}
+      />
+
+      {/* Return path to SEPA */}
+      <div className="fn-topstrip">
+        <div className="fn-topstrip-inner">
+          <Link href="/" className="fn-back">← SEPA</Link>
+          <span>April 2026 · Vol. 164 · Issue 4</span>
         </div>
       </div>
 
-      {/* MASTHEAD */}
+      {/* MASTHEAD - one name (response to critique #2) + clear endorsement (#4) */}
       <header className="fn-masthead">
         <div className="fn-masthead-inner">
-          <div>
-            <div className="fn-wordmark">Fortnightly</div>
+          <div className="fn-masthead-mark">
+            <div className="fn-wordmark">Public Utilities <em>Fortnightly</em></div>
+            <div className="fn-since">Since 1928</div>
+            <Annotation
+              number={38}
+              note="One name only. The masthead is 'Public Utilities Fortnightly' everywhere — no fragmentation across PUF, fortnightly.com, and Public Utilities Fortnightly. PUF survives only as a conversational shorthand inside body copy. The current site uses three names interchangeably and the resulting brand recall, search authority, and architecture all suffer."
+            />
           </div>
-          <div className="fn-tagline">
-            <div className="since">Public Utilities Fortnightly · Since 1928</div>
-            The record of how the US utility sector<br />
-            argues with itself, and with its future.
-            <div className="endorsed">
-              A SEPA publication
-              <Annotation
-                number={15}
-                note="Sub-brand treatment: PUF keeps its masthead and editorial voice, but the SEPA endorsement is clear and intentional, not hidden. The relationship is asserted on the masthead itself."
-              />
+          <div className="fn-masthead-relationship">
+            <div className="fn-relationship-label">The relationship</div>
+            <div className="fn-relationship-statement">
+              <strong>Editorially independent.</strong><br />
+              <span>Published by the Smart Electric Power Alliance.</span>
             </div>
+            <Annotation
+              number={39}
+              note="'Powered by SEPA' on the current site reads as ownership and leaves editorial independence ambiguous. The new framing is explicit: Fortnightly's editor sets the agenda; SEPA does not direct content. The relationship is endorsement, not editorial control."
+            />
           </div>
         </div>
       </header>
 
-      {/* ISSUE BAR */}
-      <div className="fn-issue-bar">
-        <div className="fn-issue-bar-inner">
-          <div>
-            Current issue · <strong>Vol. 164 · Issue 4 · April 2026</strong>
-          </div>
-          <div>The Affordability Issue</div>
+      {/* POSITIONING - response to critique #3 (homepage doesn't introduce) */}
+      <section className="fn-positioning">
+        <div className="fn-positioning-inner">
+          <div className="fn-positioning-eyebrow">What this is</div>
+          <h2 className="fn-positioning-statement">
+            The record of how the US utility sector argues with itself <em>—</em> and with its future.
+          </h2>
+          <p className="fn-positioning-body">
+            A near-century-old editorial property covering rate cases, regulatory shifts,
+            and the strategic choices the sector is making now. Read by commission chairs,
+            utility CEOs, and the policy class shaping what comes next.
+          </p>
+          <Annotation
+            number={40}
+            note="The current Fortnightly homepage is a content feed without orientation. New visitors have no way to know what PUF is, who reads it, or what makes it different. This positioning section answers those three questions in three lines, before any article appears."
+          />
         </div>
-      </div>
+      </section>
 
-      {/* LEAD FEATURE */}
-      <section className="fn-lead">
+      {/* EDITOR'S LETTER - response to critique #1 (express editorial judgment) */}
+      <section className="fn-editor">
+        <div className="fn-editor-inner">
+          <div className="fn-editor-grid">
+            <div className="fn-editor-portrait">
+              <span>Photo · Rachel Bryant</span>
+            </div>
+            <div className="fn-editor-body">
+              <div className="fn-editor-eyebrow">From the editor</div>
+              <h3 className="fn-editor-headline">
+                What matters this week, why, and what to read after.
+              </h3>
+              <p>
+                The affordability conversation is reaching a tipping point. NASUCA&apos;s
+                endorsement of the Large Load Tariff principles in early April changed the
+                temperature in twelve open dockets. This week we lead with that story
+                because the next eighteen months will be decided by whether utilities,
+                regulators, and consumer advocates can hold the same line on cost causation
+                across jurisdictions.
+              </p>
+              <p>
+                After you read it, the Schopenhauer piece on rate-case timing is the
+                companion. Together they make the argument we&apos;d make if we only had
+                one to make.
+              </p>
+              <div className="fn-editor-attr">
+                <strong>Rachel Bryant</strong>, Editor-in-Chief
+              </div>
+            </div>
+          </div>
+          <Annotation
+            number={41}
+            note="Every issue opens with a named editor making a case. 'This matters most this week, here's why, and here's what to read after.' Replaces the current homepage's flat content distribution with explicit editorial judgment — the central job of any publication."
+          />
+        </div>
+      </section>
+
+      {/* LEAD STORY */}
+      <section className="fn-lead-section">
         <div className="fn-lead-inner">
-          <Link href="/fortnightly/large-load-playbook" className="fn-lead-img" style={{ textDecoration: 'none', cursor: 'pointer' }}>
-            Cover image · Affordability
+          <div className="fn-issue-label">Lead feature · Affordability</div>
+          <Link href="/fortnightly/large-load-playbook" className="fn-lead-card">
+            <div className="fn-lead-img">
+              <span>Photo · Affordability cover image</span>
+            </div>
+            <div className="fn-lead-body">
+              <div className="fn-tag-row">
+                <span className="fn-tag">Affordability</span>
+                <span className="fn-tag">Regulatory</span>
+                <span className="fn-tag">Rate Design</span>
+              </div>
+              <h2>Power to the People: NASUCA on affordability</h2>
+              <p className="fn-deck">
+                The nation&apos;s consumer advocates sit at the table where utility
+                affordability gets decided. Three of their leaders tell PUF what it takes
+                to hold that line now that load growth, data centers, and capital costs
+                are rewriting the rate case math at the same time.
+              </p>
+              <div className="fn-byline">
+                <span>By Michael Moody, Tom Content &amp; Anthony Swinger</span>
+                <span className="fn-read-time">14 min read</span>
+              </div>
+            </div>
           </Link>
-          <div>
-            <div className="fn-lead-cat">Lead feature · Affordability</div>
-            <h2>
-              <Link href="/fortnightly/large-load-playbook" style={{ color: 'inherit', textDecoration: 'none' }}>
-                Power to the People: NASUCA on affordability
-              </Link>
-              <Annotation
-                number={16}
-                note="Editorial-first layout. One lead, one image, real bylines. Replaces the typical magazine homepage with dozens of thumbnail cards and no editorial hierarchy."
-              />
-            </h2>
-            <p>
-              The nation&apos;s consumer advocates sit at the table where utility affordability
-              gets decided. Their president, vice president, and treasurer tell PUF what it takes
-              to hold that line now that load growth, data centers, and capital costs are
-              rewriting the rate case math at the same time.
-            </p>
-            <p>
-              A roundtable on what&apos;s at stake, what advocates are asking for, and where the
-              regulatory conversation is headed in the next eighteen months.
-            </p>
-            <div className="byline">
-              <strong>Michael Moody, Tom Content &amp; Anthony Swinger</strong> &middot; 14 min read
+          <Annotation
+            number={16}
+            note="Editorial-first layout. One lead, one image, real bylines. Replaces the typical magazine homepage with dozens of thumbnail cards and no editorial hierarchy."
+          />
+        </div>
+      </section>
+
+      {/* THIS ISSUE */}
+      <section className="fn-issue-section">
+        <div className="fn-issue-inner">
+          <div className="fn-issue-head">
+            <div>
+              <div className="fn-issue-label">In this issue</div>
+              <h3>Five more from April 2026.</h3>
             </div>
-            <Link href="/fortnightly/large-load-playbook" className="link-arrow" style={{ display: 'inline-block', marginTop: 20, color: 'var(--paper)', borderColor: 'var(--paper)' }}>
-              Read the article →
+            <Link href="#" className="fn-link-arrow">View the full issue →</Link>
+          </div>
+
+          <div className="fn-issue-grid">
+            <article className="fn-article">
+              <div className="fn-article-img"><span>Photo</span></div>
+              <div className="fn-tag-row">
+                <span className="fn-tag">Rate Design</span>
+              </div>
+              <h4>Schopenhauer on the rate case clock: A meditation on amortization</h4>
+              <p>How recovery periods quietly compound — or contain — affordability pressure.</p>
+              <div className="fn-byline">
+                <span>By Steven Mitnick</span>
+                <span className="fn-read-time">9 min</span>
+              </div>
+            </article>
+
+            <article className="fn-article">
+              <div className="fn-article-img"><span>Photo</span></div>
+              <div className="fn-tag-row">
+                <span className="fn-tag">Capital Markets</span>
+              </div>
+              <h4>The infrastructure bond market in 2026: Capital, but at a price</h4>
+              <p>Utility CFOs on what the new cost of capital does to project pipelines.</p>
+              <div className="fn-byline">
+                <span>By Diana Murphy</span>
+                <span className="fn-read-time">11 min</span>
+              </div>
+            </article>
+
+            <article className="fn-article">
+              <div className="fn-article-img"><span>Photo</span></div>
+              <div className="fn-tag-row">
+                <span className="fn-tag">Regulatory</span>
+              </div>
+              <h4>The five commission chairs who will define 2026</h4>
+              <p>A roundtable on rate design, data centers, and the limits of state authority.</p>
+              <div className="fn-byline">
+                <span>By PUF Editorial</span>
+                <span className="fn-read-time">10 min</span>
+              </div>
+            </article>
+
+            <article className="fn-article">
+              <div className="fn-article-img"><span>Photo</span></div>
+              <div className="fn-tag-row">
+                <span className="fn-tag">Workforce</span>
+              </div>
+              <h4>Who builds the grid of 2030? A workforce shortage we can name</h4>
+              <p>Lineworkers, planners, engineers — the bench is thinner than the capital plan assumes.</p>
+              <div className="fn-byline">
+                <span>By Howard Axelrod</span>
+                <span className="fn-read-time">8 min</span>
+              </div>
+            </article>
+
+            <article className="fn-article">
+              <div className="fn-article-img"><span>Photo</span></div>
+              <div className="fn-tag-row">
+                <span className="fn-tag">Reliability</span>
+              </div>
+              <h4>After the storm: What 2025&apos;s outage record actually tells us</h4>
+              <p>Five utilities, five different operating realities, one shared inflection point.</p>
+              <div className="fn-byline">
+                <span>By Janet Swain</span>
+                <span className="fn-read-time">12 min</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* TOPIC CLUSTERS - response to critique #7 (AI discoverability) */}
+      <section className="fn-topics">
+        <div className="fn-topics-inner">
+          <div className="fn-topics-head">
+            <div className="fn-issue-label">Browse by topic</div>
+            <h3>What we cover, in clusters.</h3>
+            <p className="fn-topics-blurb">
+              Topics are tagged consistently across every article, with structured metadata
+              that AI engines and search platforms can read cleanly. Click any cluster to
+              see everything PUF has published in that conversation.
+            </p>
+            <Annotation
+              number={42}
+              note="Structured topic clusters with consistent tagging address AI discoverability head-on. Every article carries schema.org markup (visible in page source). Each topic page is a clean entity that LLMs can cite. The current site has none of this — AI engines have nothing clean to anchor to."
+            />
+          </div>
+          <div className="fn-topics-grid">
+            <Link href="#" className="fn-topic-card">
+              <div className="fn-topic-name">Affordability</div>
+              <div className="fn-topic-count">42 articles</div>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* FEATURED ARTICLES */}
-      <section className="fn-section">
-        <div className="fn-section-inner">
-          <div className="fn-section-head">
-            <h3>In this issue</h3>
-            <div className="label">Six features</div>
-          </div>
-          <div className="fn-grid-3">
-            <article className="fn-article">
-              <div className="fn-article-img" />
-              <div className="fn-article-cat">AI for Affordability</div>
-              <h4>Three ways AI can help deliver more power at lower costs</h4>
-              <div className="pull">
-                Utilities and grid operators are deploying new AI and ML tools to improve what was
-                once un-improvable: dispatch, forecasting, and asset management under pressure.
-              </div>
-              <div className="byline">Lesley Jantarasami &amp; Jeff Guldner</div>
-            </article>
-            <article className="fn-article">
-              <div className="fn-article-img" />
-              <div className="fn-article-cat">Accenture · CIO Mandate</div>
-              <h4>The new CIO mandate: Using AI to bend the utility cost curve</h4>
-              <div className="pull">
-                Affordability is the outcome regulators and customers care about. For the utility
-                CIO, it&apos;s increasingly the KPI. What the math actually looks like.
-              </div>
-              <div className="byline">Debanjan Chakraborty, Miguel Torreira &amp; Jim Mazurek</div>
-            </article>
-            <article className="fn-article">
-              <div className="fn-article-img" />
-              <div className="fn-article-cat">Regulatory</div>
-              <h4>What&apos;s ahead with commission chairs</h4>
-              <div className="pull">
-                A roundtable with the chairs of five state commissions on rate design, data
-                centers, and the pressure points they&apos;re watching in the second half of 2026.
-              </div>
-              <div className="byline">PUF Editorial</div>
-            </article>
-            <article className="fn-article">
-              <div className="fn-article-img" />
-              <div className="fn-article-cat">AGA · Regulatory Compact</div>
-              <h4>Line extension policies and the economics of affordable utility rates</h4>
-              <div className="pull">
-                By severing the traditional safeguards for reasonable system growth, new policies
-                create new math. Juan Alvarado on what&apos;s being lost.
-              </div>
-              <div className="byline">Juan Alvarado</div>
-            </article>
-            <article className="fn-article">
-              <div className="fn-article-img" />
-              <div className="fn-article-cat">DERs and Data Centers</div>
-              <h4>FERC Order 2222: Can a good order solve it?</h4>
-              <div className="pull">
-                FERC Order 2222 opened wholesale markets to aggregated DERs. Three years in,
-                what&apos;s actually moved, and where&apos;s the implementation stuck.
-              </div>
-              <div className="byline">Margarita Patria &amp; Dmitry Balashov</div>
-            </article>
-            <article className="fn-article">
-              <div className="fn-article-img" />
-              <div className="fn-article-cat">Grid Data · Practical Tools</div>
-              <h4>Better grid data can speed up EV charger deployment</h4>
-              <div className="pull">
-                Hosting capacity analysis maps can be the practical tool that turns EV charger
-                siting from a guessing game into a planning exercise.
-              </div>
-              <div className="byline">Catelyn Sweeney</div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* VOICES */}
-      <section className="fn-section">
-        <div className="fn-section-inner">
-          <div className="fn-section-head">
-            <h3>Voices</h3>
-            <div className="label">Author-forward</div>
-          </div>
-          <div className="fn-grid-2">
-            <div className="fn-voice">
-              <div className="fn-voice-portrait" />
-              <div>
-                <div className="fn-voice-cat">Transmission Renaissance</div>
-                <h5>Tracey LeBeau, WAPA</h5>
-                <div className="quote">
-                  &ldquo;If this is not the beginning of a transmission renaissance, I don&apos;t
-                  know what we are calling the decade we&apos;re in.&rdquo;
-                </div>
-                <div className="name">Administrator, Western Area Power Administration</div>
-              </div>
-            </div>
-            <div className="fn-voice">
-              <div className="fn-voice-portrait" />
-              <div>
-                <div className="fn-voice-cat">Regulatory Voice</div>
-                <h5>Ann Rendahl, NARUC President</h5>
-                <div className="quote">
-                  &ldquo;One of the best pieces of advice I received was simple: if you do not know
-                  the answer, say so. Do the work.&rdquo;
-                </div>
-                <div className="name">Commissioner, Washington UTC</div>
-              </div>
-            </div>
-            <div className="fn-voice">
-              <div className="fn-voice-portrait" />
-              <div>
-                <div className="fn-voice-cat">Optimism for the Future</div>
-                <h5>Sheri Givens on energy leadership</h5>
-                <div className="quote">
-                  &ldquo;There is no single right path into energy leadership, but there is real
-                  value in leaders who have taken a different one.&rdquo;
-                </div>
-                <div className="name">Consumer advocate &amp; former utility executive</div>
-              </div>
-            </div>
-            <div className="fn-voice">
-              <div className="fn-voice-portrait" />
-              <div>
-                <div className="fn-voice-cat">Orange and Rockland</div>
-                <h5>Elizabeth Cook on turning data into action</h5>
-                <div className="quote">
-                  &ldquo;The Building Energy Usage Portal represents a different theory of what a
-                  utility owes its customers.&rdquo;
-                </div>
-                <div className="name">Director, Customer Energy Programs</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* TODAY FROM PUF + ARCHIVE */}
-      <section className="fn-section">
-        <div className="fn-section-inner">
-          <div className="fn-section-head">
-            <h3>Where&apos;s energy going</h3>
-            <div className="label">Today from PUF</div>
-          </div>
-          <div className="fn-grid-3">
-            <article className="fn-article">
-              <div className="fn-article-img" />
-              <div className="fn-article-cat">Annual · Top Innovators</div>
-              <h4>2025 Fortnightly Top Innovators</h4>
-              <div className="pull">
-                The people and projects that moved the needle this year, chosen by a panel of
-                utility and regulatory leaders.
-              </div>
-              <div className="byline">PUF Editorial</div>
-            </article>
-            <article className="fn-article">
-              <div className="fn-article-img" />
-              <div className="fn-article-cat">Exelon · Interview</div>
-              <h4>Fifty million for affordability</h4>
-              <div className="pull">
-                Exelon COO Mike Innocenzo on the bill-relief programs, what&apos;s working, and
-                what&apos;s not.
-              </div>
-              <div className="byline">Steve Mitnick</div>
-            </article>
-            <article className="fn-article">
-              <div className="fn-article-img" />
-              <div className="fn-article-cat">PUF Report</div>
-              <h4>PUF&apos;s report on affordability</h4>
-              <div className="pull">
-                Who is most vulnerable to energy costs? How might the energy system address it?
-                The full field report.
-              </div>
-              <div className="byline">PUF Research</div>
-            </article>
+            <Link href="#" className="fn-topic-card">
+              <div className="fn-topic-name">Rate Design</div>
+              <div className="fn-topic-count">86 articles</div>
+            </Link>
+            <Link href="#" className="fn-topic-card">
+              <div className="fn-topic-name">Regulatory</div>
+              <div className="fn-topic-count">128 articles</div>
+            </Link>
+            <Link href="#" className="fn-topic-card">
+              <div className="fn-topic-name">Capital Markets</div>
+              <div className="fn-topic-count">54 articles</div>
+            </Link>
+            <Link href="#" className="fn-topic-card">
+              <div className="fn-topic-name">Reliability</div>
+              <div className="fn-topic-count">71 articles</div>
+            </Link>
+            <Link href="#" className="fn-topic-card">
+              <div className="fn-topic-name">Workforce</div>
+              <div className="fn-topic-count">38 articles</div>
+            </Link>
+            <Link href="#" className="fn-topic-card">
+              <div className="fn-topic-name">Data Centers</div>
+              <div className="fn-topic-count">24 articles</div>
+            </Link>
+            <Link href="#" className="fn-topic-card">
+              <div className="fn-topic-name">Consumer Advocacy</div>
+              <div className="fn-topic-count">31 articles</div>
+            </Link>
           </div>
         </div>
       </section>
@@ -275,48 +286,48 @@ export default function FortnightlyPage() {
       {/* SUBSCRIBE */}
       <section className="fn-subscribe">
         <div className="fn-subscribe-inner">
-          <h2>
-            A century in. Still the record.
-            <Annotation
-              number={17}
-              note="The subscribe CTA doubles as positioning. Treats PUF's 98-year track record as the reason to sign up, not a masthead ornament."
-            />
-          </h2>
+          <div className="fn-issue-label">The publication</div>
+          <h2>Read every issue. Cited in every docket.</h2>
           <p>
-            Get every issue of Public Utilities Fortnightly, plus the weekly brief, delivered to
-            your inbox. No paywall games. Just the work.
+            Public Utilities Fortnightly publishes monthly in print and continuously online.
+            Subscribers receive every issue, the full archive, and the policy briefings
+            we send between issues.
           </p>
-          <form
-            className="fn-subscribe-form"
-            onSubmit={(e) => { e.preventDefault(); alert('Subscribed. (Wireframe stub.)'); }}
-          >
-            <input type="email" placeholder="your@email.com" required />
-            <button type="submit">Subscribe</button>
-          </form>
-          <div style={{ marginTop: 32, fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>
-            Already a subscriber? <Link href="/login" style={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'underline' }}>Sign in</Link>.
+          <div className="fn-subscribe-cta">
+            <button className="btn btn-primary">Subscribe</button>
+            <Link href="/login" className="fn-link-arrow">Already a subscriber? Sign in →</Link>
           </div>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer
-        style={{
-          padding: '40px 24px',
-          borderTop: '1px solid rgba(255,255,255,0.12)',
-          fontSize: 11,
-          color: 'rgba(255,255,255,0.5)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          maxWidth: 1280,
-          margin: '0 auto',
-        }}
-      >
-        <div>Fortnightly · A SEPA publication · © 2026 Lines Up, Inc.</div>
-        <div>
-          <Link href="/" style={{ color: 'rgba(255,255,255,0.7)' }}>
-            ← Back to SEPA
-          </Link>
+      {/* COLOPHON / FOOTER */}
+      <footer className="fn-colophon">
+        <div className="fn-colophon-inner">
+          <div className="fn-colophon-block">
+            <div className="fn-colophon-label">Public Utilities Fortnightly</div>
+            <p>
+              Founded 1928. Editorially independent. Published by the Smart Electric Power
+              Alliance. Editorial offices in Reston, VA and New York, NY.
+            </p>
+          </div>
+          <div className="fn-colophon-block">
+            <div className="fn-colophon-label">Editorial</div>
+            <ul>
+              <li><strong>Rachel Bryant</strong> · Editor-in-Chief</li>
+              <li>Editorial standards</li>
+              <li>Submit a pitch</li>
+              <li>Reprints &amp; permissions</li>
+            </ul>
+          </div>
+          <div className="fn-colophon-block">
+            <div className="fn-colophon-label">SEPA</div>
+            <ul>
+              <li><Link href="/">SEPA homepage</Link></li>
+              <li><Link href="/about">About SEPA</Link></li>
+              <li><Link href="/convene">Membership</Link></li>
+              <li><Link href="/research">Research</Link></li>
+            </ul>
+          </div>
         </div>
       </footer>
     </div>

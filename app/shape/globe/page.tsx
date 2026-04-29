@@ -1,143 +1,82 @@
-import { ArenaSwitcher } from '@/components/ArenaSwitcher';
-import { Annotation } from '@/components/Annotation';
-import Link from 'next/link';
+import { ArenaPage } from '@/components/ArenaPage';
 
 export default function ShapeGlobePage() {
   return (
-    <>
-      <section className="arena-hero">
-        <div className="arena-hero-inner">
-          <div className="arena-number">Arena 03 · Globe</div>
-          <h1>
-            Let&apos;s shape{' '}
-            <em style={{ fontStyle: 'normal', color: 'var(--ink-2)' }}>what crosses borders.</em>
-          </h1>
-          <p className="stance">
-            Innovation doesn&apos;t stop at the US edge. Neither do the lessons. The energy
-            transition is a global experiment happening at different speeds, and the sector that
-            learns fastest shapes it first. This arena is how we bring that learning home.
-          </p>
-        </div>
-      </section>
-
-      <ArenaSwitcher />
-
-      <section className="section" style={{ background: 'var(--paper)' }}>
-        <div className="two-col">
-          <div>
-            <div className="eyebrow">SEPA&apos;s position</div>
-            <h2 style={{ fontSize: 40 }}>
-              The US isn&apos;t first. That&apos;s an advantage, if we use it.
-            </h2>
-          </div>
-          <div>
-            <p style={{ fontSize: 15, color: 'var(--ink-2)', lineHeight: 1.6, marginBottom: 24 }}>
-              Europe has ten more years of wholesale market design than we do. Australia has
-              stress-tested the largest DER penetration on earth. China has scaled battery
-              manufacturing beyond what most US forecasts imagined. The learnings are available.
-              The question is whether the US utility sector is paying attention.
-            </p>
-            <p style={{ fontSize: 15, color: 'var(--ink-2)', lineHeight: 1.6 }}>
-              At the same time, the transition won&apos;t work if its benefits stop at affluent
-              ZIP codes. SEPA&apos;s work on energy equity and inclusion sits inside this arena
-              because both are questions of who gets to participate in shaping the future.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section" style={{ background: 'var(--bg)', paddingTop: 48 }}>
-        <div className="section-head">
-          <div className="eyebrow">Topics we&apos;re shaping</div>
-          <h2>Four threads inside this arena.</h2>
-        </div>
-        <div className="topics-grid">
-          <div className="topic-card">
-            <div className="dot" />
-            <h4>International Learning</h4>
-            <p>Benchmarking US practice against the peer markets that are already past us.</p>
-          </div>
-          <div className="topic-card">
-            <div className="dot" />
-            <h4>Cross-Border Innovation</h4>
-            <p>How Mexican and Canadian grid integration shapes what&apos;s possible in North America.</p>
-          </div>
-          <div className="topic-card">
-            <div className="dot" />
-            <h4>Energy Equity</h4>
-            <p>Affordability, access, and who actually bears the cost of the transition.</p>
-          </div>
-          <div className="topic-card">
-            <div className="dot" />
-            <h4>Inclusion</h4>
-            <p>Workforce, community engagement, and who gets to shape the next decade of energy.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="section-head">
-          <div className="eyebrow">Latest from this arena</div>
-          <h2>What we&apos;ve published on globe.</h2>
-        </div>
-        <div className="research-grid">
-          <div className="research-card feature">
-            <div className="research-label">International Brief</div>
-            <h3>What US utilities can learn from Australia&apos;s DER rollout</h3>
-            <p>
-              The country with the highest residential solar penetration on earth just spent five
-              years reworking its distribution model. Here&apos;s what carries over.
-            </p>
-            <div className="meta">
-              <span>28 pages</span>
-              <span>Utility, Regulator</span>
-              <span>Feb 2026</span>
-            </div>
-          </div>
-          <div className="research-card">
-            <div className="research-label">Research</div>
-            <h3>Energy equity metrics: What the sector is actually measuring</h3>
-            <p>A scan of 45 utilities&apos; equity reporting. Frameworks, gaps, and a proposed set.</p>
-            <div className="meta">
-              <span>Jan 2026</span>
-            </div>
-          </div>
-          <div className="research-card">
-            <div className="research-label">Snapshot</div>
-            <h3>Cross-border transmission: The Canada-US interconnect picture</h3>
-            <p>Five key projects, the regulatory status, and what&apos;s at stake for both grids.</p>
-            <div className="meta">
-              <span>Dec 2025</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* MEMBERS LEADING THIS WORK */}
-      <section className="section members-leading-strip">
-        <div className="section-inner">
-          <div className="eyebrow">Members leading this work</div>
-          <h3 className="members-leading-title">
-            Eight utilities and three federal labs in cross-border conversations.
-          </h3>
-          <div className="members-leading-logos">
-            <span>[Border IOU]</span>
-            <span>[Federal lab]</span>
-            <span>[Cross-border RTO]</span>
-            <span>[State energy office]</span>
-            <span>[Equity NGO]</span>
-            <span>[Academic partner]</span>
-            <span>+ many more</span>
-          </div>
-          <Link href="/convene" className="link-arrow" style={{ marginTop: 20, display: 'inline-block' }}>
-            See members shaping the global conversation →
-          </Link>
-          <Annotation
-            number={37}
-            note="Each Shape page surfaces who's actually leading the work in that arena. Members are not the audience — they are the protagonists."
-          />
-        </div>
-      </section>
-    </>
+    <ArenaPage
+      slug="globe"
+      label="Globe"
+      number="03"
+      heroHeadline={<>The lessons we bring back to the US sector <em>—</em> and make the case for.</>}
+      heroLead="Innovation crosses borders. The work scans cross-border lessons, climate-equity outcomes, and the international evidence base that informs how the US sector can do better."
+      impact={[
+        { num: '12', label: 'cross-border collaborations with utilities and federal labs since 2023' },
+        { num: '24', label: 'comparative case studies feeding US-side working groups' },
+        { num: '8', label: 'federal labs and academic partners in the Globe arena' },
+        { num: '3', label: 'state energy offices co-funding international scans' },
+      ]}
+      topics={[
+        { title: 'Cross-border infrastructure', blurb: 'How transmission, gas, and grid services move across the US-Canada and US-Mexico interfaces.', meta: '6 active members · 5 cross-border projects' },
+        { title: 'Equity and just transition', blurb: 'Lessons from international precedents on community-centered energy transition.', meta: '8 active members · Annual outcomes report' },
+        { title: 'International market design', blurb: 'How European and APAC capacity markets, demand response, and tariff structures translate.', meta: '4 academic partners · Quarterly briefings' },
+        { title: 'Climate and resilience', blurb: 'Heat domes, wildfires, and the international evidence on grid hardening that holds up.', meta: '6 active members · 3 reports in 2026' },
+      ]}
+      spotlights={[
+        {
+          quote: 'The international scans give us evidence we cannot generate domestically. When we tell our commission what Australia or Germany has tried, the conversation gets unstuck.',
+          name: '[Director, Energy Office]',
+          role: 'Director',
+          org: '[State energy office]',
+          tag: 'Regulator',
+          tagColor: 'regulator',
+        },
+        {
+          quote: 'Cross-border collaboration with the lab gave us a year of comparative data we would never have produced ourselves. It showed up in our IRP filing.',
+          name: '[Resource Planning Lead]',
+          role: 'Director, Resource Planning',
+          org: '[Border IOU]',
+          tag: 'Utility',
+          tagColor: 'utility',
+        },
+        {
+          quote: 'The just-transition working group is where the policy ideas we hear about in international forums get pressure-tested for the US context.',
+          name: '[Equity Director]',
+          role: 'Equity Director',
+          org: '[National NGO]',
+          tag: 'Regulator',
+          tagColor: 'regulator',
+        },
+      ]}
+      workingGroups={[
+        { count: '01', name: 'Cross-border Transmission', desc: 'Five active US-Canada and US-Mexico projects. Regulatory status, build timelines, and what is at stake for each grid.' },
+        { count: '02', name: 'International Market Design', desc: 'How European and APAC capacity markets, demand response, and tariff structures translate to US contexts.' },
+        { count: '03', name: 'Just Transition Working Group', desc: 'International evidence on community-centered transition. Where policy ideas meet regulatory reality.' },
+        { count: '04', name: 'Climate and Resilience Scan', desc: 'Heat, wildfire, and storm evidence from international peers. What the US sector should adopt and what it should not.' },
+      ]}
+      research={[
+        {
+          label: 'Flagship · Mar 2026',
+          title: 'Cross-border transmission: Five projects, five regulatory geographies',
+          blurb: 'A status check on the most consequential cross-border transmission projects in North America. What is at stake for both grids.',
+          meta: ['28 pages', 'Utility, Regulator', 'Mar 2026'],
+          feature: true,
+        },
+        {
+          label: 'Research · Feb 2026',
+          title: 'International capacity markets: What translates and what does not',
+          blurb: 'How European, Australian, and East Asian capacity markets are designed, what they get right, and what does not survive translation.',
+          meta: ['Feb 2026'],
+        },
+        {
+          label: 'Snapshot · Dec 2025',
+          title: 'Just transition outcomes: Five international precedents',
+          blurb: 'A short brief on community-centered transition models from outside the US, with US-context assessment.',
+          meta: ['Dec 2025'],
+        },
+      ]}
+      membersLeading={{
+        headline: 'Eight utilities and three federal labs in cross-border conversations.',
+        logos: ['[Border IOU]', '[Federal lab]', '[Cross-border RTO]', '[State energy office]', '[Equity NGO]', '[Academic partner]', '+ many more'],
+      }}
+    />
   );
 }

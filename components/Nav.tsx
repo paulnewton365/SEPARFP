@@ -24,7 +24,7 @@ export function Nav() {
         </Link>
         <ul className="nav-links">
           <li>
-            <Link href="/shape/grid" className={isActive('/shape') ? 'active' : ''}>
+            <Link href="/shape" className={isActive('/shape') ? 'active' : ''}>
               Shape
             </Link>
           </li>
@@ -39,11 +39,6 @@ export function Nav() {
             </Link>
           </li>
           <li>
-            <Link href="/fortnightly" className={isActive('/fortnightly') ? 'active' : ''}>
-              Fortnightly
-            </Link>
-          </li>
-          <li>
             <Link href="/join" className={isActive('/join') ? 'active' : ''}>
               Join
             </Link>
@@ -51,6 +46,12 @@ export function Nav() {
           <li>
             <Link href="/about" className={isActive('/about') ? 'active' : ''}>
               About
+            </Link>
+          </li>
+          <li className="nav-divider" aria-hidden="true" />
+          <li>
+            <Link href="/fortnightly" className={`nav-fortnightly ${isActive('/fortnightly') ? 'active' : ''}`}>
+              Fortnightly
             </Link>
           </li>
         </ul>

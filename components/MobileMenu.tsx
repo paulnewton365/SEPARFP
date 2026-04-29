@@ -5,12 +5,12 @@ import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 const links = [
-  { href: '/shape/grid', label: 'Shape' },
+  { href: '/shape', label: 'Shape' },
   { href: '/research', label: 'Research' },
   { href: '/convene', label: 'Membership' },
-  { href: '/fortnightly', label: 'Fortnightly' },
   { href: '/join', label: 'Join' },
   { href: '/about', label: 'About' },
+  { href: '/fortnightly', label: 'Fortnightly', distinct: true },
 ];
 
 export function MobileMenu() {
@@ -53,7 +53,7 @@ export function MobileMenu() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`mobile-menu-link ${active ? 'active' : ''}`}
+                  className={`mobile-menu-link ${active ? 'active' : ''} ${link.distinct ? 'distinct' : ''}`}
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
