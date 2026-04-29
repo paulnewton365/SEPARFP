@@ -4,7 +4,7 @@ import { Annotation } from '@/components/Annotation';
 export default function ShapeIndexPage() {
   return (
     <>
-      {/* HERO - kept */}
+      {/* HERO - kept structure, shape language restored */}
       <section className="member-hero">
         <div className="member-hero-inner">
           <div className="eyebrow">Shape</div>
@@ -12,13 +12,14 @@ export default function ShapeIndexPage() {
             Three arenas, <em>one transition.</em>
           </h1>
           <p className="lead">
-            The energy transition does not happen in one conversation. It happens in three.
-            Grid is the foundation. Growth is the demand picture. Globe is the comparative
-            evidence we bring back. Each one has its own working groups, its own members,
-            its own research.
+            Let&apos;s shape energy&apos;s transition. The future will be shaped by
+            utilities, regulators, providers, and buyers working together &mdash;
+            informed by credible evidence and aligned on what actually works.
+            SEPA&apos;s members are doing the shaping. Three arenas. One transition.
+            Each one is a piece of the work.
             <Annotation
               number={44}
-              note="An index page so the three arenas land with equal billing on first arrival. Each arena holds the same shape, the same depth of detail, so the choice of where to start is the reader's. Maps to RFP language around a unified digital experience."
+              note="An index page so the three arenas land with equal billing on first arrival. The lead activates the organizing idea — Let's shape energy's transition — and names who does the shaping. Each arena card holds the same shape and depth, so the choice of where to start is the reader's. Maps to RFP language around a unified digital experience and the brand being understandable and inspiring."
             />
           </p>
         </div>
@@ -47,7 +48,7 @@ export default function ShapeIndexPage() {
               <div><strong>23</strong> commissions cited Grid research in 2025</div>
             </div>
             <Link href="/shape/grid" className="btn btn-primary arena-segment-cta">
-              Explore the Grid arena →
+              Shape the grid →
             </Link>
             <Annotation
               number={45}
@@ -77,7 +78,7 @@ export default function ShapeIndexPage() {
               <div><strong>NASUCA</strong> endorsed the Large Load principles in Apr 2026</div>
             </div>
             <Link href="/shape/growth" className="btn btn-primary arena-segment-cta">
-              Explore the Growth arena →
+              Shape the growth →
             </Link>
           </div>
           <div className="arena-segment-media">
@@ -109,7 +110,7 @@ export default function ShapeIndexPage() {
               <div><strong>8</strong> federal labs and academic partners</div>
             </div>
             <Link href="/shape/globe" className="btn btn-primary arena-segment-cta">
-              Explore the Globe arena →
+              Shape the globe →
             </Link>
           </div>
         </div>

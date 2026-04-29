@@ -97,7 +97,7 @@ export default function LoginPage() {
           <p className="tlogin-body">
             A clickable hypothesis of how the organizing idea — <em>let&apos;s shape
             energy&apos;s transition</em> — becomes a structure people can walk through.
-            Built so you can argue with it.
+            Built so you can question it.
           </p>
 
           <Suspense fallback={null}>
@@ -126,7 +126,7 @@ export default function LoginPage() {
               <p>
                 Every page carries blue numbered markers. They&apos;re annotations.
                 <strong> Hover any marker to read why a structural decision was made</strong>{' '}
-                — what it&apos;s arguing for, what it replaces, and what we&apos;d want
+                — what it&apos;s leading on, what it replaces, and what we&apos;d want
                 to test with you.
               </p>
               <p>

@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { Annotation } from '@/components/Annotation';
-import { ArenaSwitcher } from '@/components/ArenaSwitcher';
 
 export interface ArenaImpactStat {
   num: string;
@@ -53,9 +52,6 @@ export interface ArenaPageProps {
 export function ArenaPage(props: ArenaPageProps) {
   return (
     <>
-      {/* Peer arena switcher - all three always visible */}
-      <ArenaSwitcher showAnnotation={props.slug === 'grid'} />
-
       {/* HERO - dark inverted, parallel to membership page */}
       <section className={`arena-hero arena-hero-${props.slug}`}>
         <div className="arena-hero-inner">

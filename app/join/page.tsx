@@ -18,7 +18,7 @@ export default function JoinPage() {
               <em>Show up.</em>
               <Annotation
                 number={23}
-                note="Join leads with the principle of compounding membership before the form. The hero argues why membership matters before asking for an email. Maps to RFP language around members feeling more connected and the brand being inspiring."
+                note="Join leads with the principle of compounding membership before the form. The hero makes the case why membership matters before asking for an email. Maps to RFP language around members feeling more connected and the brand being inspiring."
               />
             </h1>
             <p className="lead">

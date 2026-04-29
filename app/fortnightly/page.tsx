@@ -40,7 +40,7 @@ export default function FortnightlyPage() {
         <div className="fn-masthead-compact-inner">
           <div className="fn-wordmark">Public Utilities <em>Fortnightly</em></div>
           <div className="fn-tagline">
-            The record of how the US utility sector argues with itself <em>—</em> and with its future.
+            The publication of record for how the US utility sector <em>is shaping its future.</em>
           </div>
           <div className="fn-attribution">A publication of the Smart Electric Power Alliance · Since 1928</div>
           <Annotation
@@ -77,7 +77,7 @@ export default function FortnightlyPage() {
           </Link>
           <Annotation
             number={16}
-            note="Lead story above the fold. The most consequential argument is the first thing a reader sees — image, headline, deck, byline, and a clear path to read it. Editorial judgment is expressed through placement, not just framing. Maps to RFP language around proactive narrative leadership."
+            note="Lead story above the fold. The most consequential story is the first thing a reader sees — image, headline, deck, byline, and a clear path to read it. Editorial judgment is expressed through placement, not assertion. Maps to RFP language around proactive narrative leadership."
           />
         </div>
       </section>
@@ -85,30 +85,30 @@ export default function FortnightlyPage() {
       {/* WHAT WE ARGUE - publication voice on the lead */}
       <section className="fn-brief">
         <div className="fn-brief-inner">
-          <div className="fn-brief-eyebrow">What we argue this week</div>
+          <div className="fn-brief-eyebrow">This week&apos;s lead</div>
           <p className="fn-brief-body-single">
             The affordability conversation is reaching a tipping point. NASUCA&apos;s
             endorsement of the Large Load Tariff principles in early April changed the
-            temperature in twelve open dockets. The lead this week makes the case that
-            the next eighteen months will be decided by whether utilities, regulators,
-            and consumer advocates can hold the same line on cost causation across
-            jurisdictions. The Schopenhauer piece on rate-case timing is the companion;
-            together they make the argument the publication would make if it only had
-            one to make.
+            temperature in twelve open dockets. The lead this week follows that story
+            because the next eighteen months will be defined by whether utilities,
+            regulators, and consumer advocates can hold the same line on cost causation
+            across jurisdictions. The Schopenhauer piece on rate-case timing is the
+            companion; together they frame the conversation the sector is having with
+            itself.
           </p>
           <Annotation
             number={39}
-            note="A short publication-voice argument tying the lead story to the supporting reads. The brief carries the publication's editorial position rather than a personal letter, so the argument is the publication's. Maps to RFP language around proactive narrative leadership."
+            note="A short publication-voice connector tying the lead story to the supporting reads. The brief carries the publication's editorial perspective, framing where the conversation is going, without taking a polemical position. Maps to RFP language around proactive narrative leadership."
           />
         </div>
       </section>
 
-      {/* THEMES - what PUF is currently arguing about */}
+      {/* THEMES - what PUF is currently following */}
       <section className="fn-themes">
         <div className="fn-themes-inner">
           <div className="fn-themes-head">
             <div className="fn-section-eyebrow">Themes</div>
-            <h2>What we&apos;re arguing about now.</h2>
+            <h2>What we&apos;re following now.</h2>
             <p className="fn-themes-blurb">
               Themes are the active editorial conversations PUF is following.
               Each one runs across multiple stories and resolves into a position
@@ -156,7 +156,7 @@ export default function FortnightlyPage() {
           </div>
           <Annotation
             number={43}
-            note="Themes are the active editorial conversations PUF is following — distinct from topic clusters, which are the full taxonomic browse. Themes carry editorial judgment (what is worth arguing about now); topics carry discoverability (what we have ever published). Both serve the RFP language around being sought out as a go-to authority and discoverability across traditional and AI search."
+            note="Themes are the active editorial conversations PUF is following — distinct from topic clusters, which are the full taxonomic browse. Themes carry editorial judgment (what is worth following now); topics carry discoverability (what we have ever published). Both serve RFP language around being sought out as a go-to authority and discoverability across traditional and AI search."
           />
         </div>
       </section>

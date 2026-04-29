@@ -221,7 +221,7 @@ export default function ArticlePage() {
 
           <p>
             <strong>Third, longer recovery periods.</strong> Where capital is genuinely needed,
-            advocates are arguing for amortization periods that match the asset life rather than
+            advocates are calling for amortization periods that match the asset life rather than
             shorter periods that compress recovery into the next two rate cases. This is less
             visible to customers month-to-month but materially changes the bill trajectory.
           </p>
@@ -230,7 +230,7 @@ export default function ArticlePage() {
 
           <p>
             Affordability has become the ground on which the politics of the energy transition
-            are being fought. Swinger argues that it&apos;s also the ground on which the
+            are being fought. Swinger writes that it&apos;s also the ground on which the
             transition can be defended — if the conversation stays grounded in evidence rather
             than rhetoric.
           </p>
