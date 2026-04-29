@@ -40,13 +40,13 @@ function LoginForm() {
 
   return (
     <form className="tlogin-form" onSubmit={handleSubmit}>
-      <label htmlFor="access" className="tlogin-field-label">Access code</label>
+      <label htmlFor="access" className="tlogin-field-label">Password</label>
       <div className="tlogin-input-row">
         <input
           id="access"
           className={`tlogin-input ${error ? 'error' : ''}`}
           type="password"
-          placeholder="Enter access code"
+          placeholder="Enter password"
           value={code}
           onChange={(e) => { setCode(e.target.value); setError(false); }}
           autoFocus
@@ -57,8 +57,10 @@ function LoginForm() {
           {submitting ? '...' : 'Enter the prototype'}
         </button>
       </div>
-      {error && (
-        <div className="tlogin-error">That code isn&apos;t recognized. Please check and try again.</div>
+      {error ? (
+        <div className="tlogin-error">That password isn&apos;t recognized. Please check and try again.</div>
+      ) : (
+        <div className="tlogin-help">If you do not have a password, please reference our RFP response.</div>
       )}
     </form>
   );
@@ -78,8 +80,8 @@ export default function LoginPage() {
             <Image
               src="/antenna-logo.svg"
               alt="Antenna Group"
-              width={140}
-              height={36}
+              width={156}
+              height={40}
               priority
             />
           </div>
@@ -95,10 +97,32 @@ export default function LoginPage() {
             to architecture.
           </h1>
           <p className="tlogin-body">
-            A clickable hypothesis of how the organizing idea, <em>let&apos;s shape
-            energy&apos;s transition</em>, becomes a structure people can walk through.
-            Built so you can question it.
+            A clickable hypothesis for SEPA. This shows how the organizing idea, <em>let&apos;s shape
+            energy&apos;s transition</em>, becomes a structure for your audiences. This represents
+            a hypothesis for testing rather than a final recommendation.
           </p>
+
+          {/* QUICK ORIENTATION - three lines on how to read the prototype */}
+          <ul className="tlogin-quickread">
+            <li>
+              <span className="tlogin-quickread-num">01</span>
+              <span>
+                A fully interactable, very early prototype for SEPA &amp; Fortnightly.
+              </span>
+            </li>
+            <li>
+              <span className="tlogin-quickread-num">02</span>
+              <span>
+                <strong>Hover the blue annotation markers</strong> on any page to read our rationale.
+              </span>
+            </li>
+            <li>
+              <span className="tlogin-quickread-num">03</span>
+              <span>
+                Sign in below to access the live prototype. The password sits with the deck.
+              </span>
+            </li>
+          </ul>
 
           <Suspense fallback={null}>
             <LoginForm />
@@ -107,14 +131,14 @@ export default function LoginPage() {
           {/* ORIENTATION GRID - three columns of context */}
           <div className="tlogin-orient">
             <div className="tlogin-orient-col">
-              <div className="tlogin-orient-label">How to walk it</div>
+              <div className="tlogin-orient-label">How to use this</div>
               <p>
                 Start on the homepage. Click into Shape, Research, Membership, Fortnightly,
                 Join, About. Open the article inside Fortnightly. Set your role using the
                 audience selector in the top nav and watch the experience reorder.
               </p>
               <p>
-                Every link works. Every form submits. Browse it on your phone if you want.
+                Most links are active, and this is optimized for desktop and mobile.
               </p>
             </div>
 
@@ -131,7 +155,7 @@ export default function LoginPage() {
               </p>
               <p>
                 The annotations are the reasoning that travels with the work. Think of them
-                as a designer talking you through a wall of pinups.
+                as a designer talking you through a wall of sketches.
               </p>
             </div>
 
