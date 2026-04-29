@@ -29,8 +29,9 @@ export default function ArticlePage() {
         </div>
       </div>
 
-      {/* ARTICLE */}
-      <article className="article">
+      {/* ARTICLE LAYOUT - body left, related-reads rail right */}
+      <div className="article-layout">
+        <article className="article">
         <header className="article-header">
           {/* TAGS */}
           <div className="article-tags">
@@ -371,6 +372,81 @@ export default function ArticlePage() {
           <ShareButtons title="Power to the People, Fortnightly" />
         </div>
       </article>
+
+        {/* RIGHT RAIL - related reads, sticky on wide viewports */}
+        <aside className="article-rail" aria-label="Related reads">
+          <div className="article-rail-sticky">
+            <div className="article-rail-section">
+              <div className="article-rail-label">In this theme</div>
+              <h4 className="article-rail-headline">Affordability</h4>
+              <p className="article-rail-blurb">
+                Cost causation, rate-case timing, and the limits of what regulators will accept.
+              </p>
+              <Link href="/fortnightly" className="article-rail-link">Read the theme &rarr;</Link>
+            </div>
+
+            <div className="article-rail-section">
+              <div className="article-rail-label">Read after this</div>
+              <ul className="article-rail-list">
+                <li>
+                  <Link href="/fortnightly">
+                    <span className="article-rail-tag">Rate Design</span>
+                    <span className="article-rail-title">Schopenhauer on the rate-case clock</span>
+                    <span className="article-rail-meta">Steven Mitnick &middot; 9 min</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/fortnightly">
+                    <span className="article-rail-tag">Regulatory</span>
+                    <span className="article-rail-title">The five commission chairs who will define 2026</span>
+                    <span className="article-rail-meta">PUF Editorial &middot; 10 min</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/fortnightly">
+                    <span className="article-rail-tag">Affordability</span>
+                    <span className="article-rail-title">What NASUCA&apos;s endorsement actually changes</span>
+                    <span className="article-rail-meta">PUF Editorial &middot; 7 min</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/fortnightly">
+                    <span className="article-rail-tag">Capital Markets</span>
+                    <span className="article-rail-title">Capital, but at a price</span>
+                    <span className="article-rail-meta">Diana Murphy &middot; 11 min</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div className="article-rail-section">
+              <div className="article-rail-label">From SEPA</div>
+              <ul className="article-rail-list">
+                <li>
+                  <Link href="/research">
+                    <span className="article-rail-tag">Research</span>
+                    <span className="article-rail-title">The Large Load Playbook</span>
+                    <span className="article-rail-meta">Flagship report &middot; 42 pages</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/convene">
+                    <span className="article-rail-tag">Convening</span>
+                    <span className="article-rail-title">Large Load Tariff Principles, Session 4</span>
+                    <span className="article-rail-meta">May 14, 2026 &middot; Members only</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <Annotation
+              number={47}
+              direction="up"
+              note="The right rail keeps the reader inside the conversation. The same theme, the next reads in order, and connections back into SEPA's research and convenings. Cross-linking is one of the strongest signals to AI search systems about which content sits inside which entity. Maps to RFP language around being sought out as a go-to authority and around discoverability across traditional and AI search."
+            />
+          </div>
+        </aside>
+      </div>
 
       {/* RELATED */}
       <section className="article-related" style={{ background: 'var(--bg)' }}>

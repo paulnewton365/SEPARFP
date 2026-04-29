@@ -26,7 +26,8 @@ export function Nav() {
         <span className="nav-name-annotation">
           <Annotation
             number={46}
-            note="The SEPA name and identity are placeholders for the prototype. The brand name itself is one of the strategic outcomes of this engagement, as set out in the RFP, the discovery and brand strategy phase will determine whether the name evolves, the architecture changes, or the existing identifier carries forward. The wordmark, the logo mark, and the lockup shown here exist only to anchor the prototype layout."
+            direction="down"
+            note="The SEPA name and identity are placeholders for the prototype. The brand name itself is one of the strategic outcomes of this engagement, as set out in the RFP. The discovery and brand strategy phase will determine whether the name evolves, the architecture changes, or the existing identifier carries forward. The wordmark, logo mark, and lockup shown here exist only to anchor the prototype layout."
           />
         </span>
         <ul className="nav-links">
