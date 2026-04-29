@@ -22,7 +22,7 @@ export default function FortnightlyPage() {
               name: 'Smart Electric Power Alliance',
             },
             description:
-              'An independent editorial publication covering the US utility sector. Editorially independent. Published by SEPA.',
+              'An editorial publication covering the US utility sector. A publication of the Smart Electric Power Alliance.',
           }),
         }}
       />
@@ -35,27 +35,20 @@ export default function FortnightlyPage() {
         </div>
       </div>
 
-      {/* MASTHEAD - one name (response to critique #2) + clear endorsement (#4) */}
+      {/* MASTHEAD - publication identity, neutral on brand architecture */}
       <header className="fn-masthead">
         <div className="fn-masthead-inner">
           <div className="fn-masthead-mark">
             <div className="fn-wordmark">Public Utilities <em>Fortnightly</em></div>
-            <div className="fn-since">Since 1928</div>
+            <div className="fn-since">Since 1928 · A publication of the Smart Electric Power Alliance</div>
             <Annotation
               number={38}
-              note="One name only. The masthead is 'Public Utilities Fortnightly' everywhere — no fragmentation across PUF, fortnightly.com, and Public Utilities Fortnightly. PUF survives only as a conversational shorthand inside body copy. The current site uses three names interchangeably and the resulting brand recall, search authority, and architecture all suffer."
+              note="A consistent name across the masthead, the metadata, and every reference. Naming is one of the levers the RFP names directly — fragmented identifiers fragment brand recall, search authority, and AI discoverability. The brand-architecture decision (sub-brand, endorsed brand, or other) is one of the strategic outcomes of the work ahead; this masthead identifies the relationship without pre-committing to a model."
             />
           </div>
-          <div className="fn-masthead-relationship">
-            <div className="fn-relationship-label">The relationship</div>
-            <div className="fn-relationship-statement">
-              <strong>Editorially independent.</strong><br />
-              <span>Published by the Smart Electric Power Alliance.</span>
-            </div>
-            <Annotation
-              number={39}
-              note="'Powered by SEPA' on the current site reads as ownership and leaves editorial independence ambiguous. The new framing is explicit: Fortnightly's editor sets the agenda; SEPA does not direct content. The relationship is endorsement, not editorial control."
-            />
+          <div className="fn-masthead-issue">
+            <div className="fn-issue-num">Issue 4</div>
+            <div className="fn-issue-vol">Vol. 164 · April 2026</div>
           </div>
         </div>
       </header>
@@ -74,44 +67,43 @@ export default function FortnightlyPage() {
           </p>
           <Annotation
             number={40}
-            note="The current Fortnightly homepage is a content feed without orientation. New visitors have no way to know what PUF is, who reads it, or what makes it different. This positioning section answers those three questions in three lines, before any article appears."
+            note="A publication needs to declare what it is in its own front matter so readers and AI engines can place it. Three short statements — what it is, who it is for, what makes it distinctive — answer the orientation questions before any article appears. Maps to RFP language around being sought out as a go-to authority and discoverability across traditional and AI search."
           />
         </div>
       </section>
 
-      {/* EDITOR'S LETTER - response to critique #1 (express editorial judgment) */}
-      <section className="fn-editor">
-        <div className="fn-editor-inner">
-          <div className="fn-editor-grid">
-            <div className="fn-editor-portrait">
-              <span>Photo · Rachel Bryant</span>
-            </div>
-            <div className="fn-editor-body">
-              <div className="fn-editor-eyebrow">From the editor</div>
-              <h3 className="fn-editor-headline">
-                What matters this week, why, and what to read after.
-              </h3>
-              <p>
-                The affordability conversation is reaching a tipping point. NASUCA&apos;s
-                endorsement of the Large Load Tariff principles in early April changed the
-                temperature in twelve open dockets. This week we lead with that story
-                because the next eighteen months will be decided by whether utilities,
-                regulators, and consumer advocates can hold the same line on cost causation
-                across jurisdictions.
-              </p>
-              <p>
-                After you read it, the Schopenhauer piece on rate-case timing is the
-                companion. Together they make the argument we&apos;d make if we only had
-                one to make.
-              </p>
-              <div className="fn-editor-attr">
-                <strong>Rachel Bryant</strong>, Editor-in-Chief
-              </div>
-            </div>
+      {/* EDITORIAL BRIEF - publication voice, the lead argument */}
+      <section className="fn-brief">
+        <div className="fn-brief-inner">
+          <div className="fn-brief-eyebrow">Editorial brief</div>
+          <h3 className="fn-brief-headline">
+            What this issue argues.
+          </h3>
+          <div className="fn-brief-body">
+            <p>
+              The affordability conversation is reaching a tipping point. NASUCA&apos;s
+              endorsement of the Large Load Tariff principles in early April changed the
+              temperature in twelve open dockets. The lead this issue makes the case
+              that the next eighteen months will be decided by whether utilities,
+              regulators, and consumer advocates can hold the same line on cost causation
+              across jurisdictions.
+            </p>
+            <p>
+              The Schopenhauer piece on rate-case timing is the companion. Together they
+              make the argument the issue would make if it only had one to make.
+            </p>
+          </div>
+          <div className="fn-brief-reads">
+            <div className="fn-brief-reads-label">Reads in this argument</div>
+            <ul>
+              <li><Link href="/fortnightly/large-load-playbook">Power to the People: NASUCA on affordability</Link> · 14 min</li>
+              <li>Schopenhauer on the rate case clock · 9 min</li>
+              <li>The five commission chairs who will define 2026 · 10 min</li>
+            </ul>
           </div>
           <Annotation
-            number={41}
-            note="Every issue opens with a named editor making a case. 'This matters most this week, here's why, and here's what to read after.' Replaces the current homepage's flat content distribution with explicit editorial judgment — the central job of any publication."
+            number={39}
+            note="A publication's central job is editorial judgment — naming what matters, why, and what reads compose the argument. The brief carries publication voice rather than a personal letter so the editorial position is the publication's, not one editor's. Maps to RFP language around proactive narrative leadership."
           />
         </div>
       </section>
@@ -145,7 +137,7 @@ export default function FortnightlyPage() {
           </Link>
           <Annotation
             number={16}
-            note="Editorial-first layout. One lead, one image, real bylines. Replaces the typical magazine homepage with dozens of thumbnail cards and no editorial hierarchy."
+            note="Editorial-first layout. One lead, one image, real bylines. The most consequential argument carries the most visual weight, so a reader can see what the publication considers most important first. Maps to RFP language around proactive narrative leadership."
           />
         </div>
       </section>
@@ -243,7 +235,7 @@ export default function FortnightlyPage() {
             </p>
             <Annotation
               number={42}
-              note="Structured topic clusters with consistent tagging address AI discoverability head-on. Every article carries schema.org markup (visible in page source). Each topic page is a clean entity that LLMs can cite. The current site has none of this — AI engines have nothing clean to anchor to."
+              note="Structured topic clusters with consistent tagging give AI engines clean entities to anchor citations. Each topic page becomes an authoritative endpoint that LLMs can quote. Schema.org markup is embedded in the page source so the publication is machine-readable as a NewsMediaOrganization. Maps directly to RFP success criteria around discoverability across traditional and AI search."
             />
           </div>
           <div className="fn-topics-grid">
@@ -306,17 +298,17 @@ export default function FortnightlyPage() {
           <div className="fn-colophon-block">
             <div className="fn-colophon-label">Public Utilities Fortnightly</div>
             <p>
-              Founded 1928. Editorially independent. Published by the Smart Electric Power
-              Alliance. Editorial offices in Reston, VA and New York, NY.
+              Founded 1928. A publication of the Smart Electric Power Alliance.
+              Editorial offices in Reston, VA and New York, NY.
             </p>
           </div>
           <div className="fn-colophon-block">
             <div className="fn-colophon-label">Editorial</div>
             <ul>
-              <li><strong>Rachel Bryant</strong> · Editor-in-Chief</li>
               <li>Editorial standards</li>
               <li>Submit a pitch</li>
               <li>Reprints &amp; permissions</li>
+              <li>Advertise in PUF</li>
             </ul>
           </div>
           <div className="fn-colophon-block">

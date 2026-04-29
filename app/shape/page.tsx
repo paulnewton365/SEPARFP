@@ -18,7 +18,7 @@ export default function ShapeIndexPage() {
             its own research.
             <Annotation
               number={44}
-              note="A dedicated index page so the three arenas land with equal billing on first arrival. Replaces the previous default of dropping users straight into Grid, which left Growth and Globe one click further away than they deserve to be."
+              note="An index page so the three arenas land with equal billing on first arrival. Each arena card holds the same shape, the same depth of detail, so the choice of where to start is the reader's. Maps to RFP language around a unified digital experience."
             />
           </p>
         </div>

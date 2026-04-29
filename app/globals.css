@@ -3920,30 +3920,28 @@ body.antenna-login-mode { background: var(--antenna-bg); }
   margin-top: 14px;
   font-weight: 500;
 }
-.fn-masthead-relationship {
-  border-left: 1px solid rgba(232,229,220,0.2);
-  padding-left: 32px;
-  position: relative;
+/* Right side of masthead - issue meta, no relationship framing */
+.fn-masthead-issue {
+  border-left: 1px solid rgba(232,229,220,0.18);
+  padding-left: 28px;
+  text-align: left;
 }
-.fn-relationship-label {
-  font-family: var(--font-geist-sans), sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(232,229,220,0.45);
-  font-weight: 500;
-  margin-bottom: 12px;
-}
-.fn-relationship-statement {
+.fn-issue-num {
   font-family: 'Iowan Old Style', 'Palatino', Georgia, serif;
-  font-size: 17px;
-  line-height: 1.45;
-  color: rgba(232,229,220,0.85);
-}
-.fn-relationship-statement strong {
+  font-size: 56px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1;
   color: #E8E5DC;
-  font-weight: 700;
-  font-style: italic;
+}
+.fn-issue-vol {
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(232,229,220,0.55);
+  margin-top: 12px;
+  font-weight: 500;
 }
 
 /* Positioning - introduces the publication */
@@ -3988,36 +3986,18 @@ body.antenna-login-mode { background: var(--antenna-bg); }
   font-family: 'Iowan Old Style', 'Palatino', Georgia, serif;
 }
 
-/* Editor's letter - editorial judgment expressed by named editor */
-.fn-editor {
+/* Editorial brief - publication-voice section, no personal letter */
+.fn-brief {
   padding: 80px 24px;
   border-bottom: 1px solid rgba(232,229,220,0.1);
   position: relative;
 }
-.fn-editor-inner {
-  max-width: 1080px;
+.fn-brief-inner {
+  max-width: 880px;
   margin: 0 auto;
   position: relative;
 }
-.fn-editor-grid {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 56px;
-  align-items: start;
-}
-.fn-editor-portrait {
-  aspect-ratio: 4 / 5;
-  background: linear-gradient(140deg, #2A2A2A, #1A1A1A);
-  display: flex;
-  align-items: flex-end;
-  padding: 14px;
-  font-family: var(--font-geist-sans), sans-serif;
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(232,229,220,0.4);
-}
-.fn-editor-eyebrow {
+.fn-brief-eyebrow {
   font-family: var(--font-geist-sans), sans-serif;
   font-size: 11px;
   letter-spacing: 0.18em;
@@ -4026,29 +4006,66 @@ body.antenna-login-mode { background: var(--antenna-bg); }
   font-weight: 500;
   margin-bottom: 16px;
 }
-.fn-editor-headline {
-  font-size: 32px;
+.fn-brief-headline {
+  font-size: 44px;
   font-weight: 400;
-  line-height: 1.18;
-  letter-spacing: -0.01em;
+  line-height: 1.12;
+  letter-spacing: -0.018em;
   color: #E8E5DC;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   font-family: 'Iowan Old Style', 'Palatino', Georgia, serif;
+  max-width: 760px;
 }
-.fn-editor-body p {
+.fn-brief-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 40px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(232,229,220,0.18);
+}
+.fn-brief-body p {
   font-size: 17px;
-  line-height: 1.7;
-  color: rgba(232,229,220,0.75);
-  margin-bottom: 16px;
+  line-height: 1.65;
+  color: rgba(232,229,220,0.78);
   font-family: 'Iowan Old Style', 'Palatino', Georgia, serif;
 }
-.fn-editor-attr {
-  margin-top: 24px;
-  font-family: var(--font-geist-sans), sans-serif;
-  font-size: 13px;
-  color: rgba(232,229,220,0.55);
+.fn-brief-reads {
+  border-top: 1px solid rgba(232,229,220,0.18);
+  padding-top: 24px;
 }
-.fn-editor-attr strong { color: #E8E5DC; font-weight: 500; }
+.fn-brief-reads-label {
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(232,229,220,0.5);
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+.fn-brief-reads ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.fn-brief-reads li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(232,229,220,0.08);
+  font-size: 16px;
+  font-family: 'Iowan Old Style', 'Palatino', Georgia, serif;
+  color: rgba(232,229,220,0.75);
+}
+.fn-brief-reads li:last-child { border-bottom: none; }
+.fn-brief-reads a {
+  color: #E8E5DC;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(232,229,220,0.3);
+}
+.fn-brief-reads a:hover {
+  color: #D4A857;
+  border-bottom-color: #D4A857;
+}
+
 
 /* Lead story */
 .fn-lead-section {
@@ -4364,9 +4381,10 @@ body.antenna-login-mode { background: var(--antenna-bg); }
   .fn-masthead-inner { grid-template-columns: 1fr; gap: 32px; }
   .fn-masthead-relationship { border-left: none; padding-left: 0; padding-top: 24px; border-top: 1px solid rgba(232,229,220,0.15); }
   .fn-positioning-statement { font-size: 26px; }
-  .fn-editor-grid { grid-template-columns: 1fr; gap: 28px; }
-  .fn-editor-portrait { max-width: 180px; }
-  .fn-editor-headline { font-size: 24px; }
+  .fn-brief-body { grid-template-columns: 1fr; gap: 24px; }
+  .fn-brief-headline { font-size: 28px; }
+  .fn-issue-num { font-size: 36px; }
+  .fn-masthead-issue { border-left: none; padding-left: 0; padding-top: 24px; border-top: 1px solid rgba(232,229,220,0.15); }
   .fn-lead-card { grid-template-columns: 1fr; gap: 24px; }
   .fn-lead-body h2 { font-size: 28px; }
   .fn-issue-grid { grid-template-columns: 1fr; }

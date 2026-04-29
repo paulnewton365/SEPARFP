@@ -18,7 +18,7 @@ export default function MembershipPage() {
             what actually works. Membership is how that shaping happens.
             <Annotation
               number={20}
-              note="Membership leads with the principle, not the form. The case for being in the room is made before any ask. Conversion happens after the argument is won, not before."
+              note="Membership leads with the principle of the work, not the form. The case for being in the room is made before any ask. Maps to RFP language around members feeling more connected, not less, and around the brand being inspiring."
             />
           </p>
         </div>
@@ -49,7 +49,7 @@ export default function MembershipPage() {
             </div>
             <Annotation
               number={28}
-              note="The impact strip leads with what membership produces, not what SEPA does. Numbers chosen to be defensible, decision-relevant, and not generic engagement metrics. The 1,000+ figure carries forward existing SEPA framing."
+              note="Numbers chosen to be defensible, decision-relevant, and tied to outcomes rather than activity. The 1,000+ membership scale anchors the page in familiar SEPA framing, while the rest of the metrics establish what that scale produces. Maps to RFP language around being sought out as a go-to authority."
             />
           </div>
         </div>
@@ -66,7 +66,7 @@ export default function MembershipPage() {
               Their stories are the brand&apos;s expression &mdash; SEPA is the frame.
               <Annotation
                 number={32}
-                note="Spotlights embody the 'members on stage' idea — SEPA as the frame, members as the subject. Larger, more cinematic treatment than a quote grid. The brand gets revealed by the people who chose it, not by the brand talking about itself."
+                note="Spotlights embody the members-on-stage idea — SEPA as the frame, members as the subject. The brand is revealed by the people who chose it, not by the brand talking about itself. Maps to RFP language around members feeling more connected and around proactive narrative leadership."
               />
             </p>
           </div>
@@ -178,7 +178,7 @@ export default function MembershipPage() {
               Choose a role to see what membership opens.
               <Annotation
                 number={33}
-                note="Interactive tabs replace the parallel card grid. Different visual treatment from the spotlights above, and the tab interaction lets the user examine one role in depth without scrolling past three others. Single content panel respects attention."
+                note="Tabs let a reader examine one role in depth without forcing a comparison they have not asked for. The role-keyed content keeps detail accessible without crowding the page. Maps to RFP language around a unified, understandable experience."
               />
             </p>
           </div>
@@ -205,7 +205,7 @@ export default function MembershipPage() {
               </p>
               <Annotation
                 number={34}
-                note="Composition data visualized rather than listed. The breadth of stakeholder classes is itself the proof that SEPA's neutrality has substance — it shows up in who's actually in the room."
+                note="Composition visualized so the breadth of stakeholder classes becomes legible at a glance. The composition itself is proof that SEPA's neutrality has substance — it shows up in who is in the room. Maps to RFP language around being sought out as a go-to authority."
               />
             </div>
             <div className="composition-viz">
@@ -269,7 +269,7 @@ export default function MembershipPage() {
               get made.
               <Annotation
                 number={35}
-                note="Leadership surfaced because the team running membership is the day-to-day relationship members actually experience. Pulling forward the names already on sepapower.org so the new experience feels familiar from day one."
+                note="Leadership surfaced because the team running membership is the day-to-day relationship members actually experience. Familiar names anchor the new experience for existing members. Maps to RFP language around members feeling more connected, not less."
               />
             </p>
           </div>
@@ -319,7 +319,7 @@ export default function MembershipPage() {
           </div>
           <Annotation
             number={31}
-            note="Upcoming events live as a compact component, not a full calendar. The page is about membership; the calendar is one expression of it."
+            note="Upcoming events live as a compact component. The page is about membership; the calendar is one expression of it. A short list with a link to depth respects the page's purpose."
           />
 
           <div className="upcoming-events">

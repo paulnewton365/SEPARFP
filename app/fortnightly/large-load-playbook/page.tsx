@@ -27,7 +27,7 @@ export default function ArticlePage() {
             <a className="article-tag">Rate Design</a>
             <Annotation
               number={25}
-              note="Tags up front act as both signal and filter. Click any tag to find related work. They tell the reader what territory the article covers before the headline asks for their time."
+              note="Tags up front act as both signal and filter. They tell the reader what territory the article covers before the headline asks for their time, and they form the structured taxonomy that AI engines and search systems read. Maps to RFP language around discoverability."
             />
           </div>
 

@@ -34,7 +34,7 @@ export default function AboutPage() {
                 Stop inviting. Start leading.
                 <Annotation
                   number={11}
-                  note="The About page declares the brand's values as commitments, not descriptions. Every claim here is a behavior the rest of the site has to honor."
+                  note="The About page declares values as commitments, not descriptions. Every claim is a behavior the rest of the site has to honor. Maps to RFP language around clarifying and amplifying value proposition and positioning."
                 />
               </h2>
             </div>
@@ -67,7 +67,7 @@ export default function AboutPage() {
               Neutrality as a principle, not a disclaimer.
               <Annotation
                 number={12}
-                note="'SEPA does not lobby' has historically read as a limitation. Reframed here as the differentiator it actually is — the source of the trust that makes the rest of the work possible."
+                note="'SEPA does not lobby' presented as the differentiator it is — the source of regulatory citation, peer trust, and member candor. Maps to RFP language around being sought out as a go-to authority on complex energy issues."
               />
             </h2>
           </div>
@@ -100,7 +100,7 @@ export default function AboutPage() {
               The people behind the work.
               <Annotation
                 number={13}
-                note="Leadership surfaced with photos, focus areas, and links to their published thinking. An organization is more trustworthy when its leaders are visible, quotable, and followable."
+                note="Leadership surfaced with photos, focus areas, and links to published thinking. An institution is more trustworthy when its leaders are visible, quotable, and followable. Maps to RFP language around executive visibility."
               />
             </h2>
             <p className="section-sub">
@@ -159,7 +159,7 @@ export default function AboutPage() {
               Three principles that show up every day.
               <Annotation
                 number={14}
-                note="Culture surfaced as behaviors, not platitudes. Each principle describes how SEPA shows up — the kind of thing a member or staffer could hold the organization accountable to."
+                note="Culture surfaced as behaviors, not platitudes. Each principle describes how SEPA shows up — the kind of thing a member or staffer could hold the organization accountable to. Maps to RFP language around making the brand understandable and inspiring."
               />
             </h2>
           </div>
@@ -209,7 +209,7 @@ export default function AboutPage() {
             What members tell us, in their own words.
             <Annotation
               number={18}
-              note="Voices live with the institutional story — leadership, culture, neutrality. Quotes about institutional trust belong here, not on the homepage."
+              note="Voices live with the institutional story — leadership, culture, neutrality. Quotes about institutional trust belong on the page that makes that case in full."
             />
           </h2>
         </div>

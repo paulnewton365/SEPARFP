@@ -125,7 +125,7 @@ export default function HomePage() {
                 The room is the product.
                 <Annotation
                   number={36}
-                  note="Home page anchors membership as the substrate of everything else. The proof section above shows what membership covers in the sector; this section shows what membership produces in member voice. Links straight through to /convene."
+                  note="The home page anchors membership as the substrate of everything else SEPA does. The proof section above shows what membership covers in the sector; this callout shows what membership produces in member voice. Maps to RFP language around members feeling more connected, not less."
                 />
               </h2>
             </div>
@@ -301,7 +301,7 @@ export default function HomePage() {
               Fortnightly
               <Annotation
                 number={4}
-                note="Tests the sub-brand hypothesis: PUF keeps its masthead and editorial voice, but the SEPA endorsement is clear and intentional, not hidden in a footer."
+                note="PUF presented as a publication within the SEPA ecosystem. The brand-architecture decision — sub-brand, endorsed brand, or other — is one of the strategic outcomes of the work ahead. Maps to RFP language around SEPA and PUF as distinct but mutually reinforcing brands."
               />
             </div>
             <h2>A century of utility thinking, now connected to the sector&apos;s working files.</h2>

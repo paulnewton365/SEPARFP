@@ -10,7 +10,7 @@ export function FooterMission() {
             Accelerate the electric power sector&apos;s transformation to a modern energy future.
             <Annotation
               number={8}
-              note="The mission lives at the foot of every page so that brand and proof become the closing frame of every user journey. Not buried in About, not assumed — declared."
+              note="The mission lives at the foot of every page so that brand and proof become the closing frame of every user journey. Maps to RFP language around being sought out as a go-to authority and around the brand being understandable and inspiring."
             />
           </h3>
           <p>

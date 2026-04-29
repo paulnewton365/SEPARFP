@@ -33,7 +33,7 @@ export function ArenaSwitcher({ showAnnotation = false }: { showAnnotation?: boo
           {showAnnotation && (
             <Annotation
               number={9}
-              note="Arena navigation as peer cards, not tabs. All three arenas remain equally visible regardless of which page you are on, so Growth and Globe never feel secondary to Grid. Active state is signaled clearly without making the others feel like also-rans."
+              note="Arena navigation as peer cards. All three arenas remain equally visible from every page, so Grid, Growth, and Globe carry equal billing throughout the experience. Maps to RFP language around a unified digital experience."
             />
           )}
         </div>
