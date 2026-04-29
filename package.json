@@ -1,6 +1,6 @@
 {
   "name": "sepa-prototype",
-  "version": "1.5.8",
+  "version": "1.5.10",
   "private": true,
   "engines": {
     "node": ">=18.17.0"

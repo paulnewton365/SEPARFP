@@ -2,8 +2,8 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import Image from 'next/image';
 import { VersionBadge } from '@/components/VersionBadge';
+import { AntennaLogo } from '@/components/AntennaLogo';
 
 function LoginForm() {
   const router = useRouter();
@@ -77,13 +77,7 @@ export default function LoginPage() {
       <header className="tlogin-topbar">
         <div className="tlogin-topbar-inner">
           <div className="tlogin-brand">
-            <Image
-              src="/antenna-logo.svg"
-              alt="Antenna Group"
-              width={156}
-              height={40}
-              priority
-            />
+            <AntennaLogo className="tlogin-brand-logo" />
           </div>
           <div className="tlogin-status">Confidential Preview</div>
         </div>

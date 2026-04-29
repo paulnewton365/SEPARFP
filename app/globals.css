@@ -3455,9 +3455,13 @@ body.tlogin-mode { background: var(--tlogin-bg); }
   align-items: center;
   gap: 24px;
 }
-.tlogin-brand img {
+.tlogin-brand-logo {
+  display: inline-block;
+  line-height: 0;
+}
+.tlogin-brand-logo svg {
   display: block;
-  height: 28px;
+  height: 32px;
   width: auto;
 }
 .tlogin-status {
