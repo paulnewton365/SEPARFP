@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function FortnightlyPage() {
   return (
     <div className="fn-page">
-      {/* JSON-LD schema for AI discoverability — visible response to RFP critique #7 */}
+      {/* JSON-LD schema for AI discoverability */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -27,139 +27,158 @@ export default function FortnightlyPage() {
         }}
       />
 
-      {/* Return path to SEPA */}
+      {/* Top strip - back to SEPA */}
       <div className="fn-topstrip">
         <div className="fn-topstrip-inner">
           <Link href="/" className="fn-back">← SEPA</Link>
-          <span>April 2026 · Vol. 164 · Issue 4</span>
+          <span>Public Utilities Fortnightly</span>
         </div>
       </div>
 
-      {/* MASTHEAD - publication identity, neutral on brand architecture */}
-      <header className="fn-masthead">
-        <div className="fn-masthead-inner">
-          <div className="fn-masthead-mark">
-            <div className="fn-wordmark">Public Utilities <em>Fortnightly</em></div>
-            <div className="fn-since">Since 1928 · A publication of the Smart Electric Power Alliance</div>
-            <Annotation
-              number={38}
-              note="A consistent name across the masthead, the metadata, and every reference. Naming is one of the levers the RFP names directly — fragmented identifiers fragment brand recall, search authority, and AI discoverability. The brand-architecture decision (sub-brand, endorsed brand, or other) is one of the strategic outcomes of the work ahead; this masthead identifies the relationship without pre-committing to a model."
-            />
+      {/* COMPACT MASTHEAD - publication identity, no issue framing */}
+      <header className="fn-masthead-compact">
+        <div className="fn-masthead-compact-inner">
+          <div className="fn-wordmark">Public Utilities <em>Fortnightly</em></div>
+          <div className="fn-tagline">
+            The record of how the US utility sector argues with itself <em>—</em> and with its future.
           </div>
-          <div className="fn-masthead-issue">
-            <div className="fn-issue-num">Issue 4</div>
-            <div className="fn-issue-vol">Vol. 164 · April 2026</div>
-          </div>
+          <div className="fn-attribution">A publication of the Smart Electric Power Alliance · Since 1928</div>
+          <Annotation
+            number={38}
+            note="Publication identity in three lines — name, tagline, and attribution. The masthead introduces what this is, what it does, and where it sits, before any content appears. The brand-architecture decision (sub-brand, endorsed brand, or other) is one of the strategic outcomes of the work ahead; this masthead identifies the relationship without pre-committing to a model. Maps to RFP language around being sought out as a go-to authority."
+          />
         </div>
       </header>
 
-      {/* POSITIONING - response to critique #3 (homepage doesn't introduce) */}
-      <section className="fn-positioning">
-        <div className="fn-positioning-inner">
-          <div className="fn-positioning-eyebrow">What this is</div>
-          <h2 className="fn-positioning-statement">
-            The record of how the US utility sector argues with itself <em>—</em> and with its future.
-          </h2>
-          <p className="fn-positioning-body">
-            A near-century-old editorial property covering rate cases, regulatory shifts,
-            and the strategic choices the sector is making now. Read by commission chairs,
-            utility CEOs, and the policy class shaping what comes next.
-          </p>
-          <Annotation
-            number={40}
-            note="A publication needs to declare what it is in its own front matter so readers and AI engines can place it. Three short statements — what it is, who it is for, what makes it distinctive — answer the orientation questions before any article appears. Maps to RFP language around being sought out as a go-to authority and discoverability across traditional and AI search."
-          />
-        </div>
-      </section>
-
-      {/* EDITORIAL BRIEF - publication voice, the lead argument */}
-      <section className="fn-brief">
-        <div className="fn-brief-inner">
-          <div className="fn-brief-eyebrow">Editorial brief</div>
-          <h3 className="fn-brief-headline">
-            What this issue argues.
-          </h3>
-          <div className="fn-brief-body">
-            <p>
-              The affordability conversation is reaching a tipping point. NASUCA&apos;s
-              endorsement of the Large Load Tariff principles in early April changed the
-              temperature in twelve open dockets. The lead this issue makes the case
-              that the next eighteen months will be decided by whether utilities,
-              regulators, and consumer advocates can hold the same line on cost causation
-              across jurisdictions.
-            </p>
-            <p>
-              The Schopenhauer piece on rate-case timing is the companion. Together they
-              make the argument the issue would make if it only had one to make.
-            </p>
-          </div>
-          <div className="fn-brief-reads">
-            <div className="fn-brief-reads-label">Reads in this argument</div>
-            <ul>
-              <li><Link href="/fortnightly/large-load-playbook">Power to the People: NASUCA on affordability</Link> · 14 min</li>
-              <li>Schopenhauer on the rate case clock · 9 min</li>
-              <li>The five commission chairs who will define 2026 · 10 min</li>
-            </ul>
-          </div>
-          <Annotation
-            number={39}
-            note="A publication's central job is editorial judgment — naming what matters, why, and what reads compose the argument. The brief carries publication voice rather than a personal letter so the editorial position is the publication's, not one editor's. Maps to RFP language around proactive narrative leadership."
-          />
-        </div>
-      </section>
-
-      {/* LEAD STORY */}
-      <section className="fn-lead-section">
-        <div className="fn-lead-inner">
-          <div className="fn-issue-label">Lead feature · Affordability</div>
-          <Link href="/fortnightly/large-load-playbook" className="fn-lead-card">
-            <div className="fn-lead-img">
-              <span>Photo · Affordability cover image</span>
+      {/* LEAD STORY - above the fold */}
+      <section className="fn-lead-hero">
+        <div className="fn-lead-hero-inner">
+          <Link href="/fortnightly/large-load-playbook" className="fn-lead-hero-card">
+            <div className="fn-lead-hero-media">
+              <span className="fn-lead-hero-media-label">Lead image · Affordability</span>
             </div>
-            <div className="fn-lead-body">
-              <div className="fn-tag-row">
-                <span className="fn-tag">Affordability</span>
-                <span className="fn-tag">Regulatory</span>
-                <span className="fn-tag">Rate Design</span>
-              </div>
-              <h2>Power to the People: NASUCA on affordability</h2>
-              <p className="fn-deck">
+            <div className="fn-lead-hero-body">
+              <div className="fn-lead-hero-eyebrow">Lead story · Affordability</div>
+              <h1 className="fn-lead-hero-headline">
+                Power to the People: NASUCA on affordability
+              </h1>
+              <p className="fn-lead-hero-deck">
                 The nation&apos;s consumer advocates sit at the table where utility
                 affordability gets decided. Three of their leaders tell PUF what it takes
                 to hold that line now that load growth, data centers, and capital costs
-                are rewriting the rate case math at the same time.
+                are rewriting the rate-case math at the same time.
               </p>
-              <div className="fn-byline">
-                <span>By Michael Moody, Tom Content &amp; Anthony Swinger</span>
-                <span className="fn-read-time">14 min read</span>
+              <div className="fn-lead-hero-byline">
+                <span>Michael Moody, Tom Content &amp; Anthony Swinger</span>
+                <span className="fn-lead-hero-readtime">14 min read</span>
               </div>
+              <span className="fn-lead-hero-cta">Read the lead story →</span>
             </div>
           </Link>
           <Annotation
             number={16}
-            note="Editorial-first layout. One lead, one image, real bylines. The most consequential argument carries the most visual weight, so a reader can see what the publication considers most important first. Maps to RFP language around proactive narrative leadership."
+            note="Lead story above the fold. The most consequential argument is the first thing a reader sees — image, headline, deck, byline, and a clear path to read it. Editorial judgment is expressed through placement, not just framing. Maps to RFP language around proactive narrative leadership."
           />
         </div>
       </section>
 
-      {/* THIS ISSUE */}
-      <section className="fn-issue-section">
-        <div className="fn-issue-inner">
-          <div className="fn-issue-head">
+      {/* WHAT WE ARGUE - publication voice on the lead */}
+      <section className="fn-brief">
+        <div className="fn-brief-inner">
+          <div className="fn-brief-eyebrow">What we argue this week</div>
+          <p className="fn-brief-body-single">
+            The affordability conversation is reaching a tipping point. NASUCA&apos;s
+            endorsement of the Large Load Tariff principles in early April changed the
+            temperature in twelve open dockets. The lead this week makes the case that
+            the next eighteen months will be decided by whether utilities, regulators,
+            and consumer advocates can hold the same line on cost causation across
+            jurisdictions. The Schopenhauer piece on rate-case timing is the companion;
+            together they make the argument the publication would make if it only had
+            one to make.
+          </p>
+          <Annotation
+            number={39}
+            note="A short publication-voice argument tying the lead story to the supporting reads. The brief carries the publication's editorial position rather than a personal letter, so the argument is the publication's. Maps to RFP language around proactive narrative leadership."
+          />
+        </div>
+      </section>
+
+      {/* THEMES - what PUF is currently arguing about */}
+      <section className="fn-themes">
+        <div className="fn-themes-inner">
+          <div className="fn-themes-head">
+            <div className="fn-section-eyebrow">Themes</div>
+            <h2>What we&apos;re arguing about now.</h2>
+            <p className="fn-themes-blurb">
+              Themes are the active editorial conversations PUF is following.
+              Each one runs across multiple stories and resolves into a position
+              over time. Click any theme to see every story we&apos;ve published
+              in that conversation.
+            </p>
+          </div>
+          <div className="fn-themes-grid">
+            <Link href="#" className="fn-theme fn-theme-active">
+              <div className="fn-theme-state">Active conversation</div>
+              <h3>Affordability</h3>
+              <p>The conversation of 2026. Cost causation, rate-case timing, and the limits of what regulators will accept.</p>
+              <div className="fn-theme-meta">
+                <span>14 stories</span>
+                <span className="fn-theme-cta">Read the theme →</span>
+              </div>
+            </Link>
+            <Link href="#" className="fn-theme">
+              <div className="fn-theme-state">Active conversation</div>
+              <h3>Capital &amp; the cost of building</h3>
+              <p>What 7% bond markets and a $1 trillion capex pipeline do to project ranking, ratemaking, and customer bills.</p>
+              <div className="fn-theme-meta">
+                <span>9 stories</span>
+                <span className="fn-theme-cta">Read the theme →</span>
+              </div>
+            </Link>
+            <Link href="#" className="fn-theme">
+              <div className="fn-theme-state">Active conversation</div>
+              <h3>Reliability after the storms</h3>
+              <p>What 2025&apos;s outage record actually tells us about distribution, vegetation management, and the storm-hardening case.</p>
+              <div className="fn-theme-meta">
+                <span>11 stories</span>
+                <span className="fn-theme-cta">Read the theme →</span>
+              </div>
+            </Link>
+            <Link href="#" className="fn-theme">
+              <div className="fn-theme-state">Active conversation</div>
+              <h3>Demand and the data-center decade</h3>
+              <p>How load growth is rewriting the resource plan, the tariff, and the commission&apos;s standard of evidence.</p>
+              <div className="fn-theme-meta">
+                <span>17 stories</span>
+                <span className="fn-theme-cta">Read the theme →</span>
+              </div>
+            </Link>
+          </div>
+          <Annotation
+            number={43}
+            note="Themes are the active editorial conversations PUF is following — distinct from topic clusters, which are the full taxonomic browse. Themes carry editorial judgment (what is worth arguing about now); topics carry discoverability (what we have ever published). Both serve the RFP language around being sought out as a go-to authority and discoverability across traditional and AI search."
+          />
+        </div>
+      </section>
+
+      {/* CONTENT STORIES */}
+      <section className="fn-stories">
+        <div className="fn-stories-inner">
+          <div className="fn-stories-head">
             <div>
-              <div className="fn-issue-label">In this issue</div>
-              <h3>Five more from April 2026.</h3>
+              <div className="fn-section-eyebrow">Content stories</div>
+              <h2>The reads building the conversation.</h2>
             </div>
-            <Link href="#" className="fn-link-arrow">View the full issue →</Link>
+            <Link href="#" className="fn-link-arrow">View all stories →</Link>
           </div>
 
-          <div className="fn-issue-grid">
+          <div className="fn-stories-grid">
             <article className="fn-article">
               <div className="fn-article-img"><span>Photo</span></div>
               <div className="fn-tag-row">
                 <span className="fn-tag">Rate Design</span>
               </div>
-              <h4>Schopenhauer on the rate case clock: A meditation on amortization</h4>
+              <h4>Schopenhauer on the rate-case clock: A meditation on amortization</h4>
               <p>How recovery periods quietly compound — or contain — affordability pressure.</p>
               <div className="fn-byline">
                 <span>By Steven Mitnick</span>
@@ -218,20 +237,34 @@ export default function FortnightlyPage() {
                 <span className="fn-read-time">12 min</span>
               </div>
             </article>
+
+            <article className="fn-article">
+              <div className="fn-article-img"><span>Photo</span></div>
+              <div className="fn-tag-row">
+                <span className="fn-tag">Affordability</span>
+              </div>
+              <h4>What NASUCA&apos;s endorsement actually changes</h4>
+              <p>The procedural mechanics of why a single endorsement is moving twelve dockets.</p>
+              <div className="fn-byline">
+                <span>By PUF Editorial</span>
+                <span className="fn-read-time">7 min</span>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      {/* TOPIC CLUSTERS - response to critique #7 (AI discoverability) */}
+      {/* TOPIC CLUSTERS - browse by topic */}
       <section className="fn-topics">
         <div className="fn-topics-inner">
           <div className="fn-topics-head">
-            <div className="fn-issue-label">Browse by topic</div>
-            <h3>What we cover, in clusters.</h3>
+            <div className="fn-section-eyebrow">Browse by topic</div>
+            <h2>The full library, by topic.</h2>
             <p className="fn-topics-blurb">
-              Topics are tagged consistently across every article, with structured metadata
-              that AI engines and search platforms can read cleanly. Click any cluster to
-              see everything PUF has published in that conversation.
+              Topics are the taxonomic browse across everything PUF has published.
+              Each topic page is a clean entity with consistent tagging and structured
+              metadata, so AI engines and search platforms have something authoritative
+              to anchor citations to.
             </p>
             <Annotation
               number={42}
@@ -278,11 +311,11 @@ export default function FortnightlyPage() {
       {/* SUBSCRIBE */}
       <section className="fn-subscribe">
         <div className="fn-subscribe-inner">
-          <div className="fn-issue-label">The publication</div>
-          <h2>Read every issue. Cited in every docket.</h2>
+          <div className="fn-section-eyebrow">The publication</div>
+          <h2>Read every story. Cited in every docket.</h2>
           <p>
             Public Utilities Fortnightly publishes monthly in print and continuously online.
-            Subscribers receive every issue, the full archive, and the policy briefings
+            Subscribers receive every story, the full archive, and the policy briefings
             we send between issues.
           </p>
           <div className="fn-subscribe-cta">
@@ -292,7 +325,7 @@ export default function FortnightlyPage() {
         </div>
       </section>
 
-      {/* COLOPHON / FOOTER */}
+      {/* COLOPHON */}
       <footer className="fn-colophon">
         <div className="fn-colophon-inner">
           <div className="fn-colophon-block">

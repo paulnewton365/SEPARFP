@@ -4,7 +4,7 @@ import { Annotation } from '@/components/Annotation';
 export default function ShapeIndexPage() {
   return (
     <>
-      {/* HERO */}
+      {/* HERO - kept */}
       <section className="member-hero">
         <div className="member-hero-inner">
           <div className="eyebrow">Shape</div>
@@ -18,67 +18,104 @@ export default function ShapeIndexPage() {
             its own research.
             <Annotation
               number={44}
-              note="An index page so the three arenas land with equal billing on first arrival. Each arena card holds the same shape, the same depth of detail, so the choice of where to start is the reader's. Maps to RFP language around a unified digital experience."
+              note="An index page so the three arenas land with equal billing on first arrival. Each arena holds the same shape, the same depth of detail, so the choice of where to start is the reader's. Maps to RFP language around a unified digital experience."
             />
           </p>
         </div>
       </section>
 
-      {/* THREE ARENA CARDS - equal weight, each linking through */}
-      <section className="section" style={{ paddingTop: 64 }}>
-        <div className="section-inner">
-          <div className="arena-index-grid">
-            <Link href="/shape/grid" className="arena-index-card arena-index-grid-card">
-              <div className="arena-index-num">Arena 01</div>
-              <h2>Grid</h2>
-              <p className="arena-index-blurb">
-                The physical and regulatory foundation of the transition. Reliability,
-                distribution, transmission, and the regulatory frameworks that govern them.
-              </p>
-              <div className="arena-index-stats">
-                <div><strong>74%</strong> of US MWh from members in Grid working groups</div>
-                <div><strong>23</strong> state commissions cited Grid research in 2025</div>
-                <div><strong>4</strong> active working groups</div>
-              </div>
-              <div className="arena-index-cta">Explore the Grid arena →</div>
+      {/* ARENA 01 - GRID */}
+      <section className="arena-segment arena-segment-grid">
+        <div className="arena-segment-inner">
+          <div className="arena-segment-media">
+            <span className="arena-segment-media-label">Image · Grid arena</span>
+          </div>
+          <div className="arena-segment-body">
+            <div className="arena-segment-meta">
+              <span className="arena-segment-num">Arena 01</span>
+              <span className="arena-segment-name">Grid</span>
+            </div>
+            <h2>The wires we keep alive while we rebuild them.</h2>
+            <p>
+              For utility leaders managing storm response and capital plans, transmission
+              planners under FERC pressure, and commissioners weighing whether the rate
+              base can absorb what the grid actually needs &mdash; Grid is the work of
+              keeping reliability and modernization on speaking terms.
+            </p>
+            <div className="arena-segment-stats">
+              <div><strong>74%</strong> of US MWh from members in Grid working groups</div>
+              <div><strong>23</strong> commissions cited Grid research in 2025</div>
+            </div>
+            <Link href="/shape/grid" className="btn btn-primary arena-segment-cta">
+              Explore the Grid arena →
             </Link>
+            <Annotation
+              number={45}
+              note="Each arena gets a substantial segment with a reason-to-care framing for the audience, a key image, and a clear path through. The structural symmetry makes the three arenas legible at a glance, and the audience-keyed framing lets a reader identify whether this is their work before they click. Maps to RFP language around the brand being understandable and inspiring."
+            />
+          </div>
+        </div>
+      </section>
 
-            <Link href="/shape/growth" className="arena-index-card arena-index-growth-card">
-              <div className="arena-index-num">Arena 02</div>
-              <h2>Growth</h2>
-              <p className="arena-index-blurb">
-                Demand planning for the defining utility challenge of the decade. Large-load
-                tariffs, transportation electrification, and the buyer-utility conversations
-                that compound them.
-              </p>
-              <div className="arena-index-stats">
-                <div><strong>147</strong> tariff filings tracked in DELTa</div>
-                <div><strong>NASUCA</strong> endorsed the principles in Apr 2026</div>
-                <div><strong>4</strong> active working groups</div>
-              </div>
-              <div className="arena-index-cta">Explore the Growth arena →</div>
+      {/* ARENA 02 - GROWTH (reversed layout) */}
+      <section className="arena-segment arena-segment-growth arena-segment-reverse">
+        <div className="arena-segment-inner">
+          <div className="arena-segment-body">
+            <div className="arena-segment-meta">
+              <span className="arena-segment-num">Arena 02</span>
+              <span className="arena-segment-name">Growth</span>
+            </div>
+            <h2>The demand picture is rewriting itself in real time.</h2>
+            <p>
+              For utility resource planners absorbing data centers and fleet electrification,
+              regulators rewriting the rate cases that follow, and Fortune 500 buyers trying
+              to plan around utility timelines &mdash; Growth is the conversation that
+              compounds across every other decision.
+            </p>
+            <div className="arena-segment-stats">
+              <div><strong>147</strong> tariff filings tracked in DELTa</div>
+              <div><strong>NASUCA</strong> endorsed the Large Load principles in Apr 2026</div>
+            </div>
+            <Link href="/shape/growth" className="btn btn-primary arena-segment-cta">
+              Explore the Growth arena →
             </Link>
+          </div>
+          <div className="arena-segment-media">
+            <span className="arena-segment-media-label">Image · Growth arena</span>
+          </div>
+        </div>
+      </section>
 
-            <Link href="/shape/globe" className="arena-index-card arena-index-globe-card">
-              <div className="arena-index-num">Arena 03</div>
-              <h2>Globe</h2>
-              <p className="arena-index-blurb">
-                The lessons we bring back to the US sector and make the case for.
-                Cross-border infrastructure, international market design, and the
-                comparative evidence base for US policy.
-              </p>
-              <div className="arena-index-stats">
-                <div><strong>12</strong> cross-border collaborations since 2023</div>
-                <div><strong>8</strong> federal labs and academic partners</div>
-                <div><strong>4</strong> active working groups</div>
-              </div>
-              <div className="arena-index-cta">Explore the Globe arena →</div>
+      {/* ARENA 03 - GLOBE */}
+      <section className="arena-segment arena-segment-globe">
+        <div className="arena-segment-inner">
+          <div className="arena-segment-media">
+            <span className="arena-segment-media-label">Image · Globe arena</span>
+          </div>
+          <div className="arena-segment-body">
+            <div className="arena-segment-meta">
+              <span className="arena-segment-num">Arena 03</span>
+              <span className="arena-segment-name">Globe</span>
+            </div>
+            <h2>What the rest of the world has tried, and what travels.</h2>
+            <p>
+              For utility planners citing international precedent, federal labs running
+              comparative work, and state offices learning from regimes that solved
+              specific problems first &mdash; Globe is the comparative evidence base US
+              policy can stop relying on intuition for.
+            </p>
+            <div className="arena-segment-stats">
+              <div><strong>12</strong> cross-border collaborations since 2023</div>
+              <div><strong>8</strong> federal labs and academic partners</div>
+            </div>
+            <Link href="/shape/globe" className="btn btn-primary arena-segment-cta">
+              Explore the Globe arena →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* WHY THREE - editorial framing */}
+      {/* WHY THREE ARENAS - closing rationale */}
       <section className="section" style={{ background: 'var(--bg)' }}>
         <div className="section-inner">
           <div className="member-section-head">
