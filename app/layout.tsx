@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
+import { Analytics } from '@vercel/analytics/next';
 import { AudienceProvider } from '@/components/AudienceContext';
 import { Shell } from '@/components/Shell';
 import './globals.css';
@@ -21,6 +22,7 @@ export default function RootLayout({
         <AudienceProvider>
           <Shell>{children}</Shell>
         </AudienceProvider>
+        <Analytics />
       </body>
     </html>
   );

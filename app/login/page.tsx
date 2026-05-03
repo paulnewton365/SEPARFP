@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { track } from '@vercel/analytics';
 import { VersionBadge } from '@/components/VersionBadge';
 import { AntennaLogo } from '@/components/AntennaLogo';
 
@@ -26,9 +27,13 @@ function LoginForm() {
         body: JSON.stringify({ code }),
       });
       if (res.ok) {
+        // Fire a custom event so you can see logins as a distinct metric
+        // alongside pageviews in Vercel Analytics. No PII captured.
+        track('prototype_login_success');
         router.push(from);
         router.refresh();
       } else {
+        track('prototype_login_failed');
         setError(true);
         setSubmitting(false);
       }
